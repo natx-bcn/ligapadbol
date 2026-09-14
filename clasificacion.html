@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clasificación 2026/27 · Liga Padbol Barcelona</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#081523" />
+  <style>
+    :root{
+      --ink:#081523; --ink2:#10263a; --paper:#f4f7f9; --white:#fff;
+      --text:#172535; --muted:#6d7e90; --line:#dfe7ed;
+      --lime:#8de34f; --lime2:#69ca31; --cyan:#39d1c7;
+      --gold:#f2c94c; --silver:#c8d2dc; --bronze:#c98c5a;
+      --shadow:0 20px 60px rgba(9,24,40,.12); --radius:24px; --max:1240px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--text)}
+    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(8,21,35,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:900}.brand-mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--lime),var(--cyan));color:var(--ink);font-weight:1000}.brand small{display:block;color:#9eb2c4;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}.back{color:#d8e2eb;font-weight:800;border:1px solid rgba(255,255,255,.14);padding:10px 15px;border-radius:12px}
+    .hero{background:radial-gradient(circle at 80% 15%,rgba(57,209,199,.16),transparent 25%),radial-gradient(circle at 18% 72%,rgba(141,227,79,.15),transparent 27%),linear-gradient(135deg,#07111d,#0a1d31 60%,#0b2535);color:white;padding:62px 0 110px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);border-radius:999px;padding:8px 12px;color:#d9e5ee;font-size:.78rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(141,227,79,.12)}
+    h1{font-size:clamp(2.6rem,6vw,5.3rem);line-height:.95;letter-spacing:-.055em;margin:18px 0 14px}.hero p{margin:0;color:#b9cad7;font-size:1.08rem;max-width:720px}.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.pill{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);color:#dce7ee;font-size:.86rem;font-weight:800}
+    .content{margin-top:-62px;padding-bottom:76px}
+    .toolbar{background:white;border-radius:20px;box-shadow:var(--shadow);padding:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}.toolbar-left{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.status{font-size:.9rem;color:var(--muted);font-weight:700}.search{width:min(320px,100%);border:1px solid var(--line);border-radius:13px;padding:11px 14px;background:#fbfcfd;outline:none}.search:focus{border-color:#a7d88a;box-shadow:0 0 0 4px rgba(141,227,79,.12)}
+    .loading,.error{background:white;border-radius:20px;padding:36px;text-align:center;box-shadow:var(--shadow);color:var(--muted)}.error{color:#9a2f2f}.hidden{display:none!important}
+    .podium{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}.podium-card{position:relative;overflow:hidden;background:linear-gradient(145deg,#0e2236,#122f3d);color:white;border-radius:22px;padding:24px;min-height:190px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08)}.podium-card:after{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:var(--lime);filter:blur(70px);opacity:.11;right:-45px;top:-35px}.place{font-size:.78rem;font-weight:1000;letter-spacing:.12em;text-transform:uppercase;color:#9eb2c4}.podium-card:nth-child(1) .place{color:var(--gold)}.podium-card:nth-child(2) .place{color:var(--silver)}.podium-card:nth-child(3) .place{color:var(--bronze)}.podium-name{font-size:1.65rem;font-weight:1000;margin-top:10px;letter-spacing:-.03em}.podium-score{font-size:2.8rem;font-weight:1000;color:var(--lime);line-height:1;margin-top:18px}.podium-sub{color:#9eb2c4;font-size:.88rem;font-weight:700;margin-top:7px}.avatar{width:56px;height:56px;border-radius:17px;object-fit:cover;background:#1a3a4d;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font-weight:1000;color:var(--lime);font-size:1.15rem;margin-top:14px}
+    .table-shell{background:white;border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.table-head{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:end;gap:18px}.table-head h2{margin:0;font-size:1.45rem;letter-spacing:-.03em}.table-head p{margin:4px 0 0;color:var(--muted);font-size:.9rem}.scroll{overflow-x:auto}.ranking-table{width:100%;border-collapse:collapse;min-width:930px}.ranking-table th{padding:13px 14px;background:#f8fafb;text-align:right;color:#6d7e90;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line);white-space:nowrap}.ranking-table th:nth-child(1),.ranking-table th:nth-child(2){text-align:left}.ranking-table td{padding:14px;border-bottom:1px solid #edf1f4;text-align:right;font-variant-numeric:tabular-nums}.ranking-table td:nth-child(1),.ranking-table td:nth-child(2){text-align:left}.ranking-table tbody tr{cursor:pointer;transition:.15s}.ranking-table tbody tr:hover{background:#f4faef}.ranknum{width:36px;height:36px;border-radius:11px;background:#edf6e8;color:#4e9928;display:grid;place-items:center;font-weight:1000}.player-cell{display:flex;align-items:center;gap:11px;font-weight:900}.mini-avatar{width:36px;height:36px;border-radius:11px;object-fit:cover;background:#eaf1f5;display:grid;place-items:center;color:#456070;font-size:.8rem}.pct{font-weight:1000;color:#4b9b25}.muted{color:var(--muted)}
+    .mobile-note{display:none;padding:13px 16px;background:#f8fafb;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+    .modal{position:fixed;inset:0;z-index:80;background:rgba(3,11,19,.72);display:grid;place-items:center;padding:18px;backdrop-filter:blur(8px)}.modal-card{width:min(680px,100%);max-height:88vh;overflow:auto;background:white;border-radius:26px;box-shadow:0 30px 100px rgba(0,0,0,.35)}.modal-top{background:linear-gradient(135deg,#0b1e31,#123544);color:white;padding:26px;border-radius:26px 26px 0 0;position:relative}.close{position:absolute;right:16px;top:16px;border:0;background:rgba(255,255,255,.1);color:white;width:38px;height:38px;border-radius:12px;font-size:1.2rem;cursor:pointer}.modal-top h3{font-size:2rem;margin:8px 0 4px;letter-spacing:-.04em}.modal-top p{margin:0;color:#a8bdcb}.modal-body{padding:24px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fbfcfd}.stat b{display:block;font-size:1.35rem}.stat span{font-size:.78rem;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.05em}.section-label{font-size:.78rem;font-weight:1000;color:#4b9b25;text-transform:uppercase;letter-spacing:.08em;margin:24px 0 10px}.tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.track{background:#0f2538;color:white;border-radius:15px;padding:15px}.track strong{display:block;font-size:1.15rem;color:var(--lime)}.track small{color:#9eb2c4}
+    @media(max-width:820px){.podium{grid-template-columns:1fr}.toolbar{align-items:stretch;flex-direction:column}.search{width:100%}.stats{grid-template-columns:repeat(2,1fr)}.tracks{grid-template-columns:1fr}.mobile-note{display:block}.hero{padding-bottom:98px}}
+    @media(max-width:520px){.wrap{width:min(100% - 20px,var(--max))}.back{font-size:.82rem;padding:9px 11px}.brand small{display:none}.stats{grid-template-columns:1fr}.hero{padding-top:46px}.podium-card{min-height:160px}.podium-score{font-size:2.25rem}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="./index.html"><div class="brand-mark">LP</div><div>Liga Padbol <small>Barcelona · 2026/27</small></div></a>
+      <a class="back" href="./index.html">← Volver a la liga</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span> Clasificación oficial</div>
+      <h1>Temporada <span style="color:var(--lime)">2026/27</span></h1>
+      <p>Clasificación individual actualizada automáticamente con los resultados registrados en cada jornada.</p>
+      <div class="hero-meta"><span class="pill">Orden: precisión de partido</span><span class="pill">Parejas rotativas</span><span class="pill">3 pistas</span></div>
+    </div>
+  </section>
+
+  <main class="content">
+    <div class="wrap">
+      <div class="toolbar">
+        <div class="toolbar-left"><strong>Clasificación general</strong><span class="status" id="updated">Cargando datos…</span></div>
+        <input id="search" class="search" type="search" placeholder="Buscar jugador…" autocomplete="off" />
+      </div>
+
+      <div id="loading" class="loading">Cargando clasificación…</div>
+      <div id="error" class="error hidden"></div>
+
+      <section id="mainContent" class="hidden">
+        <div id="podium" class="podium"></div>
+
+        <div class="table-shell">
+          <div class="table-head"><div><h2>Clasificación</h2><p>Pulsa sobre un jugador para ver sus estadísticas.</p></div></div>
+          <div class="scroll">
+            <table class="ranking-table">
+              <thead><tr><th>Pos.</th><th>Jugador</th><th>PJ</th><th>PG</th><th>PP</th><th>Prec. partido</th><th>Prec. juegos</th><th>Dif. P</th><th>Dif. J</th><th>Asistencia</th></tr></thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+          <div class="mobile-note">En móvil puedes deslizar la tabla horizontalmente.</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <div class="modal-card">
+      <div class="modal-top">
+        <button class="close" id="closeModal" aria-label="Cerrar">×</button>
+        <div id="modalPos" class="place"></div>
+        <h3 id="modalName"></h3><p id="modalSubtitle"></p>
+      </div>
+      <div class="modal-body">
+        <div id="stats" class="stats"></div>
+        <div class="section-label">Rendimiento por pista</div>
+        <div id="tracks" class="tracks"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbzA5MLbh4jh1SXJqBpQAhHNovlzAsezP3KDPld-9O3vikPZSvPkpytoN2zsNVkkgZUu/exec";
+let jugadores = [];
+
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? "").replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const num = v => Number(v || 0);
+function pct(v){
+  if(v === "" || v == null) return "—";
+  if(typeof v === "string" && v.includes("%")) return v;
+  const n = Number(v); if(Number.isNaN(n)) return "—";
+  return new Intl.NumberFormat('es-ES',{style:'percent',maximumFractionDigits:1}).format(n);
+}
+function initials(name){return String(name||'').trim().split(/\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase() || 'LP'}
+function photoHTML(j, cls){
+  const u = String(j.URL_FOTO || '').trim();
+  if(!u) return `<div class="${cls}">${esc(initials(j.NOMBRE))}</div>`;
+  return `<img class="${cls}" src="${esc(u)}" alt="" onerror="this.outerHTML='<div class=&quot;${cls}&quot;>${esc(initials(j.NOMBRE))}</div>'">`;
+}
+function renderPodium(data){
+  $('#podium').innerHTML = data.slice(0,3).map((j,i)=>`
+    <article class="podium-card" data-index="${jugadores.indexOf(j)}">
+      <div class="place">${['🥇 1ª posición','🥈 2ª posición','🥉 3ª posición'][i]}</div>
+      ${photoHTML(j,'avatar')}
+      <div class="podium-name">${esc(j.NOMBRE)}</div>
+      <div class="podium-score">${pct(j.PRECISION_PARTIDO)}</div>
+      <div class="podium-sub">${num(j.PG)} victorias · ${num(j.PJ)} partidos</div>
+    </article>`).join('');
+  document.querySelectorAll('.podium-card').forEach(el=>el.addEventListener('click',()=>openPlayer(jugadores[+el.dataset.index])));
+}
+function renderTable(data){
+  $('#tbody').innerHTML = data.map(j=>`<tr data-index="${jugadores.indexOf(j)}">
+    <td><div class="ranknum">${esc(j.POS || '—')}</div></td>
+    <td><div class="player-cell">${photoHTML(j,'mini-avatar')}<span>${esc(j.NOMBRE)}</span></div></td>
+    <td>${num(j.PJ)}</td><td>${num(j.PG)}</td><td>${num(j.PP)}</td>
+    <td class="pct">${pct(j.PRECISION_PARTIDO)}</td><td>${pct(j.PRECISION_JUEGOS)}</td>
+    <td>${num(j.DIF_P)}</td><td>${num(j.DIF_J)}</td><td>${pct(j.ASISTENCIA)}</td>
+  </tr>`).join('');
+  document.querySelectorAll('#tbody tr').forEach(el=>el.addEventListener('click',()=>openPlayer(jugadores[+el.dataset.index])));
+}
+function stat(label,value){return `<div class="stat"><b>${esc(value)}</b><span>${esc(label)}</span></div>`}
+function openPlayer(j){
+  $('#modalPos').textContent = j.POS ? `Posición ${j.POS}` : 'Jugador';
+  $('#modalName').textContent = j.NOMBRE || '';
+  $('#modalSubtitle').textContent = `${num(j.PG)} ganados · ${num(j.PP)} perdidos · ${num(j.PJ)} jugados`;
+  $('#stats').innerHTML = [
+    stat('Precisión partido',pct(j.PRECISION_PARTIDO)), stat('Precisión juegos',pct(j.PRECISION_JUEGOS)), stat('Asistencia',pct(j.ASISTENCIA)),
+    stat('Juegos ganados',num(j.JG)), stat('Juegos perdidos',num(j.JP)), stat('Dif. juegos',num(j.DIF_J)),
+    stat('Victorias ELO',num(j.VICTORIAS_ELO).toLocaleString('es-ES',{maximumFractionDigits:1})), stat('Prec. vict. ELO',pct(j.PREC_VICT_ELO)), stat('P. rendimiento',pct(j.P_RENDIMIENTO))
+  ].join('');
+  $('#tracks').innerHTML = [1,2,3].map(p=>`<div class="track"><small>Pista ${p}</small><strong>${num(j['PG_P'+p])} G · ${num(j['PP_P'+p])} P</strong></div>`).join('');
+  $('#modal').classList.remove('hidden'); document.body.style.overflow='hidden';
+}
+function closeModal(){ $('#modal').classList.add('hidden'); document.body.style.overflow=''; }
+$('#closeModal').addEventListener('click',closeModal); $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()}); document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+$('#search').addEventListener('input',e=>{const q=e.target.value.trim().toLowerCase(); const f=jugadores.filter(j=>String(j.NOMBRE||'').toLowerCase().includes(q)); renderTable(f)});
+
+async function load(){
+  try{
+    const r = await fetch(API_URL,{cache:'no-store'});
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    if(!Array.isArray(data.jugadores)) throw new Error('Respuesta de API no válida');
+    jugadores = data.jugadores.filter(j=>j && j.NOMBRE);
+    $('#loading').classList.add('hidden'); $('#mainContent').classList.remove('hidden');
+    const d = data.actualizado ? new Date(data.actualizado) : null;
+    $('#updated').textContent = d && !Number.isNaN(d.getTime()) ? `Actualizado ${d.toLocaleString('es-ES',{dateStyle:'short',timeStyle:'short'})}` : `${jugadores.length} jugadores`;
+    renderPodium(jugadores); renderTable(jugadores);
+  }catch(err){
+    $('#loading').classList.add('hidden'); $('#error').classList.remove('hidden');
+    $('#error').textContent = 'No se ha podido cargar la clasificación. Revisa que la API de Apps Script siga publicada. ('+err.message+')';
+  }
+}
+load();
+</script>
+</body>
+</html>
