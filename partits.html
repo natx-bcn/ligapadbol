@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Partits · Lliga Padbol Barcelona</title>
+<meta name="theme-color" content="#081523">
+<meta name="description" content="Resultats dels partits de cada jornada de la Lliga Padbol Barcelona.">
+<link rel="canonical" href="https://www.ligapadbol.es/partits.html">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{--ink:#081523;--paper:#f4f7f9;--white:#fff;--text:#172535;--muted:#6d7e90;--line:#dfe7ed;--lime:#8de34f;--cyan:#39d1c7;--shadow:0 20px 60px rgba(9,24,40,.12);--max:1240px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}button,select{font:inherit}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(8,21,35,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px;color:white;font-weight:950}
+.brand-mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--lime),var(--cyan));color:var(--ink);font-weight:1000}
+.brand small{display:block;color:#9eb2c4;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.menu{display:flex;align-items:center;gap:15px}.menu>a{color:#d8e2eb;font-size:.88rem;font-weight:850}.menu>a.active{color:var(--lime)}
+.lang{display:flex;gap:4px;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px}.lang button{border:0;background:transparent;color:#9eb2c4;padding:5px 7px;border-radius:999px;font-weight:900;cursor:pointer}.lang button.active{background:var(--lime);color:var(--ink)}
+.hero{color:white;padding:66px 0 92px;background-image:linear-gradient(90deg,rgba(5,14,24,.97),rgba(5,14,24,.75) 54%,rgba(5,14,24,.4)),url("./assets/padbol-cabecera.webp");background-size:cover;background-position:center 45%}
+.kicker{color:var(--lime);font-size:.78rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}h1{font-size:clamp(3rem,7vw,5.4rem);line-height:.95;letter-spacing:-.055em;margin:14px 0}
+.hero p{max-width:760px;color:#c6d4dd;font-size:1.08rem;margin:0}
+.content{position:relative;z-index:2;margin-top:-48px;padding-bottom:76px}
+.toolbar{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:end;background:white;border-radius:24px;padding:18px;box-shadow:var(--shadow)}
+.field{display:grid;gap:6px}.field label{font-size:.72rem;color:var(--muted);font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+.field select{min-width:190px;border:1px solid var(--line);background:white;color:var(--text);border-radius:12px;padding:11px 38px 11px 12px;font-weight:900}
+.round-nav{display:flex;justify-content:center;gap:8px}.round-btn{border:1px solid var(--line);background:white;color:var(--text);height:44px;padding:0 14px;border-radius:12px;font-weight:950;cursor:pointer}
+.round-btn:disabled{opacity:.35;cursor:not-allowed}.status{font-size:.83rem;color:var(--muted);font-weight:700;text-align:right}
+.summary{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 14px}.chip{padding:9px 12px;border-radius:999px;background:white;border:1px solid var(--line);box-shadow:0 8px 24px rgba(9,24,40,.05);font-size:.84rem;font-weight:900;color:#43586a}
+.filterbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}.court-filter{border:1px solid var(--line);background:white;color:#536779;border-radius:999px;padding:8px 12px;font-size:.82rem;font-weight:900;cursor:pointer}.court-filter.active{background:var(--ink);color:white;border-color:var(--ink)}
+.courts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}.court{background:white;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;border:1px solid #eaf0f3}.court[hidden]{display:none}
+.court-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;background:linear-gradient(145deg,#0d2235,#123642);color:white}
+.court-title{display:flex;align-items:center;gap:9px;font-weight:1000;font-size:1.08rem}.court-number{width:32px;height:32px;border-radius:10px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-weight:1000}.court-count{color:#aebfca;font-size:.78rem;font-weight:850}
+.matches{padding:10px;display:grid;gap:9px}.match{border:1px solid #e7edf1;border-radius:15px;overflow:hidden;background:#fbfcfd}
+.match-head{display:flex;justify-content:space-between;gap:10px;padding:7px 10px;background:#f1f5f7;color:#708293;font-size:.7rem;font-weight:950;letter-spacing:.06em;text-transform:uppercase}
+.team{display:grid;grid-template-columns:minmax(0,1fr) 42px;gap:10px;align-items:center;padding:10px 11px}.team + .team{border-top:1px solid #edf1f3}.team.winner{background:#f1f9ed}
+.players{min-width:0;font-weight:850;font-size:.9rem;line-height:1.3}.players span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.team.winner .players{font-weight:1000;color:#285c17}
+.score{height:34px;border-radius:10px;background:#e9eff3;display:grid;place-items:center;font-size:1.02rem;font-weight:1000;color:#233749}.team.winner .score{background:var(--lime);color:var(--ink)}
+.state{margin-top:22px;background:white;border-radius:22px;padding:36px;text-align:center;color:var(--muted);box-shadow:var(--shadow)}.state strong{display:block;color:var(--text);font-size:1.1rem;margin-bottom:5px}.hidden{display:none!important}
+footer{padding:0 0 50px;text-align:center;color:#748797;font-size:.86rem}
+@media(max-width:1020px){.courts{grid-template-columns:1fr 1fr}.menu{gap:10px}.menu>a{font-size:.82rem}}
+@media(max-width:760px){.wrap{width:min(100% - 20px,var(--max))}.hero{padding:50px 0 82px}.brand small{display:none}.menu>a:not(.active){display:none}.toolbar{grid-template-columns:1fr auto;align-items:end}.field{grid-column:1}.round-nav{grid-column:2;grid-row:1}.status{grid-column:1/-1;text-align:left}.courts{grid-template-columns:1fr}.court-head{position:relative;top:auto;z-index:auto}}
+@media(max-width:480px){.toolbar{padding:14px}.field select{min-width:0;width:100%}.round-btn{padding:0 11px}.summary{gap:7px}.chip{font-size:.78rem;padding:8px 10px}.players{font-size:.86rem}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="./index.html"><div class="brand-mark">LP</div><div><span data-i18n="brand">Lliga Padbol</span><small>Barcelona · 2026/27</small></div></a><nav class="menu"><a href="./index.html" data-i18n="home">Inici</a><a href="./clasificacion.html" data-i18n="ranking">Classificació</a><a class="active" href="./partits.html" data-i18n="matches_nav">Partits</a><a href="./estadistiques.html" data-i18n="stats">Estadístiques</a><a href="./galeria.html" data-i18n="gallery">Galeria</a><div class="lang"><button type="button" data-lang="ca">CAT</button><button type="button" data-lang="es">ESP</button></div></nav></div></header>
+<section class="hero"><div class="wrap"><div class="kicker" data-i18n="kicker">Resultats de la Lliga</div><h1 data-i18n="title">Partits.</h1><p data-i18n="lead">Consulta tots els resultats de cada jornada, pista per pista i partit per partit.</p></div></section>
+<main class="content"><div class="wrap">
+<div class="toolbar"><div class="field"><label for="round" data-i18n="round_label">Jornada</label><select id="round"><option value="" data-i18n="latest">Última jornada</option></select></div><div class="round-nav"><button class="round-btn" id="prev-round" type="button" data-i18n-aria="prev_round" aria-label="Jornada anterior">←</button><button class="round-btn" id="next-round" type="button" data-i18n-aria="next_round" aria-label="Jornada següent">→</button></div><div class="status" id="status" data-i18n="loading">Carregant resultats…</div></div>
+<div id="state" class="state"><strong data-i18n="loading">Carregant resultats…</strong></div>
+<div id="results" class="hidden"><div id="summary" class="summary"></div><div id="filters" class="filterbar"></div><div id="courts" class="courts"></div></div>
+</div></main>
+<footer><div class="wrap">Lliga Padbol Barcelona · 2026/27</div></footer>
+<script>
+const API="https://script.google.com/macros/s/AKfycbzA5MLbh4jh1SXJqBpQAhHNovlzAsezP3KDPld-9O3vikPZSvPkpytoN2zsNVkkgZUu/exec";
+const I18N={
+ca:{brand:"Lliga Padbol",home:"Inici",ranking:"Classificació",matches_nav:"Partits",stats:"Estadístiques",gallery:"Galeria",kicker:"Resultats de la Lliga",title:"Partits.",lead:"Consulta tots els resultats de cada jornada, pista per pista i partit per partit.",round_label:"Jornada",latest:"Última jornada",loading:"Carregant resultats…",empty:"Encara no hi ha resultats disponibles.",round:"Jornada",players:"jugadors",matches:"partits",courts:"pistes",court:"Pista",match:"Partit",all_courts:"Totes les pistes",updated:"Actualitzat",prev_round:"Jornada anterior",next_round:"Jornada següent",api_old:"Cal actualitzar l'API a la versió de partits."},
+es:{brand:"Liga Padbol",home:"Inicio",ranking:"Clasificación",matches_nav:"Partidos",stats:"Estadísticas",gallery:"Galería",kicker:"Resultados de la Liga",title:"Partidos.",lead:"Consulta todos los resultados de cada jornada, pista por pista y partido por partido.",round_label:"Jornada",latest:"Última jornada",loading:"Cargando resultados…",empty:"Todavía no hay resultados disponibles.",round:"Jornada",players:"jugadores",matches:"partidos",courts:"pistas",court:"Pista",match:"Partido",all_courts:"Todas las pistas",updated:"Actualizado",prev_round:"Jornada anterior",next_round:"Jornada siguiente",api_old:"Hay que actualizar la API a la versión de partidos."}
+};
+const $=s=>document.querySelector(s);
+let lang=localStorage.getItem("ligapadbol_lang")||"ca";
+let available=[],selectedCourt="all",lastData=null;
+function t(k){return I18N[lang][k]||k}
+function setLang(l){lang=l==="es"?"es":"ca";localStorage.setItem("ligapadbol_lang",lang);document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(I18N[lang][k])el.textContent=I18N[lang][k]});document.querySelectorAll("[data-i18n-aria]").forEach(el=>{const k=el.dataset.i18nAria;if(I18N[lang][k])el.setAttribute("aria-label",I18N[lang][k])});document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));if(lastData)render(lastData)}
+function selectedRoundFromUrl(){const n=Number(new URLSearchParams(location.search).get("jornada"));return Number.isFinite(n)&&n>0?n:null}
+function updateUrl(round){const u=new URL(location.href);if(round)u.searchParams.set("jornada",String(round));else u.searchParams.delete("jornada");history.replaceState(null,"",u)}
+function fillRoundSelect(rounds,current){const sel=$("#round");sel.replaceChildren();const latest=document.createElement("option");latest.value="";latest.textContent=t("latest");sel.appendChild(latest);rounds.forEach(n=>{const o=document.createElement("option");o.value=String(n);o.textContent=`${t("round")} ${n}`;sel.appendChild(o)});const latestRound=rounds.length?rounds[rounds.length-1]:null;sel.value=current&&current!==latestRound?String(current):""}
+function setState(message,isError=false){$("#results").classList.add("hidden");const state=$("#state");state.classList.remove("hidden");state.innerHTML="";const strong=document.createElement("strong");strong.textContent=message;if(isError)strong.style.color="#9a2f2f";state.appendChild(strong)}
+function hideState(){$("#state").classList.add("hidden");$("#results").classList.remove("hidden")}
+function addChip(text){const c=document.createElement("span");c.className="chip";c.textContent=text;$("#summary").appendChild(c)}
+function renderFilters(pistas){const box=$("#filters");box.replaceChildren();const options=[{value:"all",label:t("all_courts")},...pistas.map(p=>({value:String(p),label:`${t("court")} ${p}`}))];options.forEach(opt=>{const b=document.createElement("button");b.type="button";b.className="court-filter";b.textContent=opt.label;b.classList.toggle("active",selectedCourt===opt.value);b.onclick=()=>{selectedCourt=opt.value;document.querySelectorAll(".court").forEach(el=>{el.hidden=selectedCourt!=="all"&&el.dataset.court!==selectedCourt});document.querySelectorAll(".court-filter").forEach(x=>x.classList.remove("active"));b.classList.add("active")};box.appendChild(b)})}
+function matchCard(m){const card=document.createElement("article");card.className="match";const head=document.createElement("div");head.className="match-head";const matchNo=document.createElement("span");matchNo.textContent=`${t("match")} ${m.partido}`;const id=document.createElement("span");id.textContent=m.id||`M${String(m.partido).padStart(2,"0")}`;head.append(matchNo,id);const makeTeam=(players,score,winner)=>{const row=document.createElement("div");row.className="team"+(winner?" winner":"");const names=document.createElement("div");names.className="players";players.forEach(name=>{const line=document.createElement("span");line.textContent=name;names.appendChild(line)});const s=document.createElement("div");s.className="score";s.textContent=score;row.append(names,s);return row};card.append(head,makeTeam(m.equipoA||[],m.juegosA,m.ganador==="A"),makeTeam(m.equipoB||[],m.juegosB,m.ganador==="B"));return card}
+function renderCourts(payload){const box=$("#courts");box.replaceChildren();const byCourt=new Map();(payload.partidos||[]).forEach(m=>{const key=String(m.pista);if(!byCourt.has(key))byCourt.set(key,[]);byCourt.get(key).push(m)});[...byCourt.keys()].sort((a,b)=>Number(a)-Number(b)).forEach(key=>{const items=byCourt.get(key);const court=document.createElement("section");court.className="court";court.dataset.court=key;court.hidden=selectedCourt!=="all"&&selectedCourt!==key;const head=document.createElement("div");head.className="court-head";const title=document.createElement("div");title.className="court-title";const number=document.createElement("span");number.className="court-number";number.textContent=key;const label=document.createElement("span");label.textContent=`${t("court")} ${key}`;title.append(number,label);const count=document.createElement("div");count.className="court-count";count.textContent=`${items.length} ${t("matches")}`;head.append(title,count);const matches=document.createElement("div");matches.className="matches";items.sort((a,b)=>a.partido-b.partido).forEach(m=>matches.appendChild(matchCard(m)));court.append(head,matches);box.appendChild(court)})}
+function updateNavButtons(current){const idx=available.indexOf(current);$("#prev-round").disabled=idx<=0;$("#next-round").disabled=idx<0||idx>=available.length-1}
+function render(data){lastData=data;available=(data.jornadasDisponibles||[]).map(Number).filter(Number.isFinite).sort((a,b)=>a-b);const payload=data.partidosJornada;if(payload===undefined){setState(t("api_old"),true);return}if(!payload||payload.error){setState(payload&&payload.error?payload.error:t("empty"),!!(payload&&payload.error));fillRoundSelect(available,selectedRoundFromUrl());return}hideState();const current=Number(payload.jornada);fillRoundSelect(available,current);updateNavButtons(current);$("#summary").replaceChildren();addChip(`${t("round")} ${current}`);if(payload.fecha)addChip(String(payload.fecha));addChip(`${payload.totalPartidos} ${t("matches")}`);addChip(`${payload.jugadores} ${t("players")}`);addChip(`${(payload.pistas||[]).length} ${t("courts")}`);renderFilters(payload.pistas||[]);renderCourts(payload);if(data.actualizado){const dt=new Date(data.actualizado);$("#status").textContent=`${t("updated")}: ${dt.toLocaleString(lang==="ca"?"ca-ES":"es-ES")}`}}
+async function load(roundOverride=null){setState(t("loading"));$("#status").textContent=t("loading");const round=roundOverride||selectedRoundFromUrl();const q=new URLSearchParams({temporada:"2026-27",entorno:"produccion",_:String(Date.now())});if(round)q.set("jornada",String(round));try{const r=await fetch(`${API}?${q.toString()}`);if(!r.ok)throw new Error(`HTTP ${r.status}`);const data=await r.json();if(data.error)throw new Error(data.error);render(data)}catch(err){setState(String(err),true);$("#status").textContent=""}}
+$("#round").addEventListener("change",()=>{const value=Number($("#round").value);const round=Number.isFinite(value)&&value>0?value:null;updateUrl(round);selectedCourt="all";load(round)});
+$("#prev-round").addEventListener("click",()=>{const current=lastData&&lastData.partidosJornada?Number(lastData.partidosJornada.jornada):null;const idx=available.indexOf(current);if(idx>0){const target=available[idx-1];updateUrl(target);selectedCourt="all";load(target)}});
+$("#next-round").addEventListener("click",()=>{const current=lastData&&lastData.partidosJornada?Number(lastData.partidosJornada.jornada):null;const idx=available.indexOf(current);if(idx>=0&&idx<available.length-1){const target=available[idx+1];updateUrl(target);selectedCourt="all";load(target)}});
+document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+setLang(lang);load();
+</script>
+</body>
+</html>

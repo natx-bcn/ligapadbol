@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galeria · Lliga Padbol Barcelona</title>
+<meta name="theme-color" content="#081523">
+<meta name="description" content="Fotos i vídeos reals de la Lliga Padbol Barcelona.">
+<link rel="canonical" href="https://www.ligapadbol.es/galeria.html">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --ink:#081523;--ink2:#10263a;--paper:#f4f7f9;--white:#fff;--text:#172535;
+  --muted:#6d7e90;--line:#dfe7ed;--lime:#8de34f;--cyan:#39d1c7;
+  --shadow:0 20px 60px rgba(9,24,40,.12);--max:1240px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(8,21,35,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;color:white;font-weight:950}.brand-mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--lime),var(--cyan));color:var(--ink);font-weight:1000}
+.brand small{display:block;color:#9eb2c4;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.menu{display:flex;align-items:center;gap:16px}.menu>a{color:#d8e2eb;font-size:.9rem;font-weight:850}.menu>a.active{color:var(--lime)}
+.lang{display:flex;gap:4px;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px}
+.lang button{border:0;background:transparent;color:#9eb2c4;padding:5px 7px;border-radius:999px;font-weight:900;cursor:pointer}.lang button.active{background:var(--lime);color:var(--ink)}
+.hero{position:relative;color:white;padding:68px 0 92px;background-image:linear-gradient(90deg,rgba(5,14,24,.96),rgba(5,14,24,.73) 55%,rgba(5,14,24,.42)),url("./assets/galeria/padbol-galeria-01.jpg");background-size:cover;background-position:center}
+.kicker{color:var(--lime);font-size:.78rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}
+h1{font-size:clamp(3rem,7vw,5.5rem);line-height:.95;letter-spacing:-.055em;margin:14px 0}
+.hero p{max-width:760px;color:#c6d4dd;font-size:1.08rem}
+.content{margin-top:-46px;padding-bottom:76px;position:relative;z-index:2}
+.panel{background:white;border-radius:26px;padding:24px;box-shadow:var(--shadow)}
+.section-head{margin-bottom:18px}.section-head h2{margin:4px 0 6px;font-size:1.65rem;letter-spacing:-.03em}.section-head p{margin:0;color:var(--muted)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.gallery-item{position:relative;aspect-ratio:4/3;border:0;padding:0;border-radius:16px;overflow:hidden;cursor:pointer;background:#dce5eb}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
+.gallery-item:hover img{transform:scale(1.035)}
+.badge{position:absolute;right:10px;bottom:10px;background:rgba(5,17,27,.8);color:white;border-radius:999px;padding:7px 9px;font-size:.73rem;font-weight:900;backdrop-filter:blur(8px)}
+.video-section{margin-top:34px}.video-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px}
+.video-card{background:white;border-radius:20px;overflow:hidden;border:1px solid #e9eef2;box-shadow:var(--shadow)}
+.video-shell{aspect-ratio:16/9;background:#07111b}.video-shell video,.video-shell iframe{width:100%;height:100%;display:block;border:0}.video-shell video{object-fit:cover}
+.video-body{padding:15px 17px 18px}.video-body h3{margin:0 0 5px;font-size:1rem}.video-body p{margin:0;color:var(--muted);font-size:.86rem}
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(2,8,14,.94);display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;pointer-events:none;transition:.18s ease}
+.lightbox.open{opacity:1;visibility:visible;pointer-events:auto}
+.lightbox-inner{position:relative;width:min(1120px,calc(100vw - 32px));text-align:center}
+.lightbox img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.lightbox-caption{color:#d9e5ee;font-weight:700;margin:12px 56px 0}
+.close,.navbtn{position:absolute;border:0;background:rgba(255,255,255,.13);color:white;border-radius:50%;cursor:pointer;backdrop-filter:blur(8px)}
+.close{right:-12px;top:-12px;width:44px;height:44px;font-size:1.5rem}.navbtn{top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:1.8rem}.prev{left:-16px}.next{right:-16px}
+.back{margin-top:28px;display:inline-flex;padding:11px 15px;border-radius:12px;background:var(--ink);color:white;font-weight:900}
+footer{padding:0 0 48px;text-align:center;color:#748797;font-size:.86rem}
+@media(max-width:980px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.video-grid{grid-template-columns:1fr 1fr}.video-card:first-child{grid-column:1/-1}.menu>a:not(.active){display:none}}
+@media(max-width:620px){.wrap{width:min(100% - 20px,var(--max))}.hero{padding:52px 0 82px}.panel{padding:14px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.gallery-item{border-radius:12px}.badge{display:none}.video-grid{grid-template-columns:1fr}.video-card:first-child{grid-column:auto}.lightbox{padding:10px}.prev{left:6px}.next{right:6px}.close{right:6px;top:6px}.brand small{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="wrap nav">
+<a class="brand" href="./index.html"><div class="brand-mark">LP</div><div><span data-i18n="brand">Lliga Padbol</span><small>Barcelona · 2026/27</small></div></a>
+<nav class="menu">
+<a href="./index.html" data-i18n="home">Inici</a>
+<a href="./clasificacion.html" data-i18n="ranking">Classificació</a>
+<a href="./partits.html" data-i18n="matches_nav">Partits</a>
+<a href="./estadistiques.html" data-i18n="stats">Estadístiques</a>
+<a class="active" href="./galeria.html" data-i18n="gallery">Galeria</a>
+<div class="lang"><button data-lang="ca">CAT</button><button data-lang="es">ESP</button></div>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="wrap">
+<div class="kicker" data-i18n="kicker">La Lliga en acció</div>
+<h1 data-i18n="title">Galeria.</h1>
+<p data-i18n="lead">Fotos i vídeos reals dels partits. Sense artificis: padbol, pistes i ambient de lliga.</p>
+</div>
+</section>
+
+<main class="content">
+<div class="wrap">
+<section class="panel">
+<div class="section-head">
+<div class="kicker" data-i18n="photos_label">Fotos</div>
+<h2 data-i18n="photos_title">Partits, punts i ambient real</h2>
+<p data-i18n="photos_sub">Prem qualsevol imatge per veure-la en gran.</p>
+</div>
+
+<div class="gallery-grid" id="gallery">
+<button class="gallery-item" data-ca="Vista general de la pista amb l'ambient real de la jornada." data-es="Vista general de la pista con el ambiente real de la jornada."><img src="./assets/galeria/padbol-galeria-01.jpg" alt="Vista general de la pista de padbol en plena jornada" loading="lazy"><span class="badge" data-i18n="expand">Ampliar</span></button>
+<button class="gallery-item" data-ca="Partit en joc vist de front, amb tots quatre jugadors en pista." data-es="Partido en juego visto de frente, con los cuatro jugadores en pista."><img src="./assets/galeria/padbol-galeria-02.jpg" alt="Partido de padbol visto de frente con cuatro jugadores" loading="lazy"><span class="badge" data-i18n="expand">Ampliar</span></button>
+<button class="gallery-item" data-ca="Un altre punt en acció, amb la pista central i el rebot a punt d'arribar." data-es="Otro punto en acción, con la pista central y el rebote a punto de llegar."><img src="./assets/galeria/padbol-galeria-03.jpg" alt="Punto de padbol en acción en la pista central" loading="lazy"><span class="badge" data-i18n="expand">Ampliar</span></button>
+<button class="gallery-item" data-ca="Vista lateral del partit, amb els quatre jugadors preparats per al següent toc." data-es="Vista lateral del partido, con los cuatro jugadores listos para el siguiente toque."><img src="./assets/galeria/padbol-galeria-04.jpg" alt="Vista lateral de un partido de padbol" loading="lazy"><span class="badge" data-i18n="expand">Ampliar</span></button>
+<button class="gallery-item" data-ca="Control tècnic amb el peu dins la pista blava." data-es="Control técnico con el pie dentro de la pista azul."><img src="./assets/galeria/padbol-galeria-05.jpg" alt="Jugador controlando la pelota con el pie en una pista de padbol" loading="lazy"><span class="badge" data-i18n="expand">Ampliar</span></button>
+<button class="gallery-item" data-ca="Acció a prop del vidre i la xarxa, amb molta exigència tècnica." data-es="Acción cerca del cristal y de la red, con mucha exigencia técnica."><img src="./assets/galeria/padbol-galeria-06.jpg" alt="Acción de padbol cerca del cristal y la red" loading="lazy"><span class="badge" data-i18n="expand">Ampliar</span></button>
+<button class="gallery-item" data-ca="Servei o rematada en suspensió, un dels gestos més espectaculars del padbol." data-es="Saque o remate en suspensión, uno de los gestos más espectaculares del padbol."><img src="./assets/galeria/padbol-galeria-07.jpg" alt="Jugador realizando un gesto técnico en suspensión en padbol" loading="lazy"><span class="badge" data-i18n="expand">Ampliar</span></button>
+<button class="gallery-item" data-ca="Control aeri en una jugada molt vistosa dins la pista." data-es="Control aéreo en una jugada muy vistosa dentro de la pista."><img src="./assets/galeria/padbol-galeria-08.jpg" alt="Jugador haciendo un control aéreo en un partido de padbol" loading="lazy"><span class="badge" data-i18n="expand">Ampliar</span></button>
+</div>
+</section>
+
+<section class="video-section">
+<div class="section-head">
+<div class="kicker" data-i18n="videos_label">Vídeos</div>
+<h2 data-i18n="videos_title">Padbol en moviment</h2>
+<p data-i18n="videos_sub">Tres vídeos per veure el ritme dels punts, els rebots i els partits.</p>
+</div>
+<div class="video-grid">
+<article class="video-card">
+<div class="video-shell"><video controls playsinline preload="metadata" poster="./assets/galeria/padbol-video-poster.jpg"><source src="./assets/galeria/padbol-partit-01.mp4" type="video/mp4"></video></div>
+<div class="video-body"><h3 data-i18n="video_local">Vídeo destacat</h3><p data-i18n="video_local_sub">Un moment real de la Lliga Padbol Barcelona.</p></div>
+</article>
+<article class="video-card">
+<div class="video-shell"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/elw7gArehts" title="Vídeo Padbol YouTube 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div class="video-body"><h3 data-i18n="youtube">Vídeo de partit · YouTube</h3></div>
+</article>
+<article class="video-card">
+<div class="video-shell"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/HFJaV2iy00k" title="Vídeo Padbol YouTube 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div class="video-body"><h3 data-i18n="youtube">Vídeo de partit · YouTube</h3></div>
+</article>
+</div>
+<a class="back" href="./index.html" data-i18n="back">← Tornar a la portada</a>
+</section>
+</div>
+</main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+<div class="lightbox-inner">
+<button class="close" id="close" aria-label="Tancar">×</button>
+<button class="navbtn prev" id="prev" aria-label="Anterior">‹</button>
+<img id="lightbox-img" alt="">
+<button class="navbtn next" id="next" aria-label="Següent">›</button>
+<p class="lightbox-caption" id="caption"></p>
+</div>
+</div>
+
+<footer><div class="wrap">Lliga Padbol Barcelona · 2026/27</div></footer>
+
+<script>
+const I18N={
+ca:{brand:"Lliga Padbol",home:"Inici",ranking:"Classificació",matches_nav:"Partits",stats:"Estadístiques",gallery:"Galeria",kicker:"La Lliga en acció",title:"Galeria.",lead:"Fotos i vídeos reals dels partits. Sense artificis: padbol, pistes i ambient de lliga.",photos_label:"Fotos",photos_title:"Partits, punts i ambient real",photos_sub:"Prem qualsevol imatge per veure-la en gran.",expand:"Ampliar",videos_label:"Vídeos",videos_title:"Padbol en moviment",videos_sub:"Tres vídeos per veure el ritme dels punts, els rebots i els partits.",video_local:"Vídeo destacat",video_local_sub:"Un moment real de la Lliga Padbol Barcelona.",youtube:"Vídeo de partit · YouTube",back:"← Tornar a la portada"},
+es:{brand:"Liga Padbol",home:"Inicio",ranking:"Clasificación",matches_nav:"Partidos",stats:"Estadísticas",gallery:"Galería",kicker:"La Liga en acción",title:"Galería.",lead:"Fotos y vídeos reales de los partidos. Sin artificios: padbol, pistas y ambiente de liga.",photos_label:"Fotos",photos_title:"Partidos, puntos y ambiente real",photos_sub:"Pulsa cualquier imagen para verla en grande.",expand:"Ampliar",videos_label:"Vídeos",videos_title:"Padbol en movimiento",videos_sub:"Tres vídeos para ver el ritmo de los puntos, los rebotes y los partidos.",video_local:"Vídeo destacado",video_local_sub:"Un momento real de la Liga Padbol Barcelona.",youtube:"Vídeo de partido · YouTube",back:"← Volver a la portada"}
+};
+let lang=localStorage.getItem("ligapadbol_lang")||"ca";
+function setLang(l){
+  lang=l==="es"?"es":"ca";
+  localStorage.setItem("ligapadbol_lang",lang);
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(I18N[lang][k])el.textContent=I18N[lang][k]});
+  document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
+  if(document.getElementById("lightbox").classList.contains("open"))show(current);
+}
+document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+const items=[...document.querySelectorAll(".gallery-item")];
+const box=document.getElementById("lightbox"),img=document.getElementById("lightbox-img"),caption=document.getElementById("caption");
+let current=0;
+function show(i){
+  current=(i+items.length)%items.length;
+  const item=items[current],source=item.querySelector("img");
+  img.src=source.currentSrc||source.src;img.alt=source.alt||"";
+  caption.textContent=lang==="es"?item.dataset.es:item.dataset.ca;
+}
+function open(i){show(i);box.classList.add("open");box.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
+function close(){box.classList.remove("open");box.setAttribute("aria-hidden","true");document.body.style.overflow=""}
+items.forEach((item,i)=>item.onclick=()=>open(i));
+document.getElementById("close").onclick=close;
+document.getElementById("prev").onclick=()=>show(current-1);
+document.getElementById("next").onclick=()=>show(current+1);
+box.onclick=e=>{if(e.target===box)close()};
+document.addEventListener("keydown",e=>{if(!box.classList.contains("open"))return;if(e.key==="Escape")close();if(e.key==="ArrowLeft")show(current-1);if(e.key==="ArrowRight")show(current+1)});
+setLang(lang);
+</script>
+</body>
+</html>

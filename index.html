@@ -5,7 +5,6 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Lliga Padbol Barcelona 2026/27</title>
-<meta content="index,follow" name="robots"/>
 <meta content="Liga de Padbol en Barcelona. Todos los jueves de 20:00 a 22:00 en CEM Guinardó · Martinenc. Parejas rotativas, clasificación pública y ambiente competitivo." name="description"/>
 <meta content="#081523" name="theme-color"/>
 <link rel="canonical" href="https://www.ligapadbol.es/"/>
@@ -240,6 +239,106 @@
     .step h3{margin:3px 0 5px;font-size:1.18rem}
     .step p{margin:0;color:#aebdcc}
 
+    .media-layout{display:grid;gap:28px}
+    .media-gallery{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+    .gallery-item{
+      position:relative;
+      aspect-ratio:4/3;
+      border:0;
+      padding:0;
+      border-radius:20px;
+      overflow:hidden;
+      cursor:pointer;
+      background:#dfe6ec;
+      box-shadow:var(--shadow);
+    }
+    .gallery-item img{
+      width:100%;height:100%;object-fit:cover;
+      transition:transform .35s ease, filter .35s ease;
+    }
+    .gallery-item:hover img,
+    .gallery-item:focus-visible img{transform:scale(1.04)}
+    .gallery-item:focus-visible{outline:3px solid rgba(57,209,199,.5);outline-offset:3px}
+    .gallery-badge{
+      position:absolute;left:12px;bottom:12px;
+      padding:7px 10px;border-radius:999px;
+      background:rgba(6,17,29,.72);color:white;
+      font-size:.75rem;font-weight:800;letter-spacing:.05em;
+      backdrop-filter:blur(8px);
+    }
+    .media-video-card{
+      background:white;border:1px solid #edf1f4;border-radius:28px;
+      overflow:hidden;box-shadow:var(--shadow)
+    }
+    .media-video-shell{padding:18px 18px 0}
+    .media-video-shell video{
+      width:100%;display:block;border-radius:18px;
+      background:#091320;max-height:560px;object-fit:cover;
+    }
+    .media-card-body{padding:22px 24px 26px}
+    .media-label{display:inline-block;margin-bottom:8px;color:#4a9d20;font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem}
+    .media-card-body h3{margin:0 0 8px;font-size:1.45rem;letter-spacing:-.03em}
+    .media-card-body p{margin:0;color:var(--muted)}
+
+    .youtube-block{margin-top:4px}
+    .youtube-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:20px;
+      margin-top:18px;
+    }
+    .youtube-card{
+      background:white;
+      border:1px solid #edf1f4;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .youtube-frame{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      background:#091320;
+    }
+    .youtube-frame iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+    .youtube-meta{padding:16px 18px 18px}
+    .youtube-meta h4{margin:0;font-size:1.05rem;color:var(--ink)}
+
+    .lightbox{
+      position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;
+      padding:24px;background:rgba(5,14,24,.86);backdrop-filter:blur(6px);
+      opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease, visibility .2s ease;
+    }
+    .lightbox.open{opacity:1;visibility:visible;pointer-events:auto}
+    .lightbox-inner{position:relative;max-width:min(1120px, calc(100vw - 32px));width:100%}
+    .lightbox img{
+      width:100%;max-height:82vh;object-fit:contain;border-radius:24px;
+      background:#091320;box-shadow:0 25px 80px rgba(0,0,0,.38)
+    }
+    .lightbox-caption{margin:14px 56px 0;color:#d9e5ee;text-align:center;font-weight:700}
+    .lightbox-close,
+    .lightbox-nav{
+      position:absolute;border:0;cursor:pointer;border-radius:999px;
+      background:rgba(255,255,255,.12);color:white;backdrop-filter:blur(10px);
+      display:grid;place-items:center;transition:background .2s ease, transform .2s ease;
+    }
+    .lightbox-close:hover,.lightbox-nav:hover{background:rgba(255,255,255,.2);transform:translateY(-1px)}
+    .lightbox-close{top:-12px;right:-12px;width:44px;height:44px;font-size:1.6rem;font-weight:800}
+    .lightbox-nav{top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:1.8rem;font-weight:800}
+    .lightbox-nav:hover{transform:translateY(calc(-50% - 1px))}
+    .lightbox-prev{left:-16px}
+    .lightbox-next{right:-16px}
+
     .ranking{
       background:linear-gradient(135deg,#0d2135,#112f3b);
       color:white;overflow:hidden;position:relative
@@ -302,6 +401,424 @@
     .footer{display:flex;justify-content:space-between;gap:24px;align-items:center;font-size:.9rem}
     .footer a{color:#c8d5df;text-decoration:none;font-weight:800}
 
+
+    /* ===== Última jornada ===== */
+    #jornada{
+      background:#ffffff;
+    }
+    .jornada-shell{
+      position:relative;
+      overflow:hidden;
+      border-radius:32px;
+      padding:38px;
+      color:white;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(141,227,79,.18), transparent 32%),
+        linear-gradient(135deg,#081523 0%,#0d2a38 100%);
+      box-shadow:var(--shadow);
+    }
+    .jornada-shell:after{
+      content:"";
+      position:absolute;
+      width:260px;height:260px;border-radius:50%;
+      right:-120px;bottom:-140px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .jornada-top{
+      position:relative;z-index:1;
+      display:flex;justify-content:space-between;gap:24px;align-items:flex-end;
+      margin-bottom:28px;
+    }
+    .jornada-top .kicker{color:var(--lime)}
+    .jornada-top h2{margin-bottom:10px}
+    .jornada-sub{margin:0;color:#b6c8d5;max-width:760px}
+    .jornada-meta{
+      display:flex;flex-wrap:wrap;gap:9px;
+      margin-top:18px;
+    }
+    .jornada-chip{
+      display:inline-flex;align-items:center;gap:7px;
+      padding:8px 11px;border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.1);
+      color:#dbe6ed;font-size:.86rem;font-weight:800;
+    }
+    .jornada-live{
+      flex:0 0 auto;
+      color:#a9bcc9;font-size:.78rem;font-weight:800;
+      text-transform:uppercase;letter-spacing:.08em;
+    }
+    .awards-grid{
+      position:relative;z-index:1;
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+    .award-card{
+      min-height:190px;
+      padding:22px;
+      border-radius:22px;
+      background:rgba(255,255,255,.075);
+      border:1px solid rgba(255,255,255,.11);
+      backdrop-filter:blur(8px);
+    }
+    .award-icon{
+      width:46px;height:46px;border-radius:14px;
+      display:grid;place-items:center;
+      background:rgba(141,227,79,.13);
+      font-size:1.35rem;margin-bottom:16px;
+    }
+    .award-title{
+      color:#9fb4c4;font-size:.72rem;font-weight:950;
+      text-transform:uppercase;letter-spacing:.09em;
+      margin-bottom:12px;
+    }
+    .award-winners{display:grid;gap:10px}
+    .award-person strong{
+      display:block;color:white;
+      font-size:1.18rem;line-height:1.15;
+    }
+    .award-person small{
+      display:block;margin-top:4px;
+      color:#b8c9d5;font-size:.87rem;font-weight:700;
+    }
+    .jornada-empty{
+      position:relative;z-index:1;
+      padding:24px 0 4px;
+      display:none;
+    }
+    .jornada-empty.show{display:block}
+    .jornada-empty-box{
+      border-radius:22px;
+      border:1px dashed rgba(255,255,255,.18);
+      background:rgba(255,255,255,.05);
+      padding:28px;
+    }
+    .jornada-empty-box strong{
+      display:block;font-size:1.35rem;margin-bottom:7px;
+    }
+    .jornada-empty-box p{margin:0;color:#b6c8d5}
+    .jornada-content[hidden]{display:none!important}
+
+
+    .extra-awards{
+      position:relative;
+      z-index:1;
+      margin-top:26px;
+      padding-top:26px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .extra-awards-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:16px;
+    }
+    .extra-awards-head h3{
+      margin:0;
+      color:white;
+      font-size:1.22rem;
+      letter-spacing:-.02em;
+    }
+    .extra-awards-head p{
+      margin:3px 0 0;
+      color:#9fb4c4;
+      font-size:.88rem;
+    }
+    .awards-grid-secondary{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+    .award-card.secondary{
+      min-height:156px;
+      padding:18px;
+      background:rgba(255,255,255,.055);
+    }
+    .award-card.secondary .award-icon{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      margin-bottom:12px;
+      font-size:1.08rem;
+    }
+    .award-card.secondary .award-person strong{
+      font-size:1.02rem;
+    }
+    .award-card.secondary .award-person small{
+      font-size:.82rem;
+    }
+
+    .jornada-more{position:relative;z-index:1;margin-top:22px;display:flex;justify-content:flex-end}
+    .stats-link{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:white}
+    .stats-link:hover{background:rgba(255,255,255,.11)}
+
+
+    .media-teaser-section{padding:72px 0}
+    .media-teaser{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);
+      gap:28px;
+      align-items:center;
+      background:linear-gradient(135deg,#0b1c2b,#103247);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .media-teaser-copy h2{color:white;margin-bottom:12px}
+    .media-teaser-copy .lead{color:#b9cad6;max-width:650px;margin-bottom:22px}
+    .media-teaser-image{
+      position:relative;
+      min-height:260px;
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.1);
+      box-shadow:0 18px 44px rgba(0,0,0,.22);
+    }
+    .media-teaser-image img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .media-teaser-overlay{
+      position:absolute;
+      inset:auto 14px 14px 14px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(6,18,28,.82);
+      backdrop-filter:blur(10px);
+      color:white;
+      font-weight:900;
+      font-size:.86rem;
+    }
+
+
+    /* ===== La lliga d'un cop d'ull ===== */
+    .league-glance-section{
+      padding:74px 0;
+      background:linear-gradient(180deg,#f5f8fa 0%,#edf3f6 100%);
+    }
+    .league-glance-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:28px;
+      margin-bottom:22px;
+    }
+    .league-glance-head h2{
+      margin:6px 0 0;
+      max-width:720px;
+    }
+    .league-glance-head>p{
+      max-width:460px;
+      margin:0;
+      color:var(--muted);
+      font-weight:650;
+    }
+    .league-glance-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .glance-card{
+      position:relative;
+      min-height:365px;
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .glance-stats{
+      padding:25px;
+      background:linear-gradient(145deg,#0b1d2d,#12384a);
+      color:white;
+      display:flex;
+      flex-direction:column;
+    }
+    .glance-card-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
+    }
+    .glance-label{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      color:var(--lime);
+      font-size:.75rem;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .glance-card h3{
+      margin:7px 0 0;
+      font-size:clamp(1.5rem,2.5vw,2.05rem);
+      line-height:1.05;
+      letter-spacing:-.035em;
+    }
+    .glance-meta{
+      margin-top:16px;
+      margin-bottom:4px;
+    }
+    .glance-meta .jornada-chip{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.1);
+      color:#dce8ef;
+    }
+    .glance-awards{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:17px;
+    }
+    .glance-award{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:11px;
+      align-items:flex-start;
+      padding:14px;
+      min-height:105px;
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(255,255,255,.055);
+      border-radius:17px;
+    }
+    .glance-award-icon{
+      width:34px;
+      height:34px;
+      display:grid;
+      place-items:center;
+      border-radius:11px;
+      background:rgba(141,227,79,.13);
+    }
+    .glance-award-label{
+      color:#9fb4c4;
+      font-size:.7rem;
+      font-weight:950;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+    }
+    .glance-winner .award-person{
+      padding:0;
+      border:0;
+      background:transparent;
+    }
+    .glance-winner .award-person strong{
+      font-size:1.02rem;
+      color:white;
+    }
+    .glance-winner .award-person small{
+      color:#b9cad5;
+      font-size:.78rem;
+    }
+    .glance-link{
+      margin-top:auto;
+      padding-top:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color:var(--lime);
+      font-weight:950;
+    }
+    .glance-link:hover{opacity:.82}
+    .glance-empty{
+      margin-top:20px;
+    }
+    .glance-empty .jornada-empty-box{
+      min-height:165px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:rgba(255,255,255,.06);
+    }
+    .glance-gallery{
+      display:block;
+      color:white;
+      background:#0a1722;
+    }
+    .glance-gallery>img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .35s ease;
+    }
+    .glance-gallery:hover>img{
+      transform:scale(1.035);
+    }
+    .glance-gallery-shade{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(5,14,24,.15) 10%,rgba(5,14,24,.58) 55%,rgba(5,14,24,.94) 100%);
+    }
+    .glance-gallery-content{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      padding:25px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+    .glance-gallery-content p{
+      max-width:480px;
+      margin:10px 0 0;
+      color:#d0dde5;
+      font-weight:650;
+    }
+    .glance-gallery-bottom{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:22px;
+    }
+    .glance-count{
+      display:inline-flex;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(6,18,28,.75);
+      border:1px solid rgba(255,255,255,.11);
+      backdrop-filter:blur(8px);
+      font-size:.78rem;
+      font-weight:900;
+    }
+    .glance-link-light{
+      margin:0;
+      padding:0;
+      color:white;
+    }
+
+    /* ===== WhatsApp flotante móvil ===== */
+    .floating-wa{
+      display:none;
+      position:fixed;
+      z-index:85;
+      right:max(14px, env(safe-area-inset-right));
+      bottom:max(14px, env(safe-area-inset-bottom));
+      min-height:52px;
+      padding:0 20px;
+      border-radius:999px;
+      align-items:center;justify-content:center;gap:9px;
+      text-decoration:none;
+      font-weight:950;
+      background:var(--lime);
+      color:var(--ink);
+      box-shadow:0 14px 40px rgba(8,21,35,.28);
+      border:1px solid rgba(8,21,35,.08);
+      transition:opacity .2s ease, transform .2s ease;
+    }
+    .floating-wa.is-hidden{
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(18px);
+    }
+
     @media (max-width: 920px){
       .menu{display:none;position:absolute;left:20px;right:20px;top:68px;background:#0a1929;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px;flex-direction:column;align-items:stretch}
       .menu.open{display:flex}
@@ -315,6 +832,14 @@
       .quick-item:nth-child(2){border-right:0}
       .quick-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
       .info-grid{grid-template-columns:1fr}
+      .awards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .awards-grid-secondary{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .jornada-top{align-items:flex-start;flex-direction:column}
+      .media-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .youtube-grid{grid-template-columns:1fr}
+      .lightbox-close{top:8px;right:8px}
+      .lightbox-prev{left:8px}
+      .lightbox-next{right:8px}
     }
     @media (max-width: 620px){
       .wrap{width:min(100% - 24px,var(--max))}
@@ -334,6 +859,13 @@
       .story-card,.dark-card,.info-card{padding:26px}
       .cta-box{padding:36px 26px}
       .footer{flex-direction:column;align-items:flex-start}
+      .media-gallery{grid-template-columns:1fr}
+      .lightbox{padding:14px}
+      .lightbox-caption{margin:12px 12px 0;font-size:.95rem}
+      .lightbox-nav{width:42px;height:42px}
+      .awards-grid{grid-template-columns:1fr}
+      .awards-grid-secondary{grid-template-columns:1fr}
+      .jornada-shell{padding:28px 22px}
     }
   
     .lang-switch{
@@ -350,6 +882,31 @@
       background:var(--lime);color:var(--ink);
     }
     .lang-switch span{color:#65798b;font-size:.72rem}
+
+    @media (max-width: 760px){
+
+      .league-glance-section{padding:46px 0}
+      .glance-stats{padding:19px}
+      .glance-gallery-content{padding:19px}
+      .glance-card{min-height:285px}
+      .glance-awards{grid-template-columns:1fr;gap:8px}
+      .glance-award{min-height:auto;padding:12px}
+      .glance-gallery-bottom{align-items:flex-end}
+
+
+      .league-glance-head{align-items:flex-start;flex-direction:column;gap:8px}
+      .league-glance-head>p{max-width:720px}
+      .league-glance-grid{grid-template-columns:1fr}
+      .glance-card{min-height:330px}
+
+      .media-teaser-section{padding:42px 0}
+      .media-teaser{grid-template-columns:1fr;padding:18px;gap:18px}
+      .media-teaser-image{min-height:180px}
+      .floating-wa{display:inline-flex}
+      body{padding-bottom:70px}
+      footer{padding-bottom:104px}
+    }
+
 </style>
 </head>
 <body>
@@ -363,6 +920,9 @@
 <nav aria-label="Navegación principal" class="menu" data-i18n-aria="aria_nav">
 <a data-i18n="nav_how" href="#como-funciona">Com funciona</a>
 <a data-i18n="nav_ranking" href="#clasificacion">Classificació</a>
+<a data-i18n="nav_matches" href="./partits.html">Partits</a>
+<a data-i18n="nav_stats" href="./estadistiques.html">Estadístiques</a>
+<a data-i18n="nav_gallery" href="./galeria.html">Galeria</a>
 <a data-i18n="nav_info" href="#info">Informació</a>
 <a data-i18n="nav_faq" href="#faq">FAQ</a>
 <div aria-label="Idioma" class="lang-switch">
@@ -422,7 +982,7 @@
 </div>
 <div class="step">
 <div class="num">02</div>
-<div><h3 data-i18n="step2_title">Partit a 3 jocs</h3><p data-i18n="step2_p">La parella que arriba a 3 jocs guanya el partit. Cada punt compta.</p></div>
+<div><h3 data-i18n="step2_title">Partit al millor de 3 jocs</h3><p data-i18n="step2_p">La primera parella que guanya 2 jocs s’emporta el partit. Cada joc compta.</p></div>
 </div>
 <div class="step">
 <div class="num">03</div>
@@ -437,6 +997,8 @@
 </div>
 </div>
 </section>
+
+
 <section class="ranking" id="clasificacion">
 <div class="wrap ranking-grid">
 <div>
@@ -457,6 +1019,85 @@
 </div>
 </div>
 </section>
+
+
+<section id="jornada" class="league-glance-section">
+<div class="wrap">
+<div class="league-glance-head">
+<div>
+<div class="kicker" data-i18n="glance_kicker">La lliga d'un cop d'ull</div>
+<h2 data-i18n="glance_title">L'última jornada i la lliga en acció.</h2>
+</div>
+<p data-i18n="glance_sub">Els noms propis de la jornada i una finestra ràpida a les fotos i vídeos reals.</p>
+</div>
+
+<div class="league-glance-grid">
+
+<article class="glance-card glance-stats">
+<div class="glance-card-top">
+<div>
+<div class="glance-label">📊 <span data-i18n="journey_kicker">Última jornada</span></div>
+<h3 data-i18n="journey_title_short">Els destacats de la jornada</h3>
+</div>
+<div class="jornada-live" data-i18n="journey_auto">Dades automàtiques</div>
+</div>
+
+<div class="jornada-meta glance-meta" id="jornada-meta"></div>
+
+<div class="jornada-content" id="jornada-content" hidden>
+<div class="glance-awards">
+<div class="glance-award">
+<div class="glance-award-icon">🏆</div>
+<div>
+<div class="glance-award-label" data-i18n="award_wins">Més victòries</div>
+<div class="award-winners glance-winner" id="award-wins"></div>
+</div>
+</div>
+
+<div class="glance-award">
+<div class="glance-award-icon">🔄</div>
+<div>
+<div class="glance-award-label" data-i18n="award_comeback">Remuntada de la jornada</div>
+<div class="award-winners glance-winner" id="award-comeback"></div>
+</div>
+</div>
+</div>
+
+<a class="glance-link" href="./estadistiques.html">
+<span data-i18n="journey_all_stats">Veure totes les estadístiques</span>
+<span aria-hidden="true">→</span>
+</a>
+</div>
+
+<div class="jornada-empty show glance-empty" id="jornada-empty">
+<div class="jornada-empty-box">
+<strong data-i18n="journey_empty_title">La temporada està a punt de començar ⚽</strong>
+<p data-i18n="journey_empty_text">Encara no hi ha resultats de la temporada 2026/27. Quan tanqui la primera jornada, els destacats apareixeran aquí automàticament.</p>
+</div>
+</div>
+</article>
+
+<a class="glance-card glance-gallery" href="./galeria.html" aria-label="Obrir galeria">
+<img alt="Partit real de la Lliga Padbol Barcelona" loading="lazy" src="./assets/galeria/padbol-galeria-01.jpg"/>
+<div class="glance-gallery-shade"></div>
+<div class="glance-gallery-content">
+<div class="glance-label">📸 <span data-i18n="media_kicker">La Lliga en acció</span></div>
+<h3 data-i18n="media_title_short">Fotos i vídeos reals.</h3>
+<p data-i18n="media_gallery_teaser">Els partits, els punts i l'ambient real de la lliga.</p>
+<div class="glance-gallery-bottom">
+<span class="glance-count" data-i18n="media_open_gallery_short">8 fotos · 3 vídeos</span>
+<span class="glance-link glance-link-light">
+<span data-i18n="media_open_gallery_compact">Veure galeria</span>
+<span aria-hidden="true">→</span>
+</span>
+</div>
+</div>
+</a>
+
+</div>
+</div>
+</section>
+
 <section id="info">
 <div class="wrap">
 <div class="section-head">
@@ -547,6 +1188,12 @@
 </div>
 </div>
 </section>
+
+<a class="floating-wa" data-wa="join" href="https://wa.me/34615657219?text=Hola%2C%20quiero%20apuntarme%20a%20la%20Liga%20de%20Padbol%202026-27" id="floating-wa" rel="noopener" target="_blank">
+<span aria-hidden="true">💬</span>
+<span data-i18n="float_wa">Apunta-m'hi</span>
+</a>
+
 </main>
 <footer>
 <div class="wrap footer">
@@ -554,8 +1201,249 @@
 <div><a data-i18n="footer_top" href="#inicio">Tornar a dalt ↑</a></div>
 </div>
 </footer>
+<div aria-hidden="true" class="lightbox" id="photo-lightbox">
+<div class="lightbox-inner">
+<button aria-label="Tancar galeria" class="lightbox-close" data-i18n-aria="media_lightbox_close" type="button">×</button>
+<button aria-label="Foto anterior" class="lightbox-nav lightbox-prev" data-i18n-aria="media_lightbox_prev" type="button">‹</button>
+<img alt="" id="lightbox-image" src=""/>
+<button aria-label="Foto següent" class="lightbox-nav lightbox-next" data-i18n-aria="media_lightbox_next" type="button">›</button>
+<p class="lightbox-caption" id="lightbox-caption"></p>
+</div>
+</div>
 <script>
-    const I18N = {"ca": {"nav_how": "Com funciona", "nav_ranking": "Classificació", "nav_info": "Informació", "nav_faq": "FAQ", "nav_join": "Apunta-m'hi", "hero_eyebrow": "Apunta't a la Lliga · Temporada 2026/27", "hero_title": "Competeix.<br>Aprèn.<br><span>Puja de pista.</span>", "hero_copy": "Una Lliga de Padbol a Barcelona: parelles rotatives, partits dinàmics i una classificació individual per mesurar la teva evolució.", "hero_join": "💬 Apunta-m'hi per WhatsApp", "hero_ranking": "Veure classificació →", "hero_meta_1": "Dijous · 20:00–22:00", "hero_meta_2": "CEM Guinardó · Martinenc", "hero_meta_3": "No necessites parella fixa", "score_courts": "pistes", "score_games": "jocs", "score_pairs": "parelles", "quick_1_b": "📅 Cada dijous", "quick_1_s": "De setembre a juny, excepte festius", "quick_2_b": "🕗 20:00–22:00", "quick_2_s": "També pots venir només una hora", "quick_3_b": "📍 Guinardó", "quick_3_s": "Av. Mare de Déu de Montserrat, 136", "quick_4_b": "⚡ Format dinàmic", "quick_4_s": "Parelles noves a cada partit", "how_kicker": "Més que una lliga", "how_title": "Una competició dissenyada per millorar jugant.", "how_lead": "L'experiència del primer any ens va deixar una conclusió inesperada: això no és només una lliga de Padbol, és una Lliga-Escola. Competeixes amb tu mateix, aprens de rivals i companys i, de passada, tots pugem de nivell. Tremola, Ronaldinho! 😄", "school_title": "Lliga-Escola de Padbol", "school_p1": "L'objectiu no és únicament sumar victòries. En jugar amb companys i rivals diferents, cada partit t'obliga a adaptar-te, comunicar-te i descobrir noves maneres de competir.", "school_p2": "No cal que vinguis amb parella: les fem in situ amb els assistents i les anem canviant. Avui company, al partit següent rival. Això és Padbol.", "school_quote": "“Tots hem millorat el nivell en un any i seguim pujant. Tremola, Ronaldinho! ⚽😄”", "step1_title": "Es formen les parelles", "step1_p": "Les combinacions es creen el mateix dia i van canviant a cada partit.", "step2_title": "Partit a 3 jocs", "step2_p": "La parella que arriba a 3 jocs guanya el partit. Cada punt compta.", "step3_title": "Puges o baixes de pista", "step3_p": "La parella guanyadora puja i la perdedora baixa, generant partits cada vegada més equilibrats.", "step4_title": "Tot suma a la teva classificació", "step4_p": "La classificació és individual i pública, amb estadístiques per seguir la teva evolució.", "rank_kicker": "Classificació pública", "rank_title": "Segueix la teva evolució jornada a jornada.", "rank_lead": "Consulta la classificació actualitzada i les estadístiques dels jugadors. El sistema individual permet competir encara que les parelles canviïn a cada partit.", "rank_open": "Obrir classificació", "rank_history": "Històric 2025/26", "rank_player": "Jugador/a", "rank_note": "Vista conceptual. Les dades reals són a la classificació oficial.", "info_kicker": "Informació pràctica", "info_title": "El més important, d'un cop d'ull.", "info_when_title": "Quan", "info_when_p": "Tots els dijous de 20:00 a 22:00. Si ho necessites, pots participar només de 20:00 a 21:00 o de 21:00 a 22:00.", "info_where_title": "On", "info_where_p": "CEM Guinardó · pistes al costat de la piscina exterior. Av. de la Mare de Déu de Montserrat, 136 · Metro L4 Guinardó.", "info_map": "Obrir ubicació →", "info_price_title": "Preu", "info_price_p": "El cost de cada jornada es reparteix proporcionalment entre els assistents, prenent com a referència el lloguer de pista (24 €/hora aprox. per cada 4 jugadors).", "faq_kicker": "Preguntes freqüents", "faq_title": "Abans de venir.", "faq1_q": "He de venir amb parella?", "faq1_a": "No. Les parelles les fem in situ amb els assistents i les canviem a cada partit. Venir sense parella no és un problema; gairebé és part de la gràcia.", "faq2_q": "La lliga és mixta?", "faq2_a": "Of course! Sí, és clar. La lliga és mixta i està oberta a jugadors i jugadores.", "faq3_q": "Què passa si no puc venir tots els dijous?", "faq3_a": "Si algun dijous puntual no pots venir, no passa res: la classificació té en compte els partits jugats. Ara bé, si només pots venir un cop cada tres mesos, potser no val la pena apuntar-s'hi... ja muntarem algun partidet amistós! 😉", "faq4_q": "Com funciona el calendari i el pagament?", "faq4_a": "Es juga els dijous, excepte festius, entre setembre i juny. El pagament es fa el mateix dia i l'import es reparteix proporcionalment entre els assistents.", "faq5_q": "Què passa si plou o hi ha molta humitat?", "faq5_a": "Si hi ha risc de pluja, un espia rus es presenta a les pistes una hora abans, determina si es juga o no i ens ho comunica a les 19:01 per WhatsApp. 🕵️🇷🇺", "faq6_q": "Per què la classificació és individual?", "faq6_a": "Primer: si hi ha una lesió o algú no pot venir, no compromet ningú més. Segon: com més persones diferents tens al costat i al davant, més aprens. Tercer: et pots apuntar quan vulguis sense haver de trobar parella fixa. I si estàs enamorat de la teva parella fixa, tranquil: ja muntarem algun torneig per parelles. 😄", "faq7_q": "Per què es juguen partits curts?", "faq7_a": "El format curt fa que cada punt tingui valor, manté un ritme alt de joc i permet rotar parelles amb freqüència. També ajuda a crear grups de nivell de manera natural.", "faq8_q": "Qui pot jugar?", "faq8_a": "Qualsevol jugador o jugadora a qui li agradi el Padbol i pugui comprometre's a assistir amb certa regularitat. Es recomana tenir una experiència mínima en Padbol i/o futbol. Anima't, vine sol o truca al col·lega i... apuntarsus!! 😄", "faq9_q": "Puc reservar pista fora de la lliga?", "faq9_a": "Sí. Pots consultar les reserves a Padbol Barcelona. Les hores de la lliga són els dijous de 20:00 a 22:00.", "faq9_link": "Anar a Padbol Barcelona →", "cta_title": "Vens aquest dijous?", "cta_p": "Escriu-nos per WhatsApp, dona'ns el teu nom i cognom o un sobrenom esportiu —tipus Joan el Xilenes o el Cames Llargues de Guinardó— i ens veiem dijous a les 20 h. No cal parella.", "footer_copy": "© 2026 Lliga Padbol Barcelona · Temporada 2026/27", "footer_top": "Tornar a dalt ↑", "aria_home": "Lliga Padbol - Inici", "aria_menu": "Obrir menú", "aria_nav": "Navegació principal", "aria_rank_example": "Exemple visual de classificació", "faq10_q": "Per què juguem sempre el mateix dia?", "faq10_a": "Per buscar el compromís d'un dia concret. Les lligues amb dies aleatoris no van funcionar gaire bé en el passat 😅. Si hi ha prou demanda per un altre dia, ens ho plantegem."}, "es": {"nav_how": "Cómo funciona", "nav_ranking": "Clasificación", "nav_info": "Información", "nav_faq": "FAQ", "nav_join": "Apuntarme", "hero_eyebrow": "Apúntate a la Liga · Temporada 2026/27", "hero_title": "Compite.<br>Aprende.<br><span>Sube de pista.</span>", "hero_copy": "Una Liga de Padbol en Barcelona: parejas rotativas, partidos dinámicos y una clasificación individual para medir tu evolución.", "hero_join": "💬 Apuntarme por WhatsApp", "hero_ranking": "Ver clasificación →", "hero_meta_1": "Jueves · 20:00–22:00", "hero_meta_2": "CEM Guinardó · Martinenc", "hero_meta_3": "No necesitas pareja fija", "score_courts": "pistas", "score_games": "juegos", "score_pairs": "parejas", "quick_1_b": "📅 Cada jueves", "quick_1_s": "De septiembre a junio, excepto festivos", "quick_2_b": "🕗 20:00–22:00", "quick_2_s": "También puedes venir solo una hora", "quick_3_b": "📍 Guinardó", "quick_3_s": "Av. Mare de Déu de Montserrat, 136", "quick_4_b": "⚡ Formato dinámico", "quick_4_s": "Parejas nuevas en cada partido", "how_kicker": "Más que una liga", "how_title": "Una competición diseñada para mejorar jugando.", "how_lead": "La experiencia del primer año nos dejó una conclusión inesperada: esto no es solo una liga de Padbol, es una Liga-Escuela. Además de competir contigo mismo, aprendes de todos los rivales y compañeros. Todos hemos mejorado notablemente el nivel en un solo año y seguimos subiendo. ¡Tiembla Ronaldinho! 😄", "school_title": "Liga-Escuela de Padbol", "school_p1": "El objetivo no es únicamente sumar victorias. Al jugar con compañeros y rivales distintos, cada partido te obliga a adaptarte, comunicarte y descubrir nuevas formas de competir.", "school_p2": "No hace falta que vengas con pareja: las creamos in situ con los asistentes y las vamos cambiando. Hoy compañero, en el siguiente partido rival. Esto es Padbol.", "school_quote": "“Todos hemos mejorado el nivel en un año y seguimos subiendo. ¡Tiembla Ronaldinho! ⚽😄”", "step1_title": "Se forman las parejas", "step1_p": "Las combinaciones se crean el mismo día y van cambiando en cada partido.", "step2_title": "Partido a 3 juegos", "step2_p": "La pareja que alcanza 3 juegos gana el partido. Cada punto cuenta.", "step3_title": "Subes o bajas de pista", "step3_p": "La pareja ganadora sube y la perdedora baja, generando partidos cada vez más equilibrados.", "step4_title": "Todo suma a tu clasificación", "step4_p": "La clasificación es individual y pública, con estadísticas para seguir tu evolución.", "rank_kicker": "Clasificación pública", "rank_title": "Sigue tu evolución jornada a jornada.", "rank_lead": "Consulta la clasificación actualizada y las estadísticas de los jugadores. El sistema individual permite competir aunque las parejas cambien en cada partido.", "rank_open": "Abrir clasificación", "rank_history": "Histórico 2025/26", "rank_player": "Jugador/a", "rank_note": "Vista conceptual. Los datos reales están en la clasificación oficial.", "info_kicker": "Información práctica", "info_title": "Lo importante, de un vistazo.", "info_when_title": "Cuándo", "info_when_p": "Todos los jueves de 20:00 a 22:00. Si lo necesitas, puedes participar solo de 20:00 a 21:00 o de 21:00 a 22:00.", "info_where_title": "Dónde", "info_where_p": "CEM Guinardó · pistas junto a la piscina exterior. Av. de la Mare de Déu de Montserrat, 136 · Metro L4 Guinardó.", "info_map": "Abrir ubicación →", "info_price_title": "Precio", "info_price_p": "El coste de cada jornada se reparte proporcionalmente entre los asistentes, tomando como referencia el alquiler de pista (24 €/hora aprox. por cada 4 jugadores).", "faq_kicker": "Preguntas frecuentes", "faq_title": "Antes de venir.", "faq1_q": "¿Tengo que venir con pareja?", "faq1_a": "No. Las parejas las creamos in situ con los asistentes y cambian en cada partido. Venir sin pareja no es un problema; casi es parte de la gracia.", "faq2_q": "¿La liga es mixta?", "faq2_a": "Of course. ¡Sí, por supuesto! La liga es mixta y está abierta a jugadores y jugadoras.", "faq3_q": "¿Qué pasa si no puedo ir todos los jueves?", "faq3_a": "Si algún jueves puntual no puedes venir, no pasa nada: la clasificación es relativa a los partidos jugados. Pero si solo puedes venir uno cada tres meses, no vale la pena apuntarse... ¡ya organizaremos algún partidillo amistoso! 😉", "faq4_q": "¿Cómo funciona el calendario y el pago?", "faq4_a": "Se juega los jueves, excepto festivos, entre septiembre y junio. El pago se realiza el mismo día y el importe se reparte proporcionalmente entre los asistentes.", "faq5_q": "¿Qué ocurre si llueve o hay mucha humedad?", "faq5_a": "Si hay riesgo de lluvia, un espía ruso se persona en las pistas una hora antes, determina si se juega o no y nos lo comunica a las 19:01 por WhatsApp. 🕵️🇷🇺", "faq6_q": "¿Por qué la clasificación es individual?", "faq6_a": "El 1º motivo es que, si hay una lesión o imposibilidad de asistir, no se compromete a nadie más. La 2ª razón es que cuanto con más personas juegas, más aprendes. La 3ª es que la gente se puede apuntar cuando quiera sin necesidad de conseguir pareja fija. Si estás enamorado de tu pareja fija, tranqui: montaremos algún torneo por parejas. 😄", "faq7_q": "¿Por qué se juegan partidos cortos?", "faq7_a": "El formato corto hace que cada punto tenga valor, mantiene un ritmo alto de juego y permite rotar parejas con frecuencia. También ayuda a crear grupos de nivel de forma natural.", "faq8_q": "¿Quién puede jugar?", "faq8_a": "Todo jugador o jugadora al que le guste el Padbol y que se comprometa a asistir habitualmente. Se recomienda tener un mínimo de experiencia en Padbol y/o fútbol. ¡Anímate y ven solo o llama a tu colega y apuntarsus!! 😄", "faq9_q": "¿Puedo reservar pista fuera de la liga?", "faq9_a": "Sí. Puedes consultar las reservas en Padbol Barcelona. Las horas de la liga son los jueves de 20:00 a 22:00.", "faq9_link": "Ir a Padbol Barcelona →", "cta_title": "¿Te vienes este jueves?", "cta_p": "Escríbenos por WhatsApp, danos tu nombre y apellido o un mote deportivo —por ejemplo Juan el Chilenas o el Patas Largas de Guinardó— y nos vemos el jueves a las 20 h. No hace falta pareja.", "footer_copy": "© 2026 Liga Padbol Barcelona · Temporada 2026/27", "footer_top": "Volver arriba ↑", "aria_home": "Liga Padbol - Inicio", "aria_menu": "Abrir menú", "aria_nav": "Navegación principal", "aria_rank_example": "Ejemplo visual de clasificación", "faq10_q": "¿Por qué jugamos siempre el mismo día?", "faq10_a": "Para buscar el compromiso de un día concreto. Las ligas de días aleatorios no funcionaron demasiado bien en el pasado 😅. Si hay suficiente demanda para otro día, nos lo planteamos."}};
+    const I18N = {"ca": {"nav_how": "Com funciona", "nav_ranking": "Classificació", "nav_matches": "Partits", "nav_stats": "Estadístiques", "nav_gallery": "Galeria", "nav_info": "Informació", "nav_faq": "FAQ", "nav_join": "Apunta-m'hi", "glance_kicker":"La lliga d\'un cop d\'ull","glance_title":"L\'última jornada i la lliga en acció.","glance_sub":"Els noms propis de la jornada i una finestra ràpida a les fotos i vídeos reals.","journey_kicker":"Última jornada","journey_title_short":"Els destacats de la jornada","journey_title":"Els noms propis de la jornada.","journey_lead":"Resultats i destacats calculats automàticament a partir dels partits registrats.","journey_auto":"Dades automàtiques","journey_all_stats":"Veure totes les estadístiques","journey_empty_title":"La temporada està a punt de començar ⚽","journey_empty_text":"Encara no hi ha resultats de la temporada 2026/27. Quan tanqui la primera jornada, els destacats apareixeran aquí automàticament.","award_wins":"Més victòries","award_precision":"Millor precisió","award_matches":"Més partits","award_comeback":"Remuntada de la jornada","extra_awards_title":"Més estadístiques de la jornada","extra_awards_sub":"Ratxes, jocs, parelles i domini de pista.","award_streak":"Millor ratxa","award_game_diff":"Millor diferencial de jocs","award_game_precision":"Millor precisió de jocs","award_pair":"Parella de la jornada","award_undefeated":"Invicte/a de la jornada","award_games_played":"Més jocs disputats","award_court":"Dominador/a de pista","award_perfect":"Balanç perfecte","float_wa":"Apunta-m'hi", "hero_eyebrow": "Apunta't a la Lliga · Temporada 2026/27", "hero_title": "Competeix.<br>Aprèn.<br><span>Puja de pista.</span>", "hero_copy": "Una Lliga de Padbol a Barcelona: parelles rotatives, partits dinàmics i una classificació individual per mesurar la teva evolució.", "hero_join": "💬 Apunta-m'hi per WhatsApp", "hero_ranking": "Veure classificació →", "hero_meta_1": "Dijous · 20:00–22:00", "hero_meta_2": "CEM Guinardó · Martinenc", "hero_meta_3": "No necessites parella fixa", "score_courts": "pistes", "score_games": "jocs", "score_pairs": "parelles", "quick_1_b": "📅 Cada dijous", "quick_1_s": "De setembre a juny, excepte festius", "quick_2_b": "🕗 20:00–22:00", "quick_2_s": "També pots venir només una hora", "quick_3_b": "📍 Guinardó", "quick_3_s": "Av. Mare de Déu de Montserrat, 136", "quick_4_b": "⚡ Format dinàmic", "quick_4_s": "Parelles noves a cada partit", "how_kicker": "Més que una lliga", "how_title": "Una competició dissenyada per millorar jugant.", "how_lead": "L'experiència del primer any ens va deixar una conclusió inesperada: això no és només una lliga de Padbol, és una Lliga-Escola. Competeixes amb tu mateix, aprens de rivals i companys i, de passada, tots pugem de nivell. Tremola, Ronaldinho! 😄", "school_title": "Lliga-Escola de Padbol", "school_p1": "L'objectiu no és únicament sumar victòries. En jugar amb companys i rivals diferents, cada partit t'obliga a adaptar-te, comunicar-te i descobrir noves maneres de competir.", "school_p2": "No cal que vinguis amb parella: les fem in situ amb els assistents i les anem canviant. Avui company, al partit següent rival. Això és Padbol.", "school_quote": "“Tots hem millorat el nivell en un any i seguim pujant. Tremola, Ronaldinho! ⚽😄”", "step1_title": "Es formen les parelles", "step1_p": "Les combinacions es creen el mateix dia i van canviant a cada partit.", "step2_title": "Partit al millor de 3 jocs", "step2_p": "La primera parella que guanya 2 jocs s’emporta el partit. Cada joc compta.", "step3_title": "Puges o baixes de pista", "step3_p": "La parella guanyadora puja i la perdedora baixa, generant partits cada vegada més equilibrats.", "step4_title": "Tot suma a la teva classificació", "step4_p": "La classificació és individual i pública, amb estadístiques per seguir la teva evolució.", "media_kicker": "La Lliga en acció", "media_title_short":"Fotos i vídeos reals.","media_gallery_teaser":"Els partits, els punts i l\'ambient real de la lliga.","media_open_gallery_compact":"Veure galeria","media_open_gallery_short":"8 fotos · 3 vídeos", "media_title": "Fotos i vídeos reals dels partits.", "media_lead": "Una mostra visual del ritme, les pistes i l\'ambient de la lliga. Sense artificis: padbol real.", "media_gallery_label": "Galeria de fotos", "media_gallery_title": "Partits, punts i ambient real", "media_gallery_caption": "Prem sobre qualsevol foto per obrir-la en gran.", "media_expand": "Ampliar", "media_video_label": "Vídeo destacat", "media_video_title": "Veure el padbol en moviment", "media_video_caption": "Un vídeo curt per entendre millor el dinamisme dels punts, els rebots i l\'ambient real de la Lliga Padbol Barcelona.", "media_more_videos_label": "Més vídeos", "media_more_videos_title": "Més moments de la Lliga", "media_more_videos_caption": "Dos vídeos més allotjats a YouTube, reproduïbles directament des de la web.", "media_youtube_1": "Vídeo de partit · YouTube", "media_youtube_2": "Vídeo de partit · YouTube", "media_lightbox_close": "Tancar galeria", "media_lightbox_prev": "Foto anterior", "media_lightbox_next": "Foto següent", "rank_kicker": "Classificació pública", "rank_title": "Segueix la teva evolució jornada a jornada.", "rank_lead": "Consulta la classificació actualitzada i les estadístiques dels jugadors. El sistema individual permet competir encara que les parelles canviïn a cada partit.", "rank_open": "Obrir classificació", "rank_history": "Històric 2025/26", "rank_player": "Jugador/a", "rank_note": "Vista conceptual. Les dades reals són a la classificació oficial.", "info_kicker": "Informació pràctica", "info_title": "El més important, d'un cop d'ull.", "info_when_title": "Quan", "info_when_p": "Tots els dijous de 20:00 a 22:00. Si ho necessites, pots participar només de 20:00 a 21:00 o de 21:00 a 22:00.", "info_where_title": "On", "info_where_p": "CEM Guinardó · pistes al costat de la piscina exterior. Av. de la Mare de Déu de Montserrat, 136 · Metro L4 Guinardó.", "info_map": "Obrir ubicació →", "info_price_title": "Preu", "info_price_p": "El cost de cada jornada es reparteix proporcionalment entre els assistents, prenent com a referència el lloguer de pista (24 €/hora aprox. per cada 4 jugadors).", "faq_kicker": "Preguntes freqüents", "faq_title": "Abans de venir.", "faq1_q": "He de venir amb parella?", "faq1_a": "No. Les parelles les fem in situ amb els assistents i les canviem a cada partit. Venir sense parella no és un problema; gairebé és part de la gràcia.", "faq2_q": "La lliga és mixta?", "faq2_a": "Of course! Sí, és clar. La lliga és mixta i està oberta a jugadors i jugadores.", "faq3_q": "Què passa si no puc venir tots els dijous?", "faq3_a": "Si algun dijous puntual no pots venir, no passa res: la classificació té en compte els partits jugats. Ara bé, si només pots venir un cop cada tres mesos, potser no val la pena apuntar-s'hi... ja muntarem algun partidet amistós! 😉", "faq4_q": "Com funciona el calendari i el pagament?", "faq4_a": "Es juga els dijous, excepte festius, entre setembre i juny. El pagament es fa el mateix dia i l'import es reparteix proporcionalment entre els assistents.", "faq5_q": "Què passa si plou o hi ha molta humitat?", "faq5_a": "Si hi ha risc de pluja, un espia rus es presenta a les pistes una hora abans, determina si es juga o no i ens ho comunica a les 19:01 per WhatsApp. 🕵️🇷🇺", "faq6_q": "Per què la classificació és individual?", "faq6_a": "Primer: si hi ha una lesió o algú no pot venir, no compromet ningú més. Segon: com més persones diferents tens al costat i al davant, més aprens. Tercer: et pots apuntar quan vulguis sense haver de trobar parella fixa. I si estàs enamorat de la teva parella fixa, tranquil: ja muntarem algun torneig per parelles. 😄", "faq7_q": "Per què es juguen partits curts?", "faq7_a": "El format curt fa que cada punt tingui valor, manté un ritme alt de joc i permet rotar parelles amb freqüència. També ajuda a crear grups de nivell de manera natural.", "faq8_q": "Qui pot jugar?", "faq8_a": "Qualsevol jugador o jugadora a qui li agradi el Padbol i pugui comprometre's a assistir amb certa regularitat. Es recomana tenir una experiència mínima en Padbol i/o futbol. Anima't, vine sol o truca al col·lega i... apuntarsus!! 😄", "faq9_q": "Puc reservar pista fora de la lliga?", "faq9_a": "Sí. Pots consultar les reserves a Padbol Barcelona. Les hores de la lliga són els dijous de 20:00 a 22:00.", "faq9_link": "Anar a Padbol Barcelona →", "cta_title": "Vens aquest dijous?", "cta_p": "Escriu-nos per WhatsApp, dona'ns el teu nom i cognom o un sobrenom esportiu —tipus Joan el Xilenes o el Cames Llargues de Guinardó— i ens veiem dijous a les 20 h. No cal parella.", "footer_copy": "© 2026 Lliga Padbol Barcelona · Temporada 2026/27", "footer_top": "Tornar a dalt ↑", "aria_home": "Lliga Padbol - Inici", "aria_menu": "Obrir menú", "aria_nav": "Navegació principal", "aria_rank_example": "Exemple visual de classificació", "faq10_q": "Per què juguem sempre el mateix dia?", "faq10_a": "Per buscar el compromís d'un dia concret. Les lligues amb dies aleatoris no van funcionar gaire bé en el passat 😅. Si hi ha prou demanda per un altre dia, ens ho plantegem."}, "es": {"nav_how": "Cómo funciona", "nav_ranking": "Clasificación", "nav_matches": "Partidos", "nav_stats": "Estadísticas", "nav_gallery": "Galería", "nav_info": "Información", "nav_faq": "FAQ", "nav_join": "Apuntarme","glance_kicker":"La liga de un vistazo","glance_title":"La última jornada y la liga en acción.","glance_sub":"Los nombres propios de la jornada y una ventana rápida a las fotos y vídeos reales.","journey_kicker":"Última jornada","journey_title_short":"Los destacados de la jornada","journey_title":"Los nombres propios de la jornada.","journey_lead":"Resultados y destacados calculados automáticamente a partir de los partidos registrados.","journey_auto":"Datos automáticos","journey_all_stats":"Ver todas las estadísticas","journey_empty_title":"La temporada está a punto de empezar ⚽","journey_empty_text":"Todavía no hay resultados de la temporada 2026/27. Cuando termine la primera jornada, los destacados aparecerán aquí automáticamente.","award_wins":"Más victorias","award_precision":"Mejor precisión","award_matches":"Más partidos","award_comeback":"Remontada de la jornada","extra_awards_title":"Más estadísticas de la jornada","extra_awards_sub":"Rachas, juegos, parejas y dominio de pista.","award_streak":"Mejor racha","award_game_diff":"Mejor diferencial de juegos","award_game_precision":"Mejor precisión de juegos","award_pair":"Pareja de la jornada","award_undefeated":"Invicto/a de la jornada","award_games_played":"Más juegos disputados","award_court":"Dominador/a de pista","award_perfect":"Balance perfecto","float_wa":"Apuntarme", "hero_eyebrow": "Apúntate a la Liga · Temporada 2026/27", "hero_title": "Compite.<br>Aprende.<br><span>Sube de pista.</span>", "hero_copy": "Una Liga de Padbol en Barcelona: parejas rotativas, partidos dinámicos y una clasificación individual para medir tu evolución.", "hero_join": "💬 Apuntarme por WhatsApp", "hero_ranking": "Ver clasificación →", "hero_meta_1": "Jueves · 20:00–22:00", "hero_meta_2": "CEM Guinardó · Martinenc", "hero_meta_3": "No necesitas pareja fija", "score_courts": "pistas", "score_games": "juegos", "score_pairs": "parejas", "quick_1_b": "📅 Cada jueves", "quick_1_s": "De septiembre a junio, excepto festivos", "quick_2_b": "🕗 20:00–22:00", "quick_2_s": "También puedes venir solo una hora", "quick_3_b": "📍 Guinardó", "quick_3_s": "Av. Mare de Déu de Montserrat, 136", "quick_4_b": "⚡ Formato dinámico", "quick_4_s": "Parejas nuevas en cada partido", "how_kicker": "Más que una liga", "how_title": "Una competición diseñada para mejorar jugando.", "how_lead": "La experiencia del primer año nos dejó una conclusión inesperada: esto no es solo una liga de Padbol, es una Liga-Escuela. Además de competir contigo mismo, aprendes de todos los rivales y compañeros. Todos hemos mejorado notablemente el nivel en un solo año y seguimos subiendo. ¡Tiembla Ronaldinho! 😄", "school_title": "Liga-Escuela de Padbol", "school_p1": "El objetivo no es únicamente sumar victorias. Al jugar con compañeros y rivales distintos, cada partido te obliga a adaptarte, comunicarte y descubrir nuevas formas de competir.", "school_p2": "No hace falta que vengas con pareja: las creamos in situ con los asistentes y las vamos cambiando. Hoy compañero, en el siguiente partido rival. Esto es Padbol.", "school_quote": "“Todos hemos mejorado el nivel en un año y seguimos subiendo. ¡Tiembla Ronaldinho! ⚽😄”", "step1_title": "Se forman las parejas", "step1_p": "Las combinaciones se crean el mismo día y van cambiando en cada partido.", "step2_title": "Partido al mejor de 3 juegos", "step2_p": "La primera pareja que gana 2 juegos se lleva el partido. Cada juego cuenta.", "step3_title": "Subes o bajas de pista", "step3_p": "La pareja ganadora sube y la perdedora baja, generando partidos cada vez más equilibrados.", "step4_title": "Todo suma a tu clasificación", "step4_p": "La clasificación es individual y pública, con estadísticas para seguir tu evolución.", "media_kicker": "La Liga en acción", "media_title_short":"Fotos y vídeos reales.","media_gallery_teaser":"Los partidos, los puntos y el ambiente real de la liga.","media_open_gallery_compact":"Ver galería","media_open_gallery_short":"8 fotos · 3 vídeos", "media_title": "Fotos y vídeos reales de los partidos.", "media_lead": "Una muestra visual del ritmo, las pistas y el ambiente de la liga. Sin artificios: padbol real.", "media_gallery_label": "Galería de fotos", "media_gallery_title": "Partidos, puntos y ambiente real", "media_gallery_caption": "Pulsa cualquier foto para verla en grande.", "media_expand": "Ampliar", "media_video_label": "Vídeo destacado", "media_video_title": "Ver el padbol en movimiento", "media_video_caption": "Un vídeo corto para entender mejor el dinamismo de los puntos, los rebotes y el ambiente real de la Liga Padbol Barcelona.", "media_more_videos_label": "Más vídeos", "media_more_videos_title": "Más momentos de la Liga", "media_more_videos_caption": "Dos vídeos más alojados en YouTube, reproducibles directamente desde la web.", "media_youtube_1": "Vídeo de partido · YouTube", "media_youtube_2": "Vídeo de partido · YouTube", "media_lightbox_close": "Cerrar galería", "media_lightbox_prev": "Foto anterior", "media_lightbox_next": "Foto siguiente", "rank_kicker": "Clasificación pública", "rank_title": "Sigue tu evolución jornada a jornada.", "rank_lead": "Consulta la clasificación actualizada y las estadísticas de los jugadores. El sistema individual permite competir aunque las parejas cambien en cada partido.", "rank_open": "Abrir clasificación", "rank_history": "Histórico 2025/26", "rank_player": "Jugador/a", "rank_note": "Vista conceptual. Los datos reales están en la clasificación oficial.", "info_kicker": "Información práctica", "info_title": "Lo importante, de un vistazo.", "info_when_title": "Cuándo", "info_when_p": "Todos los jueves de 20:00 a 22:00. Si lo necesitas, puedes participar solo de 20:00 a 21:00 o de 21:00 a 22:00.", "info_where_title": "Dónde", "info_where_p": "CEM Guinardó · pistas junto a la piscina exterior. Av. de la Mare de Déu de Montserrat, 136 · Metro L4 Guinardó.", "info_map": "Abrir ubicación →", "info_price_title": "Precio", "info_price_p": "El coste de cada jornada se reparte proporcionalmente entre los asistentes, tomando como referencia el alquiler de pista (24 €/hora aprox. por cada 4 jugadores).", "faq_kicker": "Preguntas frecuentes", "faq_title": "Antes de venir.", "faq1_q": "¿Tengo que venir con pareja?", "faq1_a": "No. Las parejas las creamos in situ con los asistentes y cambian en cada partido. Venir sin pareja no es un problema; casi es parte de la gracia.", "faq2_q": "¿La liga es mixta?", "faq2_a": "Of course. ¡Sí, por supuesto! La liga es mixta y está abierta a jugadores y jugadoras.", "faq3_q": "¿Qué pasa si no puedo ir todos los jueves?", "faq3_a": "Si algún jueves puntual no puedes venir, no pasa nada: la clasificación es relativa a los partidos jugados. Pero si solo puedes venir uno cada tres meses, no vale la pena apuntarse... ¡ya organizaremos algún partidillo amistoso! 😉", "faq4_q": "¿Cómo funciona el calendario y el pago?", "faq4_a": "Se juega los jueves, excepto festivos, entre septiembre y junio. El pago se realiza el mismo día y el importe se reparte proporcionalmente entre los asistentes.", "faq5_q": "¿Qué ocurre si llueve o hay mucha humedad?", "faq5_a": "Si hay riesgo de lluvia, un espía ruso se persona en las pistas una hora antes, determina si se juega o no y nos lo comunica a las 19:01 por WhatsApp. 🕵️🇷🇺", "faq6_q": "¿Por qué la clasificación es individual?", "faq6_a": "El 1º motivo es que, si hay una lesión o imposibilidad de asistir, no se compromete a nadie más. La 2ª razón es que cuanto con más personas juegas, más aprendes. La 3ª es que la gente se puede apuntar cuando quiera sin necesidad de conseguir pareja fija. Si estás enamorado de tu pareja fija, tranqui: montaremos algún torneo por parejas. 😄", "faq7_q": "¿Por qué se juegan partidos cortos?", "faq7_a": "El formato corto hace que cada punto tenga valor, mantiene un ritmo alto de juego y permite rotar parejas con frecuencia. También ayuda a crear grupos de nivel de forma natural.", "faq8_q": "¿Quién puede jugar?", "faq8_a": "Todo jugador o jugadora al que le guste el Padbol y que se comprometa a asistir habitualmente. Se recomienda tener un mínimo de experiencia en Padbol y/o fútbol. ¡Anímate y ven solo o llama a tu colega y apuntarsus!! 😄", "faq9_q": "¿Puedo reservar pista fuera de la liga?", "faq9_a": "Sí. Puedes consultar las reservas en Padbol Barcelona. Las horas de la liga son los jueves de 20:00 a 22:00.", "faq9_link": "Ir a Padbol Barcelona →", "cta_title": "¿Te vienes este jueves?", "cta_p": "Escríbenos por WhatsApp, danos tu nombre y apellido o un mote deportivo —por ejemplo Juan el Chilenas o el Patas Largas de Guinardó— y nos vemos el jueves a las 20 h. No hace falta pareja.", "footer_copy": "© 2026 Liga Padbol Barcelona · Temporada 2026/27", "footer_top": "Volver arriba ↑", "aria_home": "Liga Padbol - Inicio", "aria_menu": "Abrir menú", "aria_nav": "Navegación principal", "aria_rank_example": "Ejemplo visual de clasificación", "faq10_q": "¿Por qué jugamos siempre el mismo día?", "faq10_a": "Para buscar el compromiso de un día concreto. Las ligas de días aleatorios no funcionaron demasiado bien en el pasado 😅. Si hay suficiente demanda para otro día, nos lo planteamos."}};
+
+
+    let LAST_API_DATA = null;
+
+    function currentLang() {
+      return document.documentElement.lang === 'es' ? 'es' : 'ca';
+    }
+
+    function decimalComma(value) {
+      const n = Number(value);
+      if (!Number.isFinite(n)) return String(value ?? '');
+      return n.toLocaleString(currentLang() === 'ca' ? 'ca-ES' : 'es-ES', {
+        minimumFractionDigits: Number.isInteger(n) ? 0 : 1,
+        maximumFractionDigits: 1
+      });
+    }
+
+    function awardPerson(container, name, detail) {
+      if (!container) return;
+      const person = document.createElement('div');
+      person.className = 'award-person';
+
+      const strong = document.createElement('strong');
+      strong.textContent = name || '—';
+
+      const small = document.createElement('small');
+      small.textContent = detail || '';
+
+      person.append(strong, small);
+      container.appendChild(person);
+    }
+
+    function clearAward(id) {
+      const el = document.getElementById(id);
+      if (el) el.replaceChildren();
+      return el;
+    }
+
+    function renderUltimaJornada(data) {
+      const latest = data && data.ultimaJornada;
+      const meta = document.getElementById('jornada-meta');
+      const content = document.getElementById('jornada-content');
+      const empty = document.getElementById('jornada-empty');
+
+      if (!meta || !content || !empty) return;
+
+      meta.replaceChildren();
+
+      if (!latest || latest.error) {
+        content.hidden = true;
+        empty.classList.add('show');
+        return;
+      }
+
+      empty.classList.remove('show');
+      content.hidden = false;
+
+      const lang = currentLang();
+      const chips = [
+        `${lang === 'ca' ? 'Jornada' : 'Jornada'} ${latest.jornada}`,
+        latest.fecha || '',
+        `${latest.jugadores} ${lang === 'ca' ? 'jugadors' : 'jugadores'}`,
+        `${latest.partidos} ${lang === 'ca' ? 'partits' : 'partidos'}`
+      ].filter(Boolean);
+
+      chips.forEach(text => {
+        const chip = document.createElement('span');
+        chip.className = 'jornada-chip';
+        chip.textContent = text;
+        meta.appendChild(chip);
+      });
+
+      const premios = latest.premios || {};
+
+      const wins = clearAward('award-wins');
+      const precision = clearAward('award-precision');
+      const matches = clearAward('award-matches');
+      const comeback = clearAward('award-comeback');
+      const streak = clearAward('award-streak');
+      const gameDiff = clearAward('award-game-diff');
+      const gamePrecision = clearAward('award-game-precision');
+      const pair = clearAward('award-pair');
+      const undefeated = clearAward('award-undefeated');
+      const gamesPlayed = clearAward('award-games-played');
+      const court = clearAward('award-court');
+      const perfect = clearAward('award-perfect');
+
+      const moreWins = Array.isArray(premios.masVictorias) ? premios.masVictorias : [];
+      const bestPrecision = Array.isArray(premios.mejorPrecision) ? premios.mejorPrecision : [];
+      const moreMatches = Array.isArray(premios.masPartidos) ? premios.masPartidos : [];
+      const comebacks = Array.isArray(premios.remontada) ? premios.remontada : [];
+      const bestStreak = Array.isArray(premios.mejorRacha) ? premios.mejorRacha : [];
+      const bestGameDiff = Array.isArray(premios.mejorDiferencialJuegos) ? premios.mejorDiferencialJuegos : [];
+      const bestGamePrecision = Array.isArray(premios.mejorPrecisionJuegos) ? premios.mejorPrecisionJuegos : [];
+      const bestPair = Array.isArray(premios.parejaJornada) ? premios.parejaJornada : [];
+      const undefeatedPlayers = Array.isArray(premios.invictos) ? premios.invictos : [];
+      const mostGames = Array.isArray(premios.masJuegosDisputados) ? premios.masJuegosDisputados : [];
+      const courtKings = Array.isArray(premios.dominadorPista) ? premios.dominadorPista : [];
+      const perfectPlayers = Array.isArray(premios.balancePerfecto) ? premios.balancePerfecto : [];
+
+      moreWins.forEach(p => {
+        const detail = lang === 'ca'
+          ? `${p.victorias} victòries · ${p.partidos} partits`
+          : `${p.victorias} victorias · ${p.partidos} partidos`;
+        awardPerson(wins, p.nombre, detail);
+      });
+
+      bestPrecision.forEach(p => {
+        const detail = lang === 'ca'
+          ? `${p.victorias}/${p.partidos} victòries · ${decimalComma(p.precision)}%`
+          : `${p.victorias}/${p.partidos} victorias · ${decimalComma(p.precision)}%`;
+        awardPerson(precision, p.nombre, detail);
+      });
+
+      moreMatches.forEach(p => {
+        const detail = lang === 'ca'
+          ? `${p.partidos} partits · ${p.victorias} victòries`
+          : `${p.partidos} partidos · ${p.victorias} victorias`;
+        awardPerson(matches, p.nombre, detail);
+      });
+
+      comebacks.forEach(p => {
+        const a = p.peorMomento || {};
+        const b = p.final || {};
+        const score = `${a.victorias ?? 0}-${a.derrotas ?? 0} → ${b.victorias ?? 0}-${b.derrotas ?? 0}`;
+        const detail = lang === 'ca'
+          ? `${score} · remunta ${p.deficit} ${p.deficit === 1 ? 'partit' : 'partits'}`
+          : `${score} · remonta ${p.deficit} ${p.deficit === 1 ? 'partido' : 'partidos'}`;
+        awardPerson(comeback, p.nombre, detail);
+      });
+
+      bestStreak.forEach(p => {
+        awardPerson(
+          streak,
+          p.nombre,
+          lang === 'ca'
+            ? `${p.racha} ${p.racha === 1 ? 'victòria seguida' : 'victòries seguides'}`
+            : `${p.racha} ${p.racha === 1 ? 'victoria seguida' : 'victorias seguidas'}`
+        );
+      });
+
+      bestGameDiff.forEach(p => {
+        const sign = Number(p.diferencial) > 0 ? '+' : '';
+        awardPerson(
+          gameDiff,
+          p.nombre,
+          `${sign}${p.diferencial} · ${p.juegosGanados}-${p.juegosPerdidos} ${lang === 'ca' ? 'jocs' : 'juegos'}`
+        );
+      });
+
+      bestGamePrecision.forEach(p => {
+        awardPerson(
+          gamePrecision,
+          p.nombre,
+          `${p.juegosGanados}/${p.juegosDisputados} · ${decimalComma(p.precision)}%`
+        );
+      });
+
+      bestPair.forEach(p => {
+        const nombres = Array.isArray(p.jugadores) ? p.jugadores.join(' + ') : (p.nombre || '—');
+        awardPerson(
+          pair,
+          nombres,
+          lang === 'ca'
+            ? `${p.victorias}/${p.partidos} victòries · ${decimalComma(p.precision)}%`
+            : `${p.victorias}/${p.partidos} victorias · ${decimalComma(p.precision)}%`
+        );
+      });
+
+      undefeatedPlayers.forEach(p => {
+        awardPerson(
+          undefeated,
+          p.nombre,
+          lang === 'ca'
+            ? `${p.partidos} partits · ${p.victorias} victòries`
+            : `${p.partidos} partidos · ${p.victorias} victorias`
+        );
+      });
+
+      mostGames.forEach(p => {
+        awardPerson(
+          gamesPlayed,
+          p.nombre,
+          `${p.juegosDisputados} ${lang === 'ca' ? 'jocs' : 'juegos'} · ${p.juegosGanados}-${p.juegosPerdidos}`
+        );
+      });
+
+      courtKings.forEach(p => {
+        awardPerson(
+          court,
+          p.nombre,
+          lang === 'ca'
+            ? `Pista 1 · ${p.victorias}/${p.partidos} victòries`
+            : `Pista 1 · ${p.victorias}/${p.partidos} victorias`
+        );
+      });
+
+      perfectPlayers.forEach(p => {
+        awardPerson(
+          perfect,
+          p.nombre,
+          lang === 'ca'
+            ? `${p.partidos} partits · tots guanyats 2-0`
+            : `${p.partidos} partidos · todos ganados 2-0`
+        );
+      });
+
+      if (!moreWins.length) awardPerson(wins, '—', lang === 'ca' ? 'Sense dades' : 'Sin datos');
+      if (!bestPrecision.length) awardPerson(precision, '—', lang === 'ca' ? 'Mínim 3 partits' : 'Mínimo 3 partidos');
+      if (!moreMatches.length) awardPerson(matches, '—', lang === 'ca' ? 'Sense dades' : 'Sin datos');
+      if (!comebacks.length) awardPerson(comeback, '—', lang === 'ca' ? 'Cap remuntada aquesta jornada' : 'Sin remontadas esta jornada');
+      if (!bestStreak.length) awardPerson(streak, '—', lang === 'ca' ? 'Sense ratxa destacada' : 'Sin racha destacada');
+      if (!bestGameDiff.length) awardPerson(gameDiff, '—', lang === 'ca' ? 'Sense dades' : 'Sin datos');
+      if (!bestGamePrecision.length) awardPerson(gamePrecision, '—', lang === 'ca' ? 'Mínim 3 partits' : 'Mínimo 3 partidos');
+      if (!bestPair.length) awardPerson(pair, '—', lang === 'ca' ? 'Sense parella destacada' : 'Sin pareja destacada');
+      if (!undefeatedPlayers.length) awardPerson(undefeated, '—', lang === 'ca' ? 'Cap invicte amb 3+ partits' : 'Ningún invicto con 3+ partidos');
+      if (!mostGames.length) awardPerson(gamesPlayed, '—', lang === 'ca' ? 'Sense dades' : 'Sin datos');
+      if (!courtKings.length) awardPerson(court, '—', lang === 'ca' ? 'Sense victòries a Pista 1' : 'Sin victorias en Pista 1');
+      if (!perfectPlayers.length) awardPerson(perfect, '—', lang === 'ca' ? 'Cap balanç perfecte' : 'Ningún balance perfecto');
+    }
+
+    function initFloatingWhatsApp() {
+      const floating = document.getElementById('floating-wa');
+      const cta = document.querySelector('section.cta');
+      if (!floating || !cta || !('IntersectionObserver' in window)) return;
+
+      const observer = new IntersectionObserver(entries => {
+        floating.classList.toggle('is-hidden', entries.some(entry => entry.isIntersecting));
+      }, { threshold: 0.12 });
+
+      observer.observe(cta);
+    }
 
     function setLang(lang) {
       if (!I18N[lang]) lang = 'ca';
@@ -595,6 +1483,8 @@
         el.href = 'https://wa.me/34615657219?text=' + encodeURIComponent(waJoin);
       });
 
+      if (LAST_API_DATA) renderUltimaJornada(LAST_API_DATA);
+
       document.title = lang === 'ca'
         ? 'Lliga Padbol Barcelona 2026/27'
         : 'Liga Padbol Barcelona 2026/27';
@@ -610,11 +1500,78 @@
     });
 
     setLang(localStorage.getItem('ligapadbol_lang') || 'ca');
+    initFloatingWhatsApp();
+
+
+    const lightbox = document.getElementById('photo-lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const galleryItems = Array.from(document.querySelectorAll('#padbol-gallery .gallery-item'));
+    let currentGalleryIndex = 0;
+
+    function getCaptionForItem(item) {
+      const lang = document.documentElement.lang === 'es' ? 'es' : 'ca';
+      return item.dataset[`caption${lang.charAt(0).toUpperCase() + lang.slice(1)}`] || item.querySelector('img')?.alt || '';
+    }
+
+    function showGalleryImage(index) {
+      if (!galleryItems.length) return;
+      currentGalleryIndex = (index + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[currentGalleryIndex];
+      const img = item.querySelector('img');
+      lightboxImg.src = img.currentSrc || img.src;
+      lightboxImg.alt = img.alt || '';
+      lightboxCaption.textContent = getCaptionForItem(item);
+    }
+
+    function openLightbox(index) {
+      showGalleryImage(index);
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => openLightbox(index));
+    });
+
+    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox-prev').addEventListener('click', () => showGalleryImage(currentGalleryIndex - 1));
+    document.querySelector('.lightbox-next').addEventListener('click', () => showGalleryImage(currentGalleryIndex + 1));
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (event.key === 'Escape') closeLightbox();
+      if (event.key === 'ArrowLeft') showGalleryImage(currentGalleryIndex - 1);
+      if (event.key === 'ArrowRight') showGalleryImage(currentGalleryIndex + 1);
+    });
 
     // Precalienta la clasificación mientras el usuario está en la portada.
     // Así, al abrirla, normalmente los datos ya están en localStorage.
     const RANKING_API_URL = "https://script.google.com/macros/s/AKfycbzA5MLbh4jh1SXJqBpQAhHNovlzAsezP3KDPld-9O3vikPZSvPkpytoN2zsNVkkgZUu/exec";
-    const RANKING_CACHE_PREFIX = "ligapadbol_ranking_cache_v1_";
+    const RANKING_CACHE_PREFIX = "ligapadbol_prod_ranking_cache_v1_";
+
+    try {
+      const cachedSeason = localStorage.getItem('ligapadbol_season') || '2026-27';
+      const cachedRaw = localStorage.getItem(RANKING_CACHE_PREFIX + cachedSeason);
+      if (cachedRaw) {
+        const cached = JSON.parse(cachedRaw);
+        if (cached && cached.data && Object.prototype.hasOwnProperty.call(cached.data, 'ultimaJornada')) {
+          LAST_API_DATA = cached.data;
+          renderUltimaJornada(LAST_API_DATA);
+        }
+      }
+    } catch (_) {}
+
 
     function rankingCacheKey(season) {
       return RANKING_CACHE_PREFIX + season;
@@ -623,10 +1580,14 @@
     async function prefetchRanking() {
       const season = localStorage.getItem('ligapadbol_season') || '2026-27';
       try {
-        const response = await fetch(`${RANKING_API_URL}?temporada=${encodeURIComponent(season)}`);
+        const response = await fetch(
+          `${RANKING_API_URL}?temporada=${encodeURIComponent(season)}&entorno=produccion&_=${Date.now()}`
+        );
         if (!response.ok) return;
         const data = await response.json();
         if (!data || !Array.isArray(data.jugadores)) return;
+        LAST_API_DATA = data;
+        renderUltimaJornada(LAST_API_DATA);
         localStorage.setItem(
           rankingCacheKey(season),
           JSON.stringify({ savedAt: Date.now(), data })
