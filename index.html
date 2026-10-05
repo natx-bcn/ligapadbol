@@ -907,6 +907,104 @@
       footer{padding-bottom:104px}
     }
 
+
+/* ===== Normativa teaser ===== */
+.rules-teaser-section{
+  padding:36px 0 62px;
+  background:var(--paper);
+}
+.rules-teaser{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);
+  gap:28px;
+  align-items:center;
+  padding:30px 32px;
+  border-radius:26px;
+  background:linear-gradient(135deg,#0b1d2d 0%,#12384a 100%);
+  color:white;
+  box-shadow:var(--shadow);
+}
+.rules-teaser:after{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  right:-90px;
+  top:-125px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(141,227,79,.25),rgba(141,227,79,0) 70%);
+  pointer-events:none;
+}
+.rules-teaser-copy{
+  position:relative;
+  z-index:1;
+}
+.rules-teaser .kicker{
+  color:var(--lime);
+}
+.rules-teaser h2{
+  margin:7px 0 10px;
+  color:white;
+  max-width:720px;
+}
+.rules-teaser p{
+  margin:0;
+  max-width:760px;
+  color:#c8d7e1;
+  font-weight:650;
+}
+.rules-mini-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.rules-mini{
+  min-height:92px;
+  padding:14px 12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.055);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.rules-mini span{
+  font-size:1.25rem;
+}
+.rules-mini strong{
+  font-size:.82rem;
+  line-height:1.2;
+}
+.rules-teaser-action{
+  grid-column:1/-1;
+  display:flex;
+  justify-content:flex-end;
+  margin-top:-4px;
+}
+.rules-teaser-action .btn{
+  min-width:220px;
+}
+@media(max-width:850px){
+  .rules-teaser{
+    grid-template-columns:1fr;
+    padding:24px;
+  }
+  .rules-teaser-action{
+    justify-content:flex-start;
+  }
+}
+@media(max-width:520px){
+  .rules-teaser-section{padding:26px 0 44px}
+  .rules-teaser{padding:20px;border-radius:22px}
+  .rules-mini-grid{grid-template-columns:1fr}
+  .rules-mini{min-height:auto;display:grid;grid-template-columns:34px 1fr;align-items:center;gap:8px}
+  .rules-teaser-action .btn{width:100%;min-width:0}
+}
+
 </style>
 </head>
 <body>
@@ -998,6 +1096,38 @@
 </div>
 </section>
 
+
+
+<section class="rules-teaser-section" id="normativa">
+  <div class="wrap">
+    <div class="rules-teaser">
+      <div class="rules-teaser-copy">
+        <div class="kicker" data-i18n="rules_kicker">Normativa de joc</div>
+        <h2 data-i18n="rules_title">Tot el que cal saber abans d'entrar a pista.</h2>
+        <p data-i18n="rules_text">Puntuació, servei, tocs, parets, reixes i les situacions especials que poden decidir un punt.</p>
+      </div>
+
+      <div class="rules-mini-grid" aria-hidden="true">
+        <div class="rules-mini">
+          <span>🎾</span>
+          <strong data-i18n="rules_points">Puntuació</strong>
+        </div>
+        <div class="rules-mini">
+          <span>⚽</span>
+          <strong data-i18n="rules_serve">Servei</strong>
+        </div>
+        <div class="rules-mini">
+          <span>🧱</span>
+          <strong data-i18n="rules_play">Pilota en joc</strong>
+        </div>
+      </div>
+
+      <div class="rules-teaser-action">
+        <a class="btn btn-primary" href="./normativa.html" data-i18n="rules_cta">Veure la normativa →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="ranking" id="clasificacion">
 <div class="wrap ranking-grid">

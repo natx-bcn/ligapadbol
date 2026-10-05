@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Normativa · Lliga Padbol Barcelona</title>
+<meta name="theme-color" content="#081523">
+<meta name="description" content="Normativa breu de la Lliga Padbol Barcelona: puntuació, servei i regles de la pilota en joc.">
+<link rel="canonical" href="https://www.ligapadbol.es/normativa.html">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --ink:#081523;--ink2:#10263a;--paper:#f4f7f9;--white:#fff;
+  --text:#172535;--muted:#6d7e90;--line:#dfe7ed;
+  --lime:#8de34f;--cyan:#39d1c7;
+  --shadow:0 20px 60px rgba(9,24,40,.12);--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--paper);color:var(--text);line-height:1.55
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(8,21,35,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08)
+}
+.nav{
+  min-height:72px;display:flex;align-items:center;
+  justify-content:space-between;gap:18px
+}
+.brand{display:flex;align-items:center;gap:11px;color:white;font-weight:950}
+.brand-mark{
+  width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--lime),var(--cyan));
+  color:var(--ink);font-weight:1000
+}
+.brand small{
+  display:block;color:#9eb2c4;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase
+}
+.menu{display:flex;align-items:center;gap:15px}
+.menu>a{color:#d8e2eb;font-size:.88rem;font-weight:850}
+.menu>a.active{color:var(--lime)}
+.lang{
+  display:flex;gap:4px;border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;padding:4px
+}
+.lang button{
+  border:0;background:transparent;color:#9eb2c4;
+  padding:5px 7px;border-radius:999px;font-weight:900;cursor:pointer
+}
+.lang button.active{background:var(--lime);color:var(--ink)}
+
+.hero{
+  color:white;padding:70px 0 104px;
+  background-image:
+    linear-gradient(90deg,rgba(5,14,24,.97),rgba(5,14,24,.78) 55%,rgba(5,14,24,.45)),
+    url("./assets/padbol-cabecera.webp");
+  background-size:cover;background-position:center 45%
+}
+.kicker{
+  color:var(--lime);font-size:.78rem;font-weight:950;
+  letter-spacing:.1em;text-transform:uppercase
+}
+h1{
+  font-size:clamp(3rem,7vw,5.5rem);line-height:.95;
+  letter-spacing:-.055em;margin:14px 0
+}
+.hero p{max-width:780px;color:#c6d4dd;font-size:1.08rem;margin:0}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.hero-chip{
+  padding:8px 11px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  font-size:.78rem;font-weight:900;color:#d7e2e9
+}
+
+.content{position:relative;z-index:2;margin-top:-54px;padding-bottom:80px}
+.rules-grid{display:grid;gap:18px}
+.rule-section{
+  background:white;border:1px solid #e8eef2;border-radius:26px;
+  box-shadow:var(--shadow);overflow:hidden
+}
+.rule-head{
+  display:flex;align-items:center;gap:14px;
+  padding:22px 24px;background:linear-gradient(145deg,#0d2235,#123642);
+  color:white
+}
+.rule-icon{
+  flex:0 0 48px;width:48px;height:48px;border-radius:15px;
+  display:grid;place-items:center;background:var(--lime);
+  color:var(--ink);font-size:1.25rem
+}
+.rule-head h2{margin:0;font-size:1.55rem;letter-spacing:-.025em}
+.rule-head p{margin:2px 0 0;color:#aebfca;font-size:.86rem;font-weight:700}
+.rule-list{list-style:none;margin:0;padding:10px 22px 22px;counter-reset:item}
+.rule-list>li{
+  position:relative;padding:14px 0 14px 46px;
+  border-bottom:1px solid #edf1f3;font-weight:720
+}
+.rule-list>li:last-child{border-bottom:0}
+.rule-list>li:before{
+  counter-increment:item;content:counter(item);
+  position:absolute;left:0;top:12px;
+  width:30px;height:30px;border-radius:10px;
+  display:grid;place-items:center;background:#eef5ea;
+  color:#34751a;font-size:.76rem;font-weight:1000
+}
+.rule-list .exceptions{
+  margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px
+}
+.rule-list .exceptions li{
+  position:relative;padding:10px 12px 10px 36px;
+  border-radius:12px;background:#f4f8fa;color:#41576a;font-weight:700
+}
+.rule-list .exceptions li:before{
+  content:"✓";position:absolute;left:12px;top:9px;
+  color:#3b8a1e;font-weight:1000
+}
+
+.quick-index{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:12px;margin-bottom:18px
+}
+.quick-index a{
+  background:white;border:1px solid var(--line);border-radius:17px;
+  padding:14px 15px;font-weight:950;box-shadow:0 8px 30px rgba(9,24,40,.06)
+}
+.quick-index a:hover{border-color:#b8c9d4}
+.quick-index span{display:block;color:var(--muted);font-size:.72rem;margin-top:2px}
+
+.back{
+  display:flex;justify-content:center;margin-top:26px
+}
+.back a{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:0 18px;border-radius:13px;
+  background:var(--ink);color:white;font-weight:950
+}
+
+footer{
+  padding:0 0 50px;text-align:center;
+  color:#748797;font-size:.86rem
+}
+
+@media(max-width:900px){
+  .menu{gap:10px}.menu>a{font-size:.82rem}
+}
+@media(max-width:760px){
+  .wrap{width:min(100% - 20px,var(--max))}
+  .hero{padding:50px 0 90px}
+  .brand small{display:none}
+  .menu>a:not(.active){display:none}
+  .quick-index{grid-template-columns:1fr}
+  .rule-head{padding:18px}
+  .rule-list{padding:8px 17px 18px}
+  .rule-list>li{padding-left:42px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="./index.html">
+      <div class="brand-mark">LP</div>
+      <div>
+        <span data-i18n="brand">Lliga Padbol</span>
+        <small>Barcelona · 2026/27</small>
+      </div>
+    </a>
+
+    <nav class="menu">
+      <a href="./index.html" data-i18n="home">Inici</a>
+      <a href="./clasificacion.html" data-i18n="ranking">Classificació</a>
+      <a href="./partits.html" data-i18n="matches">Partits</a>
+      <a href="./estadistiques.html" data-i18n="stats">Estadístiques</a>
+      <a href="./galeria.html" data-i18n="gallery">Galeria</a>
+      <a class="active" href="./normativa.html" data-i18n="rules">Normativa</a>
+      <div class="lang">
+        <button type="button" data-lang="ca">CAT</button>
+        <button type="button" data-lang="es">ESP</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker" data-i18n="kicker">Reglament breu</div>
+    <h1 data-i18n="title">Normativa.</h1>
+    <p data-i18n="lead">Una guia ràpida de les regles de joc de la lliga: puntuació, servei i pilota en joc.</p>
+    <div class="hero-chips">
+      <span class="hero-chip" data-i18n="chip1">🎾 Puntuació</span>
+      <span class="hero-chip" data-i18n="chip2">⚽ Servei</span>
+      <span class="hero-chip" data-i18n="chip3">🧱 Pilota en joc</span>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+  <div class="wrap">
+
+    <nav class="quick-index" aria-label="Índex de normativa">
+      <a href="#puntuacio"><span data-i18n="index1s">01</span><b data-i18n="index1">Puntuació</b></a>
+      <a href="#servei"><span data-i18n="index2s">02</span><b data-i18n="index2">Servei</b></a>
+      <a href="#pilota"><span data-i18n="index3s">03</span><b data-i18n="index3">Pilota en joc</b></a>
+    </nav>
+
+    <div class="rules-grid">
+
+      <section class="rule-section" id="puntuacio">
+        <div class="rule-head">
+          <div class="rule-icon">🎾</div>
+          <div>
+            <h2 data-i18n="score_title">Puntuació</h2>
+            <p data-i18n="score_sub">Com es compten els punts i els sets.</p>
+          </div>
+        </div>
+        <ol class="rule-list">
+          <li data-i18n="score_1">Igual que el tennis: 0/15/30/40/avantatge/joc/set.</li>
+          <li data-i18n="score_2">El set és a 6 jocs, guanyant per dos, o tie-break.</li>
+        </ol>
+      </section>
+
+      <section class="rule-section" id="servei">
+        <div class="rule-head">
+          <div class="rule-icon">⚽</div>
+          <div>
+            <h2 data-i18n="serve_title">Servei</h2>
+            <p data-i18n="serve_sub">Posició, bot, direcció i recepció.</p>
+          </div>
+        </div>
+        <ol class="rule-list">
+          <li data-i18n="serve_1">El servei es fa amb el peu, després d'un bot previ, des de darrere de la línia de servei.</li>
+          <li data-i18n="serve_2">El servei sempre és creuat.</li>
+          <li data-i18n="serve_3">El bot previ no pot superar l'alçada del maluc abans de l'impacte.</li>
+          <li data-i18n="serve_4">La pilota ha d'entrar al camp contrari i al costat oposat abans de la línia de fons.</li>
+          <li data-i18n="serve_5">S'alterna dreta/esquerra a cada punt.</li>
+          <li data-i18n="serve_6">S'alterna l'equip que serveix a cada joc i, dins del mateix equip, també s'alterna el jugador que serveix.</li>
+          <li data-i18n="serve_7">La pilota en el servei no pot superar l'alçada de la reixa.</li>
+          <li data-i18n="serve_8">Hi ha un segon servei si el primer és falta.</li>
+          <li data-i18n="serve_9">El servei es repeteix si toca la xarxa abans d'impactar a la zona correcta del camp contrari.</li>
+          <li data-i18n="serve_10">El receptor del servei ha de deixar-la botar a terra abans de tocar-la.</li>
+        </ol>
+      </section>
+
+      <section class="rule-section" id="pilota">
+        <div class="rule-head">
+          <div class="rule-icon">🧱</div>
+          <div>
+            <h2 data-i18n="play_title">Pilota en joc</h2>
+            <p data-i18n="play_sub">Tocs, bots, parets, reixes, xarxa i joc exterior.</p>
+          </div>
+        </div>
+        <ol class="rule-list">
+          <li data-i18n="play_1">Mai no es poden fer servir braços ni mans.</li>
+          <li data-i18n="play_2">Cada jugador pot fer com a màxim un toc consecutiu.</li>
+          <li data-i18n="play_3">Mínim 2 tocs i màxim 3 tocs alterns per parella.</li>
+          <li data-i18n="play_4">Les parets es poden utilitzar per jugar amb el company.</li>
+          <li data-i18n="play_5">El rebot en paret pròpia no compta com a toc.</li>
+          <li data-i18n="play_6">Es pot tornar a un toc si prèviament la pilota rebota en una paret pròpia.</li>
+          <li data-i18n="play_7">Es pot tornar a un toc directe només si la pilota es troba a la zona vermella.</li>
+          <li data-i18n="play_8">Màxim un bot.</li>
+          <li data-i18n="play_9">En la recepció es pot jugar sense que boti al teu camp, però en aquella devolució ja no podrà botar.</li>
+          <li data-i18n="play_10">Es pot tornar de primeres des de fora del camp.</li>
+          <li data-i18n="play_11">Es pot tornar des de fora del camp per sobre de la tanca o per la porta contrària sense que passi per sobre de la xarxa.</li>
+          <li data-i18n="play_12">El pal vertical de la xarxa es considera com a vidre propi.</li>
+          <li>
+            <span data-i18n="play_13">Si la pilota toca la reixa pròpia és falta, amb dues excepcions:</span>
+            <ul class="exceptions">
+              <li data-i18n="play_13a">És vàlida si immediatament abans de tocar la reixa la pilota ha tocat el vidre.</li>
+              <li data-i18n="play_13b">És vàlida si toca la reixa pròpia després del bot al teu camp sense que el teu equip hagi tocat encara la pilota.</li>
+            </ul>
+          </li>
+          <li data-i18n="play_14">El defensor no pot atacar una pilota dividida a la xarxa abans del segon toc de l'atacant.</li>
+          <li data-i18n="play_15">Té prioritat l'equip que té la possessió.</li>
+          <li data-i18n="play_16">Si la pilota surt vàlidament per la porta del defensor, es pot tornar per la porta rival o per sobre de la reixa, sense necessitat de passar per sobre de la xarxa.</li>
+          <li data-i18n="play_17">Des de fora també es pot jugar amb el company, passant la pilota per sobre de la reixa o per la pròpia porta.</li>
+          <li data-i18n="play_18">No es pot envair el camp contrari per tocar la pilota.</li>
+          <li data-i18n="play_19">Si després de tocar la pilota hi ha invasió per la inèrcia del moviment, no és falta, sempre que no se salti la xarxa ni es trepitgi el camp contrari.</li>
+          <li data-i18n="play_20">No és falta tocar la xarxa com a conseqüència de la cursa, sempre que no hi hagi intenció d'abaixar-la o modificar-ne l'alçada en benefici propi.</li>
+          <li data-i18n="play_21">Si la pilota toca algun dels focus, és dolenta.</li>
+        </ol>
+      </section>
+
+    </div>
+
+    <div class="back">
+      <a href="./index.html" data-i18n="back">← Tornar a la lliga</a>
+    </div>
+
+  </div>
+</main>
+
+<footer><div class="wrap">Lliga Padbol Barcelona · 2026/27</div></footer>
+
+<script>
+const I18N={
+ca:{
+brand:"Lliga Padbol",home:"Inici",ranking:"Classificació",matches:"Partits",stats:"Estadístiques",gallery:"Galeria",rules:"Normativa",
+kicker:"Reglament breu",title:"Normativa.",lead:"Una guia ràpida de les regles de joc de la lliga: puntuació, servei i pilota en joc.",
+chip1:"🎾 Puntuació",chip2:"⚽ Servei",chip3:"🧱 Pilota en joc",
+index1s:"01",index2s:"02",index3s:"03",index1:"Puntuació",index2:"Servei",index3:"Pilota en joc",
+score_title:"Puntuació",score_sub:"Com es compten els punts i els sets.",
+score_1:"Igual que el tennis: 0/15/30/40/avantatge/joc/set.",
+score_2:"El set és a 6 jocs, guanyant per dos, o tie-break.",
+serve_title:"Servei",serve_sub:"Posició, bot, direcció i recepció.",
+serve_1:"El servei es fa amb el peu, després d'un bot previ, des de darrere de la línia de servei.",
+serve_2:"El servei sempre és creuat.",
+serve_3:"El bot previ no pot superar l'alçada del maluc abans de l'impacte.",
+serve_4:"La pilota ha d'entrar al camp contrari i al costat oposat abans de la línia de fons.",
+serve_5:"S'alterna dreta/esquerra a cada punt.",
+serve_6:"S'alterna l'equip que serveix a cada joc i, dins del mateix equip, també s'alterna el jugador que serveix.",
+serve_7:"La pilota en el servei no pot superar l'alçada de la reixa.",
+serve_8:"Hi ha un segon servei si el primer és falta.",
+serve_9:"El servei es repeteix si toca la xarxa abans d'impactar a la zona correcta del camp contrari.",
+serve_10:"El receptor del servei ha de deixar-la botar a terra abans de tocar-la.",
+play_title:"Pilota en joc",play_sub:"Tocs, bots, parets, reixes, xarxa i joc exterior.",
+play_1:"Mai no es poden fer servir braços ni mans.",
+play_2:"Cada jugador pot fer com a màxim un toc consecutiu.",
+play_3:"Mínim 2 tocs i màxim 3 tocs alterns per parella.",
+play_4:"Les parets es poden utilitzar per jugar amb el company.",
+play_5:"El rebot en paret pròpia no compta com a toc.",
+play_6:"Es pot tornar a un toc si prèviament la pilota rebota en una paret pròpia.",
+play_7:"Es pot tornar a un toc directe només si la pilota es troba a la zona vermella.",
+play_8:"Màxim un bot.",
+play_9:"En la recepció es pot jugar sense que boti al teu camp, però en aquella devolució ja no podrà botar.",
+play_10:"Es pot tornar de primeres des de fora del camp.",
+play_11:"Es pot tornar des de fora del camp per sobre de la tanca o per la porta contrària sense que passi per sobre de la xarxa.",
+play_12:"El pal vertical de la xarxa es considera com a vidre propi.",
+play_13:"Si la pilota toca la reixa pròpia és falta, amb dues excepcions:",
+play_13a:"És vàlida si immediatament abans de tocar la reixa la pilota ha tocat el vidre.",
+play_13b:"És vàlida si toca la reixa pròpia després del bot al teu camp sense que el teu equip hagi tocat encara la pilota.",
+play_14:"El defensor no pot atacar una pilota dividida a la xarxa abans del segon toc de l'atacant.",
+play_15:"Té prioritat l'equip que té la possessió.",
+play_16:"Si la pilota surt vàlidament per la porta del defensor, es pot tornar per la porta rival o per sobre de la reixa, sense necessitat de passar per sobre de la xarxa.",
+play_17:"Des de fora també es pot jugar amb el company, passant la pilota per sobre de la reixa o per la pròpia porta.",
+play_18:"No es pot envair el camp contrari per tocar la pilota.",
+play_19:"Si després de tocar la pilota hi ha invasió per la inèrcia del moviment, no és falta, sempre que no se salti la xarxa ni es trepitgi el camp contrari.",
+play_20:"No és falta tocar la xarxa com a conseqüència de la cursa, sempre que no hi hagi intenció d'abaixar-la o modificar-ne l'alçada en benefici propi.",
+play_21:"Si la pilota toca algun dels focus, és dolenta.",
+back:"← Tornar a la lliga"
+},
+es:{
+brand:"Liga Padbol",home:"Inicio",ranking:"Clasificación",matches:"Partidos",stats:"Estadísticas",gallery:"Galería",rules:"Reglamento",
+kicker:"Reglamento breve",title:"Reglamento.",lead:"Una guía rápida de las reglas de juego de la liga: puntuación, saque y balón en juego.",
+chip1:"🎾 Puntuación",chip2:"⚽ Saque",chip3:"🧱 Balón en juego",
+index1s:"01",index2s:"02",index3s:"03",index1:"Puntuación",index2:"Saque",index3:"Balón en juego",
+score_title:"Puntuación",score_sub:"Cómo se cuentan los puntos y los sets.",
+score_1:"Igual que el tenis: 0/15/30/40/ventaja/juego/set.",
+score_2:"El set es a 6 juegos, ganando por dos, o tie-break.",
+serve_title:"Saque",serve_sub:"Posición, bote, dirección y recepción.",
+serve_1:"El saque es con el pie, después de un bote previo, desde detrás de la línea de saque.",
+serve_2:"El saque es siempre cruzado.",
+serve_3:"El bote previo no puede superar la altura de la cadera antes del impacto.",
+serve_4:"La pelota tiene que entrar en el campo contrario y lado opuesto antes de la línea de fondo.",
+serve_5:"Se alterna derecha/izquierda en cada punto.",
+serve_6:"Se alterna el equipo que saca en cada juego y, dentro del mismo equipo, también se alterna el jugador que saca.",
+serve_7:"El balón en el saque no puede superar la altura de la reja.",
+serve_8:"Hay un segundo saque si el primero es falta.",
+serve_9:"El saque se repite si toca la red antes de impactar en la zona correcta del campo contrario.",
+serve_10:"El receptor del saque debe dejarla botar en el suelo antes de tocarla.",
+play_title:"Balón en juego",play_sub:"Toques, botes, paredes, rejas, red y juego exterior.",
+play_1:"Nunca pueden usarse brazos ni manos.",
+play_2:"Cada jugador puede dar como máximo un toque consecutivo.",
+play_3:"Mínimo 2 toques y máximo 3 toques alternos por pareja.",
+play_4:"Las paredes pueden utilizarse para jugar con el compañero.",
+play_5:"El rebote en pared propia no cuenta como toque.",
+play_6:"Se puede devolver a un toque si previamente el balón rebota en una pared propia.",
+play_7:"Puede devolverse a un toque directo solo si el balón se encuentra en la zona roja.",
+play_8:"Máximo un bote.",
+play_9:"En la recepción se puede jugar sin que bote en tu campo, pero en esa devolución ya no podrá botar.",
+play_10:"Se puede devolver de primeras desde fuera del campo.",
+play_11:"Se puede devolver desde fuera del campo por encima de la valla o por la puerta contraria sin que pase por encima de la red.",
+play_12:"El palo vertical de la red se considera como cristal propio.",
+play_13:"Si el balón toca la reja propia es falta, con dos excepciones:",
+play_13a:"Es válida si inmediatamente antes de tocar la reja el balón ha tocado el cristal.",
+play_13b:"Es válida si toca la reja propia después del bote en tu campo sin que tu equipo haya tocado todavía el balón.",
+play_14:"El defensor no puede atacar un balón dividido en la red antes del segundo toque del atacante.",
+play_15:"Tiene prioridad el equipo que tiene la posesión.",
+play_16:"Si el balón sale válidamente por la puerta del defensor, puede devolverse por la puerta rival o por encima de la reja, sin necesidad de pasar por encima de la red.",
+play_17:"Desde fuera también puede jugarse con el compañero, pasando el balón por encima de la reja o por la propia puerta.",
+play_18:"No se puede invadir el campo contrario para tocar el balón.",
+play_19:"Si después de tocar el balón hay invasión por la inercia del movimiento, no es falta, siempre que no se salte la red ni se pise el campo contrario.",
+play_20:"No es falta tocar la red como consecuencia de la carrera, siempre que no exista intención de bajarla o modificar su altura en beneficio propio.",
+play_21:"Si el balón toca alguno de los focos, es mala.",
+back:"← Volver a la liga"
+}
+};
+
+let lang=localStorage.getItem("ligapadbol_lang")||"ca";
+
+function setLang(l){
+  lang=l==="es"?"es":"ca";
+  localStorage.setItem("ligapadbol_lang",lang);
+  document.documentElement.lang=lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.dataset.i18n;
+    if(I18N[lang][key]!==undefined)el.textContent=I18N[lang][key];
+  });
+
+  document.querySelectorAll("[data-lang]").forEach(b=>{
+    b.classList.toggle("active",b.dataset.lang===lang);
+  });
+}
+
+document.querySelectorAll("[data-lang]").forEach(b=>{
+  b.addEventListener("click",()=>setLang(b.dataset.lang));
+});
+
+setLang(lang);
+</script>
+</body>
+</html>
