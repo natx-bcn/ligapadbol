@@ -1,0 +1,15 @@
+
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "es.ligapadbol.app",
+      "sha256_cert_fingerprints": [
+        "64:5F:10:0F:00:43:A6:0F:8A:37:43:60:2C:3D:56:EC:01:F7:67:A1:3E:B9:E8:5D:98:7E:EA:D2:BA:90:CD:52"
+      ]
+    }
+  }
+]
