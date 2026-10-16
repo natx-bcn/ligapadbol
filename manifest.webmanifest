@@ -1,0 +1,26 @@
+{
+  "id": "/",
+  "name": "Lliga Padbol Barcelona",
+  "short_name": "Lliga Padbol",
+  "description": "Classificació, partits, estadístiques i galeria de la Lliga Padbol Barcelona.",
+  "lang": "ca",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#081523",
+  "theme_color": "#081523",
+  "icons": [
+    {
+      "src": "/assets/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
