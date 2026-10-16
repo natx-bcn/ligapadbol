@@ -17,10 +17,81 @@
 .content{position:relative;z-index:2;margin-top:-54px;padding-bottom:76px}.section-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:#fff;border:1px solid #e7edf1;border-radius:24px;padding:24px;box-shadow:var(--shadow)}.card.full{grid-column:1/-1}.card-head{display:flex;gap:13px;align-items:flex-start;margin-bottom:18px}.icon{flex:0 0 46px;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#edf7e8;font-size:1.25rem}.card h2{margin:0;font-size:1.35rem;letter-spacing:-.025em}.card .sub{margin:4px 0 0;color:var(--muted);font-size:.87rem;font-weight:700}
 .link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.link-card{min-height:82px;border:1px solid var(--line);border-radius:16px;padding:14px 15px;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fbfcfd}.link-card:hover{border-color:#bdccd6;background:#fff}.link-card strong{display:block;font-size:.94rem}.link-card small{display:block;color:var(--muted);margin-top:3px;font-weight:650}.arrow{color:#5b9c37;font-weight:1000;font-size:1.15rem}.contact-list{display:grid;gap:10px}.contact-row{display:flex;justify-content:space-between;gap:16px;align-items:center;border-bottom:1px solid #edf1f3;padding:11px 0}.contact-row:last-child{border-bottom:0}.contact-row span{color:var(--muted);font-weight:750}.contact-row a,.contact-row strong{font-weight:950;text-align:right}.hours{display:grid;gap:9px}.hour-row{display:grid;grid-template-columns:1fr auto;gap:16px;padding:11px 0;border-bottom:1px solid #edf1f3}.hour-row:last-child{border-bottom:0}.hour-row span{font-weight:850}.hour-row strong{font-weight:950}.tip-list{display:grid;gap:10px}.tip{display:grid;grid-template-columns:36px 1fr;gap:11px;align-items:start;padding:13px 14px;border-radius:15px;background:#f7fafb;border:1px solid #edf1f3}.tip b{display:block;margin-bottom:2px}.tip p{margin:0;color:#526779;font-weight:680}.tip-emoji{font-size:1.2rem;line-height:1.4}.weather{background:linear-gradient(135deg,#2a1519,#46242a);color:#fff;border:1px solid #653139}.weather .icon{background:rgba(255,255,255,.1)}.weather .sub{color:#d9bdc1}.weather p{color:#f0dfe2;margin:0 0 16px;font-weight:700}.weather .call{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 15px;border-radius:12px;background:#fff;color:#341a1f;font-weight:1000}.note{margin-top:18px;padding:15px 17px;border-radius:16px;background:#eef5e9;border:1px solid #d8e9cf;color:#36542c;font-weight:750}footer{padding:0 0 46px;text-align:center;color:#748797;font-size:.86rem}
 @media(max-width:980px){.nav{flex-wrap:wrap;padding:10px 0;gap:10px}.menu{order:3;width:100%;overflow-x:auto;padding:2px 0 4px;scrollbar-width:none}.menu::-webkit-scrollbar{display:none}}@media(max-width:760px){.wrap{width:min(100% - 20px,var(--max))}.hero{padding:50px 0 90px}.brand small{display:none}.section-grid{grid-template-columns:1fr}.card.full{grid-column:auto}.link-grid{grid-template-columns:1fr}}@media(max-width:520px){.hero-actions .btn{width:100%}.contact-row,.hour-row{grid-template-columns:1fr;display:grid;gap:4px}.contact-row a,.contact-row strong{text-align:left}}
+
+/* ===== Menú mòbil unificat ===== */
+.mobile-menu-btn{
+  display:none;
+  margin-left:auto;
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:1.7rem;
+  line-height:1;
+  padding:8px 10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.mobile-menu-btn:focus-visible{
+  outline:2px solid var(--lime,#8de34f);
+  outline-offset:2px;
+}
+@media(max-width:920px){
+  .nav{position:relative!important}
+  .mobile-menu-btn{display:block!important}
+  .menu,
+  .links,
+  .nav-links{
+    display:none!important;
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    top:calc(100% + 8px)!important;
+    z-index:200!important;
+    width:auto!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:12px!important;
+    background:#0a1929!important;
+    border:1px solid rgba(255,255,255,.12)!important;
+    border-radius:16px!important;
+    box-shadow:0 18px 40px rgba(0,0,0,.28)!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:2px!important;
+    overflow:visible!important;
+    white-space:normal!important;
+  }
+  .menu.mobile-open,
+  .links.mobile-open,
+  .nav-links.mobile-open{
+    display:flex!important;
+  }
+  .menu > a,
+  .links > a,
+  .nav-links > a{
+    display:block!important;
+    width:100%!important;
+    padding:11px 10px!important;
+    border-radius:10px!important;
+  }
+  .menu > a.active,
+  .links > a.active,
+  .nav-links > a.active{
+    background:rgba(141,227,79,.10)!important;
+  }
+  .menu .lang,
+  .links .lang,
+  .nav-links .lang{
+    margin-top:6px!important;
+    padding-top:10px!important;
+    border-top:1px solid rgba(255,255,255,.10)!important;
+  }
+}
+
 </style>
 </head>
 <body>
-<header class="topbar"><div class="wrap nav"><a class="brand" href="./index.html"><div class="brand-mark">LP</div><div><span data-i18n="brand">Lliga Padbol</span><small>Barcelona · 2026/27</small></div></a><nav class="menu" aria-label="Navegació principal"><a href="./index.html" data-i18n="home">Inici</a><a href="./clasificacion.html" data-i18n="ranking">Classificació</a><a href="./partits.html" data-i18n="matches">Partits</a><a href="./estadistiques.html" data-i18n="stats">Estadístiques</a><a href="./galeria.html" data-i18n="gallery">Galeria</a><a href="./normativa.html" data-i18n="rules">Normativa</a><a class="active" href="./informacio.html" data-i18n="info">Informació</a><div class="lang"><button type="button" data-lang="ca">CAT</button><button type="button" data-lang="es">ESP</button></div></nav></div></header>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="./index.html"><div class="brand-mark">LP</div><div><span data-i18n="brand">Lliga Padbol</span><small>Barcelona · 2026/27</small></div></a><button class="mobile-menu-btn" type="button" aria-label="Obrir menú" aria-expanded="false" data-menu-target=".menu">☰</button><nav class="menu" aria-label="Navegació principal"><a href="./index.html" data-i18n="home">Inici</a><a href="./clasificacion.html" data-i18n="ranking">Classificació</a><a href="./partits.html" data-i18n="matches">Partits</a><a href="./estadistiques.html" data-i18n="stats">Estadístiques</a><a href="./galeria.html" data-i18n="gallery">Galeria</a><a href="./normativa.html" data-i18n="rules">Normativa</a><a class="active" href="./informacio.html" data-i18n="info">Informació</a><div class="lang"><button type="button" data-lang="ca">CAT</button><button type="button" data-lang="es">ESP</button></div></nav></div></header>
 <section class="hero"><div class="wrap"><div class="kicker" data-i18n="kicker">Informació general</div><h1 data-i18n="title">Informació pràctica.</h1><p data-i18n="lead">Ubicacions, reserves, telèfons, horaris i tot el que et convé saber abans d'anar a jugar.</p><div class="hero-actions"><a class="btn btn-primary" href="https://lix.li/kR9cL" target="_blank" rel="noopener" data-i18n="reserve">📅 Reservar pista</a><a class="btn btn-ghost" href="tel:+34934464260" data-i18n="call_reception">📞 Trucar a recepció</a></div></div></section>
 <main class="content"><div class="wrap"><div class="section-grid">
 <section class="card"><div class="card-head"><div class="icon">📍</div><div><h2 data-i18n="locations_title">Ubicacions</h2><p class="sub" data-i18n="locations_sub">Recepció i pistes de Padbol.</p></div></div><div class="link-grid"><a class="link-card" href="https://maps.app.goo.gl/B2mj19kALWvtrG2X8" target="_blank" rel="noopener"><div><strong data-i18n="reception_location">Ubicació de recepció</strong><small>Google Maps</small></div><span class="arrow">↗</span></a><a class="link-card" href="https://maps.app.goo.gl/YhKumHzYDLvQea8x8" target="_blank" rel="noopener"><div><strong data-i18n="courts_location">Ubicació de les pistes</strong><small>Google Maps</small></div><span class="arrow">↗</span></a></div></section>
@@ -38,5 +109,44 @@ es:{brand:"Liga Padbol",home:"Inicio",ranking:"Clasificación",matches:"Partidos
 };
 let lang=localStorage.getItem("ligapadbol_lang")||"ca";function setLang(l){lang=l==="es"?"es":"ca";localStorage.setItem("ligapadbol_lang",lang);document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(I18N[lang][key]!==undefined)el.textContent=I18N[lang][key]});document.querySelectorAll("[data-lang]").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===lang));document.title=lang==="ca"?"Informació pràctica · Lliga Padbol Barcelona":"Información práctica · Liga Padbol Barcelona"}document.querySelectorAll("[data-lang]").forEach(btn=>btn.addEventListener("click",()=>setLang(btn.dataset.lang)));setLang(lang);
 </script>
+
+<script>
+(function(){
+  function initMobileMenus(){
+    document.querySelectorAll(".mobile-menu-btn").forEach(function(btn){
+      var selector=btn.getAttribute("data-menu-target");
+      var menu=selector ? document.querySelector(selector) : null;
+      if(!menu) return;
+
+      btn.addEventListener("click",function(e){
+        e.stopPropagation();
+        var open=menu.classList.toggle("mobile-open");
+        btn.setAttribute("aria-expanded",open ? "true" : "false");
+      });
+
+      menu.querySelectorAll("a").forEach(function(a){
+        a.addEventListener("click",function(){
+          menu.classList.remove("mobile-open");
+          btn.setAttribute("aria-expanded","false");
+        });
+      });
+
+      document.addEventListener("click",function(e){
+        if(!menu.contains(e.target) && !btn.contains(e.target)){
+          menu.classList.remove("mobile-open");
+          btn.setAttribute("aria-expanded","false");
+        }
+      });
+    });
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",initMobileMenus);
+  }else{
+    initMobileMenus();
+  }
+})();
+</script>
+
 </body>
 </html>

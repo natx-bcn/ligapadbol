@@ -51,13 +51,84 @@ h1{font-size:clamp(3rem,7vw,5.5rem);line-height:.95;letter-spacing:-.055em;margi
 footer{padding:0 0 48px;text-align:center;color:#748797;font-size:.86rem}
 @media(max-width:980px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.video-grid{grid-template-columns:1fr 1fr}.video-card:first-child{grid-column:1/-1}.menu>a:not(.active){display:none}}
 @media(max-width:620px){.wrap{width:min(100% - 20px,var(--max))}.hero{padding:52px 0 82px}.panel{padding:14px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.gallery-item{border-radius:12px}.badge{display:none}.video-grid{grid-template-columns:1fr}.video-card:first-child{grid-column:auto}.lightbox{padding:10px}.prev{left:6px}.next{right:6px}.close{right:6px;top:6px}.brand small{display:none}}
+
+/* ===== Menú mòbil unificat ===== */
+.mobile-menu-btn{
+  display:none;
+  margin-left:auto;
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:1.7rem;
+  line-height:1;
+  padding:8px 10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.mobile-menu-btn:focus-visible{
+  outline:2px solid var(--lime,#8de34f);
+  outline-offset:2px;
+}
+@media(max-width:920px){
+  .nav{position:relative!important}
+  .mobile-menu-btn{display:block!important}
+  .menu,
+  .links,
+  .nav-links{
+    display:none!important;
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    top:calc(100% + 8px)!important;
+    z-index:200!important;
+    width:auto!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:12px!important;
+    background:#0a1929!important;
+    border:1px solid rgba(255,255,255,.12)!important;
+    border-radius:16px!important;
+    box-shadow:0 18px 40px rgba(0,0,0,.28)!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:2px!important;
+    overflow:visible!important;
+    white-space:normal!important;
+  }
+  .menu.mobile-open,
+  .links.mobile-open,
+  .nav-links.mobile-open{
+    display:flex!important;
+  }
+  .menu > a,
+  .links > a,
+  .nav-links > a{
+    display:block!important;
+    width:100%!important;
+    padding:11px 10px!important;
+    border-radius:10px!important;
+  }
+  .menu > a.active,
+  .links > a.active,
+  .nav-links > a.active{
+    background:rgba(141,227,79,.10)!important;
+  }
+  .menu .lang,
+  .links .lang,
+  .nav-links .lang{
+    margin-top:6px!important;
+    padding-top:10px!important;
+    border-top:1px solid rgba(255,255,255,.10)!important;
+  }
+}
+
 </style>
 </head>
 <body>
 <header class="topbar">
 <div class="wrap nav">
 <a class="brand" href="./index.html"><div class="brand-mark">LP</div><div><span data-i18n="brand">Lliga Padbol</span><small>Barcelona · 2026/27</small></div></a>
-<nav class="menu">
+<button class="mobile-menu-btn" type="button" aria-label="Obrir menú" aria-expanded="false" data-menu-target=".menu">☰</button><nav class="menu">
 <a href="./index.html" data-i18n="home">Inici</a>
 <a href="./clasificacion.html" data-i18n="ranking">Classificació</a>
 <a href="./partits.html" data-i18n="matches_nav">Partits</a>
@@ -170,5 +241,44 @@ box.onclick=e=>{if(e.target===box)close()};
 document.addEventListener("keydown",e=>{if(!box.classList.contains("open"))return;if(e.key==="Escape")close();if(e.key==="ArrowLeft")show(current-1);if(e.key==="ArrowRight")show(current+1)});
 setLang(lang);
 </script>
+
+<script>
+(function(){
+  function initMobileMenus(){
+    document.querySelectorAll(".mobile-menu-btn").forEach(function(btn){
+      var selector=btn.getAttribute("data-menu-target");
+      var menu=selector ? document.querySelector(selector) : null;
+      if(!menu) return;
+
+      btn.addEventListener("click",function(e){
+        e.stopPropagation();
+        var open=menu.classList.toggle("mobile-open");
+        btn.setAttribute("aria-expanded",open ? "true" : "false");
+      });
+
+      menu.querySelectorAll("a").forEach(function(a){
+        a.addEventListener("click",function(){
+          menu.classList.remove("mobile-open");
+          btn.setAttribute("aria-expanded","false");
+        });
+      });
+
+      document.addEventListener("click",function(e){
+        if(!menu.contains(e.target) && !btn.contains(e.target)){
+          menu.classList.remove("mobile-open");
+          btn.setAttribute("aria-expanded","false");
+        }
+      });
+    });
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",initMobileMenus);
+  }else{
+    initMobileMenus();
+  }
+})();
+</script>
+
 </body>
 </html>
