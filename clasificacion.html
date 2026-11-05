@@ -3,45 +3,169 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Classificació 2026/27 · Lliga Padbol Barcelona</title>
-  <meta name="robots" content="index,follow" />
+  <title>Classificació · Lliga Padbol Barcelona</title>
+
+  <!-- BETA: evitamos que Google indexe esta versión de pruebas -->
+  <meta name="robots" content="noindex,nofollow" />
   <meta name="theme-color" content="#081523" />
-  <meta name="description" content="Classificació individual de la Lliga Padbol Barcelona 2026/27: partits, victòries, precisió, assistència i rendiment per pista." />
-  <link rel="canonical" href="https://www.ligapadbol.es/clasificacion.html" />
+  <meta name="description" content="Classificació individual de la Lliga Padbol Barcelona." />
+
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
-  <meta property="og:title" content="Classificació · Lliga Padbol Barcelona" />
-  <meta property="og:description" content="Consulta la classificació individual i les estadístiques de la Lliga Padbol Barcelona." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.ligapadbol.es/clasificacion.html" />
-  <meta property="og:image" content="https://www.ligapadbol.es/assets/social-padbol.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Pista de Padbol · Lliga Padbol Barcelona" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Classificació · Lliga Padbol Barcelona" />
-  <meta name="twitter:description" content="Consulta la classificació individual i les estadístiques de la Lliga Padbol Barcelona." />
-  <meta name="twitter:image" content="https://www.ligapadbol.es/assets/social-padbol.jpg" />
   <link rel="preload" as="image" href="./assets/padbol-cabecera.webp" type="image/webp" />
   <link rel="preconnect" href="https://script.google.com" crossorigin />
   <link rel="preconnect" href="https://script.googleusercontent.com" crossorigin />
+
   <style>
     :root{
-      --ink:#081523; --ink2:#10263a; --paper:#f4f7f9; --white:#fff;
-      --text:#172535; --muted:#6d7e90; --line:#dfe7ed;
-      --lime:#8de34f; --lime2:#69ca31; --cyan:#39d1c7;
-      --gold:#f2c94c; --silver:#c8d2dc; --bronze:#c98c5a;
-      --shadow:0 20px 60px rgba(9,24,40,.12); --radius:24px; --max:1240px;
+      --ink:#081523;
+      --ink2:#10263a;
+      --paper:#f4f7f9;
+      --white:#fff;
+      --text:#172535;
+      --muted:#6d7e90;
+      --line:#dfe7ed;
+      --lime:#8de34f;
+      --lime2:#69ca31;
+      --cyan:#39d1c7;
+      --gold:#f2c94c;
+      --silver:#c8d2dc;
+      --bronze:#c98c5a;
+      --shadow:0 20px 60px rgba(9,24,40,.12);
+      --radius:24px;
+      --max:1240px;
     }
+
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--text)}
-    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
-    .topbar{position:sticky;top:0;z-index:20;background:rgba(8,21,35,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav{min-height:72px;display:flex;align-items:center;gap:18px}.brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:900;flex:0 0 auto}.brand-mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--lime),var(--cyan));color:var(--ink);font-weight:1000}.brand small{display:block;color:#9eb2c4;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
-    .nav-links{display:flex;align-items:center;gap:14px;margin-left:auto;white-space:nowrap}
-    .nav-links a{color:#d8e2eb;font-size:.86rem;font-weight:850;transition:.15s}
+
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--paper);
+      color:var(--text);
+    }
+
+    a{color:inherit;text-decoration:none}
+    button,select{font:inherit}
+    .wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+    .hidden{display:none!important}
+
+    /* ===== CABECERA ===== */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(8,21,35,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      position:relative;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--lime),var(--cyan));
+      color:var(--ink);
+      font-weight:1000;
+    }
+
+    .brand small{
+      display:block;
+      color:#9eb2c4;
+      font-size:.72rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-left:auto;
+      white-space:nowrap;
+    }
+
+    .nav-links a{
+      color:#d8e2eb;
+      font-size:.86rem;
+      font-weight:850;
+      transition:.15s;
+    }
+
     .nav-links a:hover{color:#fff}
     .nav-links a.active{color:var(--lime)}
-    .nav-actions{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex:0 0 auto;
+    }
+
+    .lang-switch{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 7px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+    }
+
+    .lang-switch button{
+      border:0;
+      background:transparent;
+      color:#9eb2c4;
+      padding:5px 7px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:.76rem;
+      font-weight:1000;
+      letter-spacing:.06em;
+    }
+
+    .lang-switch button.active{
+      background:var(--lime);
+      color:var(--ink);
+    }
+
+    .lang-switch span{
+      color:#65798b;
+      font-size:.7rem;
+    }
+
+    .mobile-menu-btn{
+      display:none;
+      margin-left:auto;
+      border:0;
+      background:transparent;
+      color:#fff;
+      font-size:1.7rem;
+      line-height:1;
+      padding:8px 10px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+
+    /* ===== HERO ===== */
     .hero{
       position:relative;
       overflow:hidden;
@@ -63,140 +187,615 @@
       background-position:center 47%;
       background-repeat:no-repeat;
     }
-    .hero .wrap{position:relative;z-index:1}
-    .hero h1{text-shadow:0 4px 24px rgba(0,0,0,.28)}
-    .hero p{color:#d5e0e8;text-shadow:0 2px 14px rgba(0,0,0,.25)}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);border-radius:999px;padding:8px 12px;color:#d9e5ee;font-size:.78rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(141,227,79,.12)}
-    h1{font-size:clamp(2.6rem,6vw,5.3rem);line-height:.95;letter-spacing:-.055em;margin:18px 0 14px}.hero p{margin:0;color:#b9cad7;font-size:1.08rem;max-width:720px}.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.pill{padding:8px 12px;border-radius:999px;background:rgba(5,14,24,.52);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);color:#eef5f8;font-size:.86rem;font-weight:800}
-    .content{margin-top:-62px;padding-bottom:76px}
-    .toolbar{background:white;border-radius:20px;box-shadow:var(--shadow);padding:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}.toolbar-left{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.status{font-size:.9rem;color:var(--muted);font-weight:700}
-    .loading,.error{background:white;border-radius:20px;padding:36px;text-align:center;box-shadow:var(--shadow);color:var(--muted)}.error{color:#9a2f2f}.hidden{display:none!important}
-    .podium{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}.podium-card{position:relative;overflow:hidden;background:linear-gradient(145deg,#0e2236,#122f3d);color:white;border-radius:22px;padding:24px;min-height:190px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08)}.podium-card:after{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:var(--lime);filter:blur(70px);opacity:.11;right:-45px;top:-35px}.place{font-size:.78rem;font-weight:1000;letter-spacing:.12em;text-transform:uppercase;color:#9eb2c4}.podium-card:nth-child(1) .place{color:var(--gold)}.podium-card:nth-child(2) .place{color:var(--silver)}.podium-card:nth-child(3) .place{color:var(--bronze)}.podium-name{font-size:1.65rem;font-weight:1000;margin-top:10px;letter-spacing:-.03em}.podium-score{font-size:2.8rem;font-weight:1000;color:var(--lime);line-height:1;margin-top:18px}.podium-sub{color:#9eb2c4;font-size:.88rem;font-weight:700;margin-top:7px}.avatar{width:56px;height:56px;border-radius:17px;object-fit:cover;background:#1a3a4d;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font-weight:1000;color:var(--lime);font-size:1.15rem;margin-top:14px}
-    .table-shell{background:white;border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.table-head{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:end;gap:18px}.table-head h2{margin:0;font-size:1.45rem;letter-spacing:-.03em}.table-head p{margin:4px 0 0;color:var(--muted);font-size:.9rem}.scroll{overflow-x:auto}.ranking-table{width:100%;border-collapse:collapse;min-width:930px}.ranking-table th{padding:13px 14px;background:#f8fafb;text-align:right;color:#6d7e90;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line);white-space:nowrap}.ranking-table th:nth-child(1),.ranking-table th:nth-child(2){text-align:left}.ranking-table td{padding:14px;border-bottom:1px solid #edf1f4;text-align:right;font-variant-numeric:tabular-nums}.ranking-table td:nth-child(1),.ranking-table td:nth-child(2){text-align:left}.ranking-table tbody tr{cursor:pointer;transition:.15s}.ranking-table tbody tr:hover{background:#f4faef}.ranknum{width:36px;height:36px;border-radius:11px;background:#edf6e8;color:#4e9928;display:grid;place-items:center;font-weight:1000}.player-cell{display:flex;align-items:center;gap:11px;font-weight:900}.mini-avatar{width:36px;height:36px;border-radius:11px;object-fit:cover;background:#eaf1f5;display:grid;place-items:center;color:#456070;font-size:.8rem}.pct{font-weight:1000;color:#4b9b25}.muted{color:var(--muted)}
-    .mobile-note{display:none;padding:13px 16px;background:#f8fafb;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
-    .modal{position:fixed;inset:0;z-index:80;background:rgba(3,11,19,.72);display:grid;place-items:center;padding:18px;backdrop-filter:blur(8px)}.modal-card{width:min(680px,100%);max-height:88vh;overflow:auto;background:white;border-radius:26px;box-shadow:0 30px 100px rgba(0,0,0,.35)}.modal-top{background:linear-gradient(135deg,#0b1e31,#123544);color:white;padding:26px;border-radius:26px 26px 0 0;position:relative}.close{position:absolute;right:16px;top:16px;border:0;background:rgba(255,255,255,.1);color:white;width:38px;height:38px;border-radius:12px;font-size:1.2rem;cursor:pointer}.modal-top h3{font-size:2rem;margin:8px 0 4px;letter-spacing:-.04em}.modal-top p{margin:0;color:#a8bdcb}.modal-body{padding:24px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fbfcfd}.stat b{display:block;font-size:1.35rem}.stat span{font-size:.78rem;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.05em}.section-label{font-size:.78rem;font-weight:1000;color:#4b9b25;text-transform:uppercase;letter-spacing:.08em;margin:24px 0 10px}.tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.track{background:#0f2538;color:white;border-radius:15px;padding:15px}.track strong{display:block;font-size:1.15rem;color:var(--lime)}.track small{color:#9eb2c4}
 
+    .hero .wrap{position:relative;z-index:1}
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      border-radius:999px;
+      padding:8px 12px;
+      color:#d9e5ee;
+      font-size:.78rem;
+      font-weight:900;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--lime);
+      box-shadow:0 0 0 5px rgba(141,227,79,.12);
+    }
+
+    h1{
+      font-size:clamp(2.6rem,6vw,5.3rem);
+      line-height:.95;
+      letter-spacing:-.055em;
+      margin:18px 0 14px;
+      text-shadow:0 4px 24px rgba(0,0,0,.28);
+    }
+
+    .hero p{
+      margin:0;
+      color:#d5e0e8;
+      font-size:1.08rem;
+      max-width:760px;
+      text-shadow:0 2px 14px rgba(0,0,0,.25);
+    }
 
     .season-wrap{
-      display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
       margin-top:16px;
     }
+
     .season-label{
-      font-size:.8rem;font-weight:900;letter-spacing:.08em;
-      text-transform:uppercase;color:#8fa3b5;
+      font-size:.8rem;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#8fa3b5;
     }
-    .season-select{
-      appearance:none;background:#0f1a24;color:#fff;
-      border:1px solid rgba(255,255,255,.16);border-radius:12px;
-      padding:10px 36px 10px 12px;font-weight:900;cursor:pointer;
+
+    .season-select,
+    .round-select{
+      appearance:none;
+      -webkit-appearance:none;
+      border-radius:12px;
+      font-weight:900;
+      cursor:pointer;
+      min-height:48px;
+      line-height:1.2;
+      font-size:16px;
+      background-repeat:no-repeat;
       background-image:
         linear-gradient(45deg,transparent 50%,#b8ff35 50%),
         linear-gradient(135deg,#b8ff35 50%,transparent 50%);
-      background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;
-      background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+      background-position:
+        calc(100% - 16px) 50%,
+        calc(100% - 11px) 50%;
+      background-size:5px 5px,5px 5px;
     }
-    .season-select:focus{outline:2px solid rgba(184,255,53,.35);outline-offset:2px}
-    .lang-switch{display:flex;align-items:center;gap:6px;padding:5px 7px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.05)}
-    .lang-switch button{border:0;background:transparent;color:#9eb2c4;padding:5px 7px;border-radius:999px;cursor:pointer;font-size:.76rem;font-weight:1000;letter-spacing:.06em}
-    .lang-switch button.active{background:var(--lime);color:var(--ink)}
-    .lang-switch span{color:#65798b;font-size:.7rem}
+
+    .season-select{
+      background-color:#0f1a24;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.16);
+      padding:10px 36px 10px 12px;
+    }
+
+    .hero-meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(5,14,24,.52);
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.14);
+      color:#eef5f8;
+      font-size:.86rem;
+      font-weight:800;
+    }
+
+    /* ===== CONTENIDO ===== */
+    .content{
+      position:relative;
+      z-index:10;
+      margin-top:-62px;
+      padding-bottom:76px;
+    }
+
+    .toolbar{
+      position:relative;
+      z-index:20;
+      background:white;
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:22px;
+    }
+
+    .toolbar-left{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .status{
+      font-size:.9rem;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .ranking-controls{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:30;
+    }
+
+    .ranking-switch{
+      display:flex;
+      gap:4px;
+      padding:4px;
+      background:#edf2f5;
+      border-radius:13px;
+    }
+
+    .ranking-switch button{
+      border:0;
+      background:transparent;
+      color:#607488;
+      padding:9px 14px;
+      border-radius:10px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.15s;
+    }
+
+    .ranking-switch button.active{
+      background:var(--ink);
+      color:white;
+      box-shadow:0 5px 16px rgba(8,21,35,.15);
+    }
+
+    .round-controls{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      position:relative;
+      z-index:30;
+    }
+
+    .round-controls label{
+      font-size:.78rem;
+      font-weight:900;
+      color:#65798b;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .round-select{
+      background-color:white;
+      color:var(--text);
+      border:1px solid var(--line);
+      padding:9px 36px 9px 12px;
+      background-image:
+        linear-gradient(45deg,transparent 50%,#52687b 50%),
+        linear-gradient(135deg,#52687b 50%,transparent 50%);
+    }
+
+    .loading,.error{
+      background:white;
+      border-radius:20px;
+      padding:36px;
+      text-align:center;
+      box-shadow:var(--shadow);
+      color:var(--muted);
+    }
+
+    .error{
+      color:#9a2f2f;
+    }
+
+    /* ===== TABLA ===== */
+    .table-shell{
+      background:white;
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .table-head{
+      padding:22px 24px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:18px;
+    }
+
+    .table-head h2{
+      margin:0;
+      font-size:1.45rem;
+      letter-spacing:-.03em;
+    }
+
+    .table-head p{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .scroll{overflow-x:auto}
+
+    .ranking-table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:890px;
+    }
+
+    .ranking-table th{
+      padding:13px 14px;
+      background:#f8fafb;
+      text-align:right;
+      color:#6d7e90;
+      font-size:.75rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      border-bottom:1px solid var(--line);
+      white-space:nowrap;
+    }
+
+    .ranking-table th:nth-child(1),
+    .ranking-table th:nth-child(2){
+      text-align:left;
+    }
+
+    .ranking-table td{
+      padding:14px;
+      border-bottom:1px solid #edf1f4;
+      text-align:right;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .ranking-table td:nth-child(1),
+    .ranking-table td:nth-child(2){
+      text-align:left;
+    }
+
+    .ranking-table tbody tr{
+      cursor:pointer;
+      transition:.15s;
+    }
+
+    .ranking-table tbody tr:hover{
+      background:#f4faef;
+    }
+
+    .ranknum{
+      width:36px;
+      height:36px;
+      border-radius:11px;
+      background:#edf6e8;
+      color:#4e9928;
+      display:grid;
+      place-items:center;
+      font-weight:1000;
+    }
+
+    .player-cell{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-weight:900;
+      min-width:150px;
+    }
+
+    .mini-avatar{
+      width:36px;
+      height:36px;
+      border-radius:11px;
+      object-fit:cover;
+      background:#eaf1f5;
+      display:grid;
+      place-items:center;
+      color:#456070;
+      font-size:.8rem;
+      flex:0 0 auto;
+    }
+
+    .pct{
+      font-weight:1000;
+      color:#4b9b25;
+    }
+
+    .mobile-note{
+      display:none;
+      padding:13px 16px;
+      background:#f8fafb;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:.82rem;
+    }
+
+    /* ===== PODIO ===== */
+    .podium{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:48px;
+    }
+
+    .podium-card{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(145deg,#0e2236,#122f3d);
+      color:white;
+      border-radius:22px;
+      padding:24px;
+      min-height:190px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.08);
+      cursor:pointer;
+    }
+
+    .podium-card:after{
+      content:"";
+      position:absolute;
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      background:var(--lime);
+      filter:blur(70px);
+      opacity:.11;
+      right:-45px;
+      top:-35px;
+    }
+
+    .place{
+      font-size:.78rem;
+      font-weight:1000;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#9eb2c4;
+    }
+
+    .podium-card:nth-child(1) .place{color:var(--gold)}
+    .podium-card:nth-child(2) .place{color:var(--silver)}
+    .podium-card:nth-child(3) .place{color:var(--bronze)}
+
+    .podium-name{
+      font-size:1.65rem;
+      font-weight:1000;
+      margin-top:10px;
+      letter-spacing:-.03em;
+    }
+
+    .podium-score{
+      font-size:2.8rem;
+      font-weight:1000;
+      color:var(--lime);
+      line-height:1;
+      margin-top:18px;
+    }
+
+    .podium-sub{
+      color:#9eb2c4;
+      font-size:.88rem;
+      font-weight:700;
+      margin-top:7px;
+    }
+
+    .avatar{
+      width:56px;
+      height:56px;
+      border-radius:17px;
+      object-fit:cover;
+      background:#1a3a4d;
+      border:1px solid rgba(255,255,255,.12);
+      display:grid;
+      place-items:center;
+      font-weight:1000;
+      color:var(--lime);
+      font-size:1.15rem;
+      margin-top:14px;
+    }
+
+    /* ===== MODAL ===== */
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:100;
+      background:rgba(3,11,19,.72);
+      display:grid;
+      place-items:center;
+      padding:18px;
+      backdrop-filter:blur(8px);
+    }
+
+    .modal-card{
+      width:min(680px,100%);
+      max-height:88vh;
+      overflow:auto;
+      background:white;
+      border-radius:26px;
+      box-shadow:0 30px 100px rgba(0,0,0,.35);
+    }
+
+    .modal-top{
+      background:linear-gradient(135deg,#0b1e31,#123544);
+      color:white;
+      padding:26px;
+      border-radius:26px 26px 0 0;
+      position:relative;
+    }
+
+    .close{
+      position:absolute;
+      right:16px;
+      top:16px;
+      border:0;
+      background:rgba(255,255,255,.1);
+      color:white;
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      font-size:1.2rem;
+      cursor:pointer;
+    }
+
+    .modal-top h3{
+      font-size:2rem;
+      margin:8px 0 4px;
+      letter-spacing:-.04em;
+    }
+
+    .modal-top p{
+      margin:0;
+      color:#a8bdcb;
+    }
+
+    .modal-body{padding:24px}
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .stat{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      background:#fbfcfd;
+    }
+
+    .stat b{
+      display:block;
+      font-size:1.35rem;
+    }
+
+    .stat span{
+      font-size:.78rem;
+      color:var(--muted);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .section-label{
+      font-size:.78rem;
+      font-weight:1000;
+      color:#4b9b25;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin:24px 0 10px;
+    }
+
+    .tracks{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+
+    .track{
+      background:#0f2538;
+      color:white;
+      border-radius:15px;
+      padding:15px;
+    }
+
+    .track strong{
+      display:block;
+      font-size:1.15rem;
+      color:var(--lime);
+    }
+
+    .track small{color:#9eb2c4}
+
+    /* ===== RESPONSIVE ===== */
     @media(max-width:980px){
-      .nav{flex-wrap:wrap;padding:10px 0;gap:10px}
-      .nav-links{order:3;width:100%;margin-left:0;overflow-x:auto;padding:2px 0 4px;scrollbar-width:none}
-      .nav-links::-webkit-scrollbar{display:none}
-      .nav-actions{margin-left:auto}
-      .podium{grid-template-columns:1fr}.toolbar{align-items:stretch;flex-direction:column}.stats{grid-template-columns:repeat(2,1fr)}.tracks{grid-template-columns:1fr}.mobile-note{display:block}.hero{padding-bottom:98px;background-position:58% 45%}
+      .podium{grid-template-columns:1fr}
+      .toolbar{align-items:stretch;flex-direction:column}
+      .ranking-controls{justify-content:space-between}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .tracks{grid-template-columns:1fr}
+      .mobile-note{display:block}
+      .hero{padding-bottom:98px;background-position:58% 45%}
     }
-    @media(max-width:520px){
+
+    @media(max-width:920px){
+      .mobile-menu-btn{display:block}
+      .nav-links{
+        display:none;
+        position:absolute;
+        left:0;
+        right:0;
+        top:calc(100% + 8px);
+        z-index:200;
+        margin:0;
+        padding:12px;
+        background:#0a1929;
+        border:1px solid rgba(255,255,255,.12);
+        border-radius:16px;
+        box-shadow:0 18px 40px rgba(0,0,0,.28);
+        flex-direction:column;
+        align-items:stretch;
+        gap:2px;
+        white-space:normal;
+      }
+
+      .nav-links.mobile-open{display:flex}
+
+      .nav-links a{
+        display:block;
+        width:100%;
+        padding:11px 10px;
+        border-radius:10px;
+      }
+
+      .nav-links a.active{
+        background:rgba(141,227,79,.10);
+      }
+    }
+
+    @media(max-width:560px){
       .wrap{width:min(100% - 20px,var(--max))}
+      .content{margin-top:-36px}
+      .toolbar{overflow:visible}
+      .season-select,.round-select{min-height:50px}
+      .round-controls{width:100%}
+      .round-select{width:100%}
       .brand small{display:none}
       .brand-mark{width:38px;height:38px}
-      .nav-links{gap:12px}
-      .nav-links a{font-size:.82rem}
-      .stats{grid-template-columns:1fr}.hero{padding-top:46px;background-position:62% 45%}.podium-card{min-height:160px}.podium-score{font-size:2.25rem}
+      .stats{grid-template-columns:1fr}
+      .hero{padding-top:46px;background-position:62% 45%}
+      .podium-card{min-height:160px}
+      .podium-score{font-size:2.25rem}
+      .ranking-controls{align-items:stretch;flex-direction:column}
+      .ranking-switch{width:100%}
+      .ranking-switch button{flex:1}
+      .round-controls{justify-content:space-between}
+      .round-select{flex:1}
     }
-  
-/* ===== Menú mòbil unificat ===== */
-.mobile-menu-btn{
-  display:none;
-  margin-left:auto;
-  border:0;
-  background:transparent;
-  color:#fff;
-  font-size:1.7rem;
-  line-height:1;
-  padding:8px 10px;
-  border-radius:10px;
-  cursor:pointer;
-}
-.mobile-menu-btn:focus-visible{
-  outline:2px solid var(--lime,#8de34f);
-  outline-offset:2px;
-}
-@media(max-width:920px){
-  .nav{position:relative!important}
-  .mobile-menu-btn{display:block!important}
-  .menu,
-  .links,
-  .nav-links{
-    display:none!important;
-    position:absolute!important;
-    left:0!important;
-    right:0!important;
-    top:calc(100% + 8px)!important;
-    z-index:200!important;
-    width:auto!important;
-    max-width:none!important;
-    margin:0!important;
-    padding:12px!important;
-    background:#0a1929!important;
-    border:1px solid rgba(255,255,255,.12)!important;
-    border-radius:16px!important;
-    box-shadow:0 18px 40px rgba(0,0,0,.28)!important;
-    flex-direction:column!important;
-    align-items:stretch!important;
-    gap:2px!important;
-    overflow:visible!important;
-    white-space:normal!important;
-  }
-  .menu.mobile-open,
-  .links.mobile-open,
-  .nav-links.mobile-open{
-    display:flex!important;
-  }
-  .menu > a,
-  .links > a,
-  .nav-links > a{
-    display:block!important;
-    width:100%!important;
-    padding:11px 10px!important;
-    border-radius:10px!important;
-  }
-  .menu > a.active,
-  .links > a.active,
-  .nav-links > a.active{
-    background:rgba(141,227,79,.10)!important;
-  }
-  .menu .lang,
-  .links .lang,
-  .nav-links .lang{
-    margin-top:6px!important;
-    padding-top:10px!important;
-    border-top:1px solid rgba(255,255,255,.10)!important;
-  }
-}
+  </style>
 
-</style>
-<link rel="manifest" href="/manifest.webmanifest">
+  <link rel="manifest" href="/manifest.webmanifest" />
 </head>
-
-
 
 <body>
   <script defer src="/assets/app-navigation.js"></script>
+
   <header class="topbar">
     <div class="wrap nav">
-      <a class="brand" href="./index.html"><div class="brand-mark">LP</div><div><span data-i18n="brand">Lliga Padbol</span> <small>Barcelona · <span id="brandSeason">2026/27</span></small></div></a>
+      <a class="brand" href="./index.html">
+        <div class="brand-mark">LP</div>
+        <div>
+          <span data-i18n="brand">Lliga Padbol</span>
+          <small>Barcelona · <span id="brandSeason">2026/27</span></small>
+        </div>
+      </a>
 
       <nav class="nav-links" aria-label="Navegació principal">
         <a href="./index.html" data-i18n="nav_home">Inici</a>
@@ -209,11 +808,18 @@
       </nav>
 
       <div class="nav-actions">
-        <button class="mobile-menu-btn" type="button" aria-label="Obrir menú" aria-expanded="false" data-menu-target=".nav-links">☰</button>
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          aria-label="Obrir menú"
+          aria-expanded="false"
+          data-menu-target=".nav-links"
+        >☰</button>
+
         <div class="lang-switch" aria-label="Idioma">
-          <button type="button" data-lang="ca" onclick="setLang('ca')">CAT</button>
+          <button type="button" data-lang="ca">CAT</button>
           <span>|</span>
-          <button type="button" data-lang="es" onclick="setLang('es')">ESP</button>
+          <button type="button" data-lang="es">ESP</button>
         </div>
       </div>
     </div>
@@ -221,210 +827,1265 @@
 
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow"><span class="dot"></span> <span data-i18n="official">Classificació oficial</span></div>
-      <h1><span data-i18n="season">Temporada</span> <span id="heroSeason" style="color:var(--lime)">2026/27</span></h1>
-      <p data-i18n="hero_desc">Classificació individual actualitzada automàticament amb els resultats registrats a cada jornada.</p>
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span data-i18n="official">Classificació oficial</span>
+      </div>
+
+      <h1>
+        <span data-i18n="season">Temporada</span>
+        <span id="heroSeason" style="color:var(--lime)">2026/27</span>
+      </h1>
+
+      <p data-i18n="hero_desc">
+        Classificació individual actualitzada automàticament amb els resultats registrats a cada jornada.
+      </p>
+
       <div class="season-wrap">
-          <span class="season-label" data-i18n="season_selector">Temporada</span>
-          <select id="seasonSelect" class="season-select" aria-label="Temporada">
-            <option value="2026-27">2026/27</option>
-            <option value="2025-26">2025/26</option>
-          </select>
-        </div>
-        <div class="hero-meta"><span class="pill" data-i18n="pill_order">Ordre: precisió de partit</span><span class="pill" data-i18n="pill_pairs">Parelles rotatives</span><span class="pill" data-i18n="pill_courts">3 pistes</span></div>
+        <span class="season-label" data-i18n="season_selector">Temporada</span>
+        <select id="seasonSelect" class="season-select" aria-label="Temporada">
+          <option value="2026-27">2026/27</option>
+          <option value="2025-26">2025/26</option>
+        </select>
+      </div>
+
+      <div class="hero-meta">
+        <span class="pill" data-i18n="pill_order">Ordre: % victòries → PJ → dif. jocs</span>
+        <span class="pill" data-i18n="pill_pairs">Parelles rotatives</span>
+        <span class="pill" data-i18n="pill_courts">3 pistes</span>
+      </div>
     </div>
   </section>
 
   <main class="content">
     <div class="wrap">
+
       <div class="toolbar">
-        <div class="toolbar-left"><strong data-i18n="general">Classificació general</strong><span class="status" id="updated">Carregant dades…</span></div>
-</div>
+        <div class="toolbar-left">
+          <strong id="rankingLabel">Classificació general</strong>
+          <span class="status" id="updated">Carregant dades…</span>
+        </div>
+
+        <div class="ranking-controls">
+          <div class="ranking-switch" aria-label="Tipus de classificació">
+            <button id="modeGeneral" class="active" type="button" data-i18n="mode_general">General</button>
+            <button id="modeRound" type="button" data-i18n="mode_round">Jornada</button>
+          </div>
+
+          <div id="roundControls" class="round-controls hidden">
+            <label for="roundSelect" data-i18n="round_label">Jornada</label>
+            <select id="roundSelect" class="round-select" aria-label="Jornada"></select>
+          </div>
+        </div>
+      </div>
 
       <div id="loading" class="loading" data-i18n="loading">Carregant classificació…</div>
       <div id="error" class="error hidden"></div>
 
       <section id="mainContent" class="hidden">
-       
+
         <div class="table-shell">
-          <div class="table-head"><div><h2 data-i18n="ranking">Classificació</h2><p data-i18n="click_player">Prem sobre un jugador per veure les seves estadístiques.</p></div></div>
+          <div class="table-head">
+            <div>
+              <h2 id="rankingHeading">Classificació</h2>
+              <p data-i18n="click_player">
+                Prem sobre un jugador per veure les seves estadístiques.
+              </p>
+            </div>
+          </div>
+
           <div class="scroll">
             <table class="ranking-table">
-              <thead><tr><th>Pos.</th><th data-i18n="player">Jugador</th><th>PJ</th><th>PG</th><th>PP</th><th data-i18n="prec_match_short">Prec. partit</th><th data-i18n="prec_games_short">Prec. jocs</th><th>Dif. P</th><th>Dif. J</th><th data-i18n="attendance">Assistència</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Pos.</th>
+                  <th data-i18n="player">Jugador</th>
+                  <th>PJ</th>
+                  <th>PG</th>
+                  <th>PP</th>
+                  <th data-i18n="prec_match_short">Prec. partit</th>
+                  <th data-i18n="prec_games_short">Prec. jocs</th>
+                  <th>Dif. P</th>
+                  <th>Dif. J</th>
+                  <th class="season-only" data-i18n="attendance">Assistència</th>
+                </tr>
+              </thead>
               <tbody id="tbody"></tbody>
             </table>
           </div>
-          <div class="mobile-note" data-i18n="mobile_note">Al mòbil pots desplaçar la taula horitzontalment.</div>
+
+          <div class="mobile-note" data-i18n="mobile_note">
+            Al mòbil pots desplaçar la taula horitzontalment.
+          </div>
         </div>
-        <br>
-       <div id="podium" class="podium" style="margin-top:48px;"></div>
+
+        <div id="podium" class="podium"></div>
       </section>
     </div>
   </main>
 
-  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalName" aria-describedby="modalSubtitle">
+  <div
+    id="modal"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalName"
+    aria-describedby="modalSubtitle"
+  >
     <div class="modal-card" tabindex="-1">
       <div class="modal-top">
         <button class="close" id="closeModal" aria-label="Tancar">×</button>
         <div id="modalPos" class="place"></div>
-        <h3 id="modalName"></h3><p id="modalSubtitle"></p>
+        <h3 id="modalName"></h3>
+        <p id="modalSubtitle"></p>
       </div>
+
       <div class="modal-body">
         <div id="stats" class="stats"></div>
-        <div class="section-label" data-i18n="court_performance">Rendiment per pista</div>
-        <div id="tracks" class="tracks"></div>
+
+        <div id="courtSection">
+          <div class="section-label" data-i18n="court_performance">Rendiment per pista</div>
+          <div id="tracks" class="tracks"></div>
+        </div>
       </div>
     </div>
   </div>
 
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbzA5MLbh4jh1SXJqBpQAhHNovlzAsezP3KDPld-9O3vikPZSvPkpytoN2zsNVkkgZUu/exec";
+/* ==========================================================
+   API EXISTENTE DE LA LIGA
+   Ya acepta:
+   ?temporada=2026-27
+   ?temporada=2026-27&jornada=7
+   ========================================================== */
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbzA5MLbh4jh1SXJqBpQAhHNovlzAsezP3KDPld-9O3vikPZSvPkpytoN2zsNVkkgZUu/exec";
+
+const VALID_SEASONS = ["2026-27","2025-26"];
+
 let jugadores = [];
 let apiUpdated = null;
-let currentLang = localStorage.getItem('ligapadbol_lang') || 'ca';
-const VALID_SEASONS = ['2026-27','2025-26'];
-const requestedSeason = new URLSearchParams(window.location.search).get('temporada');
+let availableRounds = [];
+let calendarMap = new Map();
+
+const initialParams = new URLSearchParams(window.location.search);
+
+const requestedSeason = initialParams.get("temporada");
 let currentSeason = VALID_SEASONS.includes(requestedSeason)
   ? requestedSeason
-  : (VALID_SEASONS.includes(localStorage.getItem('ligapadbol_season'))
-      ? localStorage.getItem('ligapadbol_season')
-      : '2026-27');
-localStorage.setItem('ligapadbol_season', currentSeason);
-
-const RANKING_CACHE_PREFIX = 'ligapadbol_ranking_cache_v1_';
-const RANKING_CACHE_FRESH_MS = 30 * 1000;
-
-function rankingCacheKey(season){
-  return RANKING_CACHE_PREFIX + season;
-}
-
-function readRankingCache(season){
-  try{
-    const raw = localStorage.getItem(rankingCacheKey(season));
-    if(!raw) return null;
-    const cached = JSON.parse(raw);
-    if(!cached || !cached.data || !Array.isArray(cached.data.jugadores)) return null;
-    return cached;
-  }catch(_){
-    return null;
-  }
-}
-
-function writeRankingCache(season, data){
-  try{
-    localStorage.setItem(
-      rankingCacheKey(season),
-      JSON.stringify({savedAt: Date.now(), data})
+  : (
+      VALID_SEASONS.includes(localStorage.getItem("ligapadbol_season"))
+        ? localStorage.getItem("ligapadbol_season")
+        : "2026-27"
     );
-  }catch(_){
-    // Si localStorage no está disponible, la clasificación sigue funcionando.
-  }
-}
 
+let currentRound = Number(initialParams.get("jornada")) > 0
+  ? Number(initialParams.get("jornada"))
+  : null;
+
+let currentRoundDate = "";
+let currentMode = currentRound ? "round" : "general";
+let currentLang = localStorage.getItem("ligapadbol_lang") || "ca";
+
+localStorage.setItem("ligapadbol_season", currentSeason);
+
+
+/* ==========================================================
+   TRADUCCIONES
+   ========================================================== */
 const I18N = {
-  ca: {
-    brand:"Lliga Padbol", back:"← Tornar a la lliga",
-    nav_home:"Inici", nav_ranking:"Classificació", nav_matches:"Partits", nav_stats:"Estadístiques", nav_gallery:"Galeria", nav_rules:"Normativa", nav_info:"Informació",
+  ca:{
+    brand:"Lliga Padbol",
+    nav_home:"Inici",
+    nav_ranking:"Classificació",
+    nav_matches:"Partits",
+    nav_stats:"Estadístiques",
+    nav_gallery:"Galeria",
+    nav_rules:"Normativa",
+    nav_info:"Informació",
+
     official:"Classificació oficial",
-    season:"Temporada", season_selector:"Temporada", hero_desc:"Classificació individual actualitzada automàticament amb els resultats registrats a cada jornada.",
-    pill_order:"Ordre: precisió de partit", pill_pairs:"Parelles rotatives", pill_courts:"3 pistes",
-    general:"Classificació general", search:"Cercar jugador…", loading:"Carregant classificació…",
-    ranking:"Classificació", click_player:"Prem sobre un jugador per veure les seves estadístiques.",
-    player:"Jugador", prec_match_short:"Prec. partit", prec_games_short:"Prec. jocs", attendance:"Assistència",
-    mobile_note:"Al mòbil pots desplaçar la taula horitzontalment.", court_performance:"Rendiment per pista",
-    updated:"Actualitzat", players:"jugadors", wins:"victòries", matches:"partits",
-    position:"Posició", player_label:"Jugador", won:"guanyats", lost:"perduts", played:"jugats",
-    precision_match:"Precisió partit", precision_games:"Precisió jocs", games_won:"Jocs guanyats",
-    games_lost:"Jocs perduts", games_diff:"Dif. jocs", elo_wins:"Victòries ELO",
-    elo_precision:"Prec. vict. ELO", performance:"P. rendiment", court:"Pista", win_letter:"G", loss_letter:"P",
-    api_error:"No s'ha pogut carregar la classificació. Revisa que l'API d'Apps Script continuï publicada.",
-    invalid_api:"Resposta de l'API no vàlida", close:"Tancar"
+    season:"Temporada",
+    season_selector:"Temporada",
+    hero_desc:"Classificació individual actualitzada automàticament amb els resultats registrats a cada jornada.",
+    pill_order:"Ordre: % victòries → PJ → dif. jocs",
+    pill_pairs:"Parelles rotatives",
+    pill_courts:"3 pistes",
+
+    mode_general:"General",
+    mode_round:"Jornada",
+    round_label:"Jornada",
+    general:"Classificació general",
+    round_ranking:"Classificació jornada",
+    ranking:"Classificació",
+
+    loading:"Carregant classificació…",
+    click_player:"Prem sobre un jugador per veure les seves estadístiques.",
+    player:"Jugador",
+    prec_match_short:"Prec. partit",
+    prec_games_short:"Prec. jocs",
+    attendance:"Assistència",
+    mobile_note:"Al mòbil pots desplaçar la taula horitzontalment.",
+
+    updated:"Actualitzat",
+    players:"jugadors",
+    wins:"victòries",
+    matches:"partits",
+
+    position:"Posició",
+    player_label:"Jugador",
+    won:"guanyats",
+    lost:"perduts",
+    played:"jugats",
+
+    precision_match:"Precisió partit",
+    precision_games:"Precisió jocs",
+    games_won:"Jocs guanyats",
+    games_lost:"Jocs perduts",
+    games_diff:"Dif. jocs",
+    match_diff:"Dif. partits",
+    elo_wins:"Victòries ELO",
+    elo_precision:"Prec. vict. ELO",
+    performance:"P. rendiment",
+
+    court_performance:"Rendiment per pista",
+    court:"Pista",
+    win_letter:"G",
+    loss_letter:"P",
+
+    cancelled:"Jornada anul·lada",
+    pending:"Jornada pendent",
+    no_results:"Aquesta jornada encara no té resultats.",
+    no_rounds:"No hi ha jornades disponibles.",
+    api_error:"No s'ha pogut carregar la classificació.",
+    invalid_api:"Resposta de l'API no vàlida",
+    close:"Tancar"
   },
-  es: {
-    brand:"Liga Padbol", back:"← Volver a la liga",
-    nav_home:"Inicio", nav_ranking:"Clasificación", nav_matches:"Partidos", nav_stats:"Estadísticas", nav_gallery:"Galería", nav_rules:"Reglamento", nav_info:"Información",
+
+  es:{
+    brand:"Liga Padbol",
+    nav_home:"Inicio",
+    nav_ranking:"Clasificación",
+    nav_matches:"Partidos",
+    nav_stats:"Estadísticas",
+    nav_gallery:"Galería",
+    nav_rules:"Reglamento",
+    nav_info:"Información",
+
     official:"Clasificación oficial",
-    season:"Temporada", season_selector:"Temporada", hero_desc:"Clasificación individual actualizada automáticamente con los resultados registrados en cada jornada.",
-    pill_order:"Orden: precisión de partido", pill_pairs:"Parejas rotativas", pill_courts:"3 pistas",
-    general:"Clasificación general", search:"Buscar jugador…", loading:"Cargando clasificación…",
-    ranking:"Clasificación", click_player:"Pulsa sobre un jugador para ver sus estadísticas.",
-    player:"Jugador", prec_match_short:"Prec. partido", prec_games_short:"Prec. juegos", attendance:"Asistencia",
-    mobile_note:"En móvil puedes deslizar la tabla horizontalmente.", court_performance:"Rendimiento por pista",
-    updated:"Actualizado", players:"jugadores", wins:"victorias", matches:"partidos",
-    position:"Posición", player_label:"Jugador", won:"ganados", lost:"perdidos", played:"jugados",
-    precision_match:"Precisión partido", precision_games:"Precisión juegos", games_won:"Juegos ganados",
-    games_lost:"Juegos perdidos", games_diff:"Dif. juegos", elo_wins:"Victorias ELO",
-    elo_precision:"Prec. vict. ELO", performance:"P. rendimiento", court:"Pista", win_letter:"G", loss_letter:"P",
-    api_error:"No se ha podido cargar la clasificación. Revisa que la API de Apps Script siga publicada.",
-    invalid_api:"Respuesta de API no válida", close:"Cerrar"
+    season:"Temporada",
+    season_selector:"Temporada",
+    hero_desc:"Clasificación individual actualizada automáticamente con los resultados registrados en cada jornada.",
+    pill_order:"Orden: % victorias → PJ → dif. juegos",
+    pill_pairs:"Parejas rotativas",
+    pill_courts:"3 pistas",
+
+    mode_general:"General",
+    mode_round:"Jornada",
+    round_label:"Jornada",
+    general:"Clasificación general",
+    round_ranking:"Clasificación jornada",
+    ranking:"Clasificación",
+
+    loading:"Cargando clasificación…",
+    click_player:"Pulsa sobre un jugador para ver sus estadísticas.",
+    player:"Jugador",
+    prec_match_short:"Prec. partido",
+    prec_games_short:"Prec. juegos",
+    attendance:"Asistencia",
+    mobile_note:"En móvil puedes deslizar la tabla horizontalmente.",
+
+    updated:"Actualizado",
+    players:"jugadores",
+    wins:"victorias",
+    matches:"partidos",
+
+    position:"Posición",
+    player_label:"Jugador",
+    won:"ganados",
+    lost:"perdidos",
+    played:"jugados",
+
+    precision_match:"Precisión partido",
+    precision_games:"Precisión juegos",
+    games_won:"Juegos ganados",
+    games_lost:"Juegos perdidos",
+    games_diff:"Dif. juegos",
+    match_diff:"Dif. partidos",
+    elo_wins:"Victorias ELO",
+    elo_precision:"Prec. vict. ELO",
+    performance:"P. rendimiento",
+
+    court_performance:"Rendimiento por pista",
+    court:"Pista",
+    win_letter:"G",
+    loss_letter:"P",
+
+    cancelled:"Jornada anulada",
+    pending:"Jornada pendiente",
+    no_results:"Esta jornada todavía no tiene resultados.",
+    no_rounds:"No hay jornadas disponibles.",
+    api_error:"No se ha podido cargar la clasificación.",
+    invalid_api:"Respuesta de API no válida",
+    close:"Cerrar"
   }
 };
 
-const $ = s => document.querySelector(s);
+
+/* ==========================================================
+   HELPERS
+   ========================================================== */
+const $ = selector => document.querySelector(selector);
 const t = key => I18N[currentLang][key] ?? key;
-const esc = v => String(v ?? "").replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-const num = v => Number(v || 0);
-const locale = () => currentLang === 'ca' ? 'ca-ES' : 'es-ES';
 
-function pct(v){
-  if(v === "" || v == null) return "—";
-  if(typeof v === "string" && v.includes("%")) return v;
-  const n = Number(v);
-  if(Number.isNaN(n)) return "—";
-  return new Intl.NumberFormat(locale(),{style:'percent',maximumFractionDigits:1}).format(n);
+const esc = value =>
+  String(value ?? "").replace(
+    /[&<>'"]/g,
+    c => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      "'":"&#39;",
+      '"':"&quot;"
+    })[c]
+  );
+
+const num = value => Number(value || 0);
+
+const locale = () =>
+  currentLang === "ca" ? "ca-ES" : "es-ES";
+
+function pct(value){
+  if(value === "" || value == null) return "—";
+
+  if(typeof value === "string" && value.includes("%")){
+    return value;
+  }
+
+  const n = Number(value);
+
+  if(Number.isNaN(n)){
+    return "—";
+  }
+
+  return new Intl.NumberFormat(
+    locale(),
+    {
+      style:"percent",
+      maximumFractionDigits:1
+    }
+  ).format(n);
 }
+
+function ratioValue(value){
+  if(typeof value === "string" && value.includes("%")){
+    const n = Number(
+      value
+        .replace("%","")
+        .replace(",",".")
+    );
+
+    return Number.isFinite(n)
+      ? n / 100
+      : 0;
+  }
+
+  const n = Number(value);
+
+  return Number.isFinite(n)
+    ? n
+    : 0;
+}
+
 function initials(name){
-  return String(name||'').trim().split(/\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase() || 'LP';
+  return String(name || "")
+    .trim()
+    .split(/\s+/)
+    .slice(0,2)
+    .map(word => word[0] || "")
+    .join("")
+    .toUpperCase() || "LP";
 }
+
 function driveImageUrl(url){
-  const u = String(url || '').trim();
-  if(!u) return '';
+  const value = String(url || "").trim();
 
-  // Google Drive: /file/d/FILE_ID/view
-  let m = u.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
-  if(m && m[1]){
-    return `https://drive.google.com/thumbnail?id=${encodeURIComponent(m[1])}&sz=w600`;
+  if(!value){
+    return "";
   }
 
-  // Google Drive: ?id=FILE_ID
-  m = u.match(/[?&]id=([^&#]+)/i);
-  if(m && m[1]){
-    return `https://drive.google.com/thumbnail?id=${encodeURIComponent(m[1])}&sz=w600`;
+  let match = value.match(
+    /drive\.google\.com\/file\/d\/([^/?#]+)/i
+  );
+
+  if(match && match[1]){
+    return `https://drive.google.com/thumbnail?id=${encodeURIComponent(match[1])}&sz=w600`;
   }
 
-  // Si ya es una URL directa, la usamos tal cual.
-  return u;
+  match = value.match(/[?&]id=([^&#]+)/i);
+
+  if(match && match[1]){
+    return `https://drive.google.com/thumbnail?id=${encodeURIComponent(match[1])}&sz=w600`;
+  }
+
+  return value;
 }
 
-function photoHTML(j, cls){
-  const original = String(j.URL_FOTO || '').trim();
-  const u = driveImageUrl(original);
-  if(!u) return `<div class="${cls}">${esc(initials(j.NOMBRE))}</div>`;
-  return `<img class="${cls}" src="${esc(u)}" alt="${esc(j.NOMBRE || '')}" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML='<div class=&quot;${cls}&quot;>${esc(initials(j.NOMBRE))}</div>'">`;
+function photoHTML(player, cssClass){
+  const image = driveImageUrl(player.URL_FOTO);
+
+  if(!image){
+    return `<div class="${cssClass}">${esc(initials(player.NOMBRE))}</div>`;
+  }
+
+  return `
+    <img
+      class="${cssClass}"
+      src="${esc(image)}"
+      alt="${esc(player.NOMBRE || "")}"
+      loading="lazy"
+      referrerpolicy="no-referrer"
+      onerror="this.outerHTML='<div class=&quot;${cssClass}&quot;>${esc(initials(player.NOMBRE))}</div>'"
+    >
+  `;
 }
 
+
+/* ==========================================================
+   ORDEN DE CLASIFICACIÓN
+
+   1. % victorias
+   2. PJ
+   3. diferencia de juegos
+   4. nombre, solo para estabilizar el orden
+   ========================================================== */
+function sortPlayers(data){
+  return [...data]
+    .sort((a,b) => {
+      const precisionA = ratioValue(a.PRECISION_PARTIDO);
+      const precisionB = ratioValue(b.PRECISION_PARTIDO);
+
+      if(precisionB !== precisionA){
+        return precisionB - precisionA;
+      }
+
+      const pjA = Number(a.PJ || 0);
+      const pjB = Number(b.PJ || 0);
+
+      if(pjB !== pjA){
+        return pjB - pjA;
+      }
+
+      const diffA = Number(a.DIF_J || 0);
+      const diffB = Number(b.DIF_J || 0);
+
+      if(diffB !== diffA){
+        return diffB - diffA;
+      }
+
+      return String(a.NOMBRE || "")
+        .trim()
+        .localeCompare(
+          String(b.NOMBRE || "").trim(),
+          locale()
+        );
+    })
+    .map((player,index) => ({
+      ...player,
+      POS:index + 1
+    }));
+}
+
+
+/* ==========================================================
+   CLASIFICACIÓN DE UNA JORNADA
+
+   Se calcula directamente con data.partidosJornada.partidos,
+   por lo que NO hace falta cambiar Apps Script.
+   ========================================================== */
+function rankingFromMatches(payload, generalPlayers = []){
+  const normalize = name =>
+    String(name || "")
+      .trim()
+      .toLocaleUpperCase();
+
+  /*
+   Usamos los datos de la general como base para conservar
+   foto del jugador y otros metadatos.
+  */
+  const baseByName = new Map(
+    (generalPlayers || [])
+      .filter(player => player && player.NOMBRE)
+      .map(player => [
+        normalize(player.NOMBRE),
+        player
+      ])
+  );
+
+  const ranking = new Map();
+
+  function ensurePlayer(name){
+    const cleanName = String(name || "").trim();
+    const key = normalize(cleanName);
+
+    if(!key){
+      return null;
+    }
+
+    if(!ranking.has(key)){
+      const base = baseByName.get(key) || {};
+
+      ranking.set(key,{
+        ...base,
+
+        NOMBRE:cleanName,
+
+        PJ:0,
+        PG:0,
+        PP:0,
+
+        JG:0,
+        JP:0,
+
+        DIF_P:0,
+        DIF_J:0,
+
+        PRECISION_PARTIDO:0,
+        PRECISION_JUEGOS:0,
+
+        ASISTENCIA:"",
+
+        PG_P1:0,
+        PP_P1:0,
+        PG_P2:0,
+        PP_P2:0,
+        PG_P3:0,
+        PP_P3:0
+      });
+    }
+
+    return ranking.get(key);
+  }
+
+  function addTeam(
+    players,
+    gamesFor,
+    gamesAgainst,
+    outcome,
+    court
+  ){
+    (players || []).forEach(name => {
+      const player = ensurePlayer(name);
+
+      if(!player){
+        return;
+      }
+
+      player.PJ += 1;
+
+      if(outcome === "win"){
+        player.PG += 1;
+      }
+
+      if(outcome === "loss"){
+        player.PP += 1;
+      }
+
+      player.JG += gamesFor;
+      player.JP += gamesAgainst;
+
+      const courtNumber = Number(court);
+
+      if(
+        Number.isFinite(courtNumber) &&
+        courtNumber >= 1 &&
+        courtNumber <= 3
+      ){
+        const winKey = "PG_P" + courtNumber;
+        const lossKey = "PP_P" + courtNumber;
+
+        if(outcome === "win"){
+          player[winKey] += 1;
+        }
+
+        if(outcome === "loss"){
+          player[lossKey] += 1;
+        }
+      }
+    });
+  }
+
+  (payload?.partidos || []).forEach(match => {
+    const gamesA = Number(match.juegosA || 0);
+    const gamesB = Number(match.juegosB || 0);
+
+    /*
+      La API ya suele traer ganador A/B.
+      Si no llega, lo inferimos por juegos.
+    */
+    const winner =
+      match.ganador ||
+      (
+        gamesA > gamesB
+          ? "A"
+          : gamesB > gamesA
+            ? "B"
+            : ""
+      );
+
+    addTeam(
+      match.equipoA || [],
+      gamesA,
+      gamesB,
+      winner === "A"
+        ? "win"
+        : winner === "B"
+          ? "loss"
+          : null,
+      match.pista
+    );
+
+    addTeam(
+      match.equipoB || [],
+      gamesB,
+      gamesA,
+      winner === "B"
+        ? "win"
+        : winner === "A"
+          ? "loss"
+          : null,
+      match.pista
+    );
+  });
+
+  const rows = [...ranking.values()]
+    .map(player => {
+      player.DIF_P =
+        player.PG - player.PP;
+
+      player.DIF_J =
+        player.JG - player.JP;
+
+      player.PRECISION_PARTIDO =
+        player.PJ
+          ? player.PG / player.PJ
+          : 0;
+
+      const totalGames =
+        player.JG + player.JP;
+
+      player.PRECISION_JUEGOS =
+        totalGames
+          ? player.JG / totalGames
+          : 0;
+
+      return player;
+    })
+    /*
+      Esta es la condición que queríamos:
+      jamás mostrar PJ=0.
+    */
+    .filter(player => player.PJ > 0);
+
+  return sortPlayers(rows);
+}
+
+
+/* ==========================================================
+   INTERFAZ
+   ========================================================== */
+function seasonLabel(){
+  return currentSeason.replace("-","/");
+}
+
+function updateUrlState(){
+  const url = new URL(window.location.href);
+
+  url.searchParams.set(
+    "temporada",
+    currentSeason
+  );
+
+  if(
+    currentMode === "round" &&
+    currentRound
+  ){
+    url.searchParams.set(
+      "jornada",
+      String(currentRound)
+    );
+  }else{
+    url.searchParams.delete("jornada");
+  }
+
+  history.replaceState(
+    null,
+    "",
+    url
+  );
+}
+
+function updateModeUI(){
+  const isRound =
+    currentMode === "round";
+
+  $("#modeGeneral").classList.toggle(
+    "active",
+    !isRound
+  );
+
+  $("#modeRound").classList.toggle(
+    "active",
+    isRound
+  );
+
+  $("#roundControls").classList.toggle(
+    "hidden",
+    !isRound
+  );
+
+  document
+    .querySelectorAll(".season-only")
+    .forEach(element => {
+      element.classList.toggle(
+        "hidden",
+        isRound
+      );
+    });
+
+  const roundDateSuffix =
+    isRound && currentRoundDate
+      ? ` · ${currentRoundDate}`
+      : "";
+
+  const rankingTitle =
+    isRound && currentRound
+      ? `${t("round_ranking")} ${currentRound}${roundDateSuffix}`
+      : t("general");
+
+  $("#rankingLabel").textContent =
+    rankingTitle;
+
+  $("#rankingHeading").textContent =
+    isRound && currentRound
+      ? `${t("round_ranking")} ${currentRound}${roundDateSuffix}`
+      : t("ranking");
+
+  document.title =
+    currentLang === "ca"
+      ? `${
+          isRound && currentRound
+            ? `Jornada ${currentRound} · `
+            : ""
+        }Classificació ${seasonLabel()} · Lliga Padbol Barcelona`
+      : `${
+          isRound && currentRound
+            ? `Jornada ${currentRound} · `
+            : ""
+        }Clasificación ${seasonLabel()} · Liga Padbol Barcelona`;
+}
+
+function updateSeasonUI(){
+  const label = seasonLabel();
+
+  $("#seasonSelect").value =
+    currentSeason;
+
+  $("#heroSeason").textContent =
+    label;
+
+  $("#brandSeason").textContent =
+    label;
+
+  updateModeUI();
+}
+
+function fillRoundSelect(rounds){
+  availableRounds = [
+    ...new Set(
+      (rounds || [])
+        .map(Number)
+        .filter(
+          n =>
+            Number.isFinite(n) &&
+            n > 0
+        )
+    )
+  ].sort((a,b) => a-b);
+
+  const select =
+    $("#roundSelect");
+
+  select.replaceChildren();
+
+  availableRounds.forEach(round => {
+    const option =
+      document.createElement("option");
+
+    option.value =
+      String(round);
+
+    const info =
+      calendarMap.get(round);
+
+    let suffix = "";
+
+    if(
+      info &&
+      info.estado === "ANULADO"
+    ){
+      suffix =
+        currentLang === "ca"
+          ? " · anul·lada"
+          : " · anulada";
+    }
+
+    option.textContent =
+      `${t("round_label")} ${round}${suffix}`;
+
+    select.appendChild(option);
+  });
+
+  if(
+    currentRound &&
+    availableRounds.includes(currentRound)
+  ){
+    select.value =
+      String(currentRound);
+  }else if(availableRounds.length){
+    currentRound =
+      availableRounds[
+        availableRounds.length - 1
+      ];
+
+    select.value =
+      String(currentRound);
+  }
+
+  updateModeUI();
+}
+
+function updateStatus(){
+  const date =
+    apiUpdated
+      ? new Date(apiUpdated)
+      : null;
+
+  if(
+    date &&
+    !Number.isNaN(date.getTime())
+  ){
+    $("#updated").textContent =
+      `${t("updated")} ${
+        date.toLocaleString(
+          locale(),
+          {
+            dateStyle:"short",
+            timeStyle:"short"
+          }
+        )
+      }`;
+
+    return;
+  }
+
+  $("#updated").textContent =
+    `${jugadores.length} ${t("players")}`;
+}
+
+
+/* ==========================================================
+   RENDER
+   ========================================================== */
+function renderPodium(data){
+  const medals =
+    ["🥇","🥈","🥉"];
+
+  $("#podium").innerHTML =
+    data
+      .slice(0,3)
+      .map((player,index) => `
+        <article
+          class="podium-card"
+          role="button"
+          tabindex="0"
+          data-index="${index}"
+        >
+          <div class="place">
+            ${medals[index]}
+            ${index + 1}ª
+            ${
+              currentLang === "ca"
+                ? "posició"
+                : "posición"
+            }
+          </div>
+
+          ${photoHTML(player,"avatar")}
+
+          <div class="podium-name">
+            ${esc(player.NOMBRE)}
+          </div>
+
+          <div class="podium-score">
+            ${pct(player.PRECISION_PARTIDO)}
+          </div>
+
+          <div class="podium-sub">
+            ${num(player.PG)}
+            ${t("wins")}
+            ·
+            ${num(player.PJ)}
+            ${t("matches")}
+          </div>
+        </article>
+      `)
+      .join("");
+
+  document
+    .querySelectorAll(".podium-card")
+    .forEach(card => {
+      const open = () => {
+        const index =
+          Number(card.dataset.index);
+
+        openPlayer(
+          jugadores[index]
+        );
+      };
+
+      card.addEventListener(
+        "click",
+        open
+      );
+
+      card.addEventListener(
+        "keydown",
+        event => {
+          if(
+            event.key === "Enter" ||
+            event.key === " "
+          ){
+            event.preventDefault();
+            open();
+          }
+        }
+      );
+    });
+}
+
+function renderTable(data){
+  $("#tbody").innerHTML =
+    data
+      .map((player,index) => `
+        <tr
+          role="button"
+          tabindex="0"
+          data-index="${index}"
+        >
+          <td>
+            <div class="ranknum">
+              ${esc(player.POS || "—")}
+            </div>
+          </td>
+
+          <td>
+            <div class="player-cell">
+              ${photoHTML(player,"mini-avatar")}
+              <span>${esc(player.NOMBRE)}</span>
+            </div>
+          </td>
+
+          <td>${num(player.PJ)}</td>
+          <td>${num(player.PG)}</td>
+          <td>${num(player.PP)}</td>
+
+          <td class="pct">
+            ${pct(player.PRECISION_PARTIDO)}
+          </td>
+
+          <td>
+            ${pct(player.PRECISION_JUEGOS)}
+          </td>
+
+          <td>${num(player.DIF_P)}</td>
+          <td>${num(player.DIF_J)}</td>
+
+          <td class="season-only">
+            ${pct(player.ASISTENCIA)}
+          </td>
+        </tr>
+      `)
+      .join("");
+
+  document
+    .querySelectorAll("#tbody tr")
+    .forEach(row => {
+      const open = () => {
+        const index =
+          Number(row.dataset.index);
+
+        openPlayer(
+          jugadores[index]
+        );
+      };
+
+      row.addEventListener(
+        "click",
+        open
+      );
+
+      row.addEventListener(
+        "keydown",
+        event => {
+          if(
+            event.key === "Enter" ||
+            event.key === " "
+          ){
+            event.preventDefault();
+            open();
+          }
+        }
+      );
+    });
+
+  /*
+    Después de regenerar la tabla,
+    aplicamos otra vez la visibilidad
+    de columnas General/Jornada.
+  */
+  updateModeUI();
+}
+
+function stat(label,value){
+  return `
+    <div class="stat">
+      <b>${esc(value)}</b>
+      <span>${esc(label)}</span>
+    </div>
+  `;
+}
+
+
+/* ==========================================================
+   MODAL
+   ========================================================== */
+let lastFocusedElement = null;
+
+function openPlayer(player){
+  if(!player){
+    return;
+  }
+
+  $("#modalPos").textContent =
+    player.POS
+      ? `${t("position")} ${player.POS}`
+      : t("player_label");
+
+  $("#modalName").textContent =
+    player.NOMBRE || "";
+
+  $("#modalSubtitle").textContent =
+    `${num(player.PG)} ${t("won")} · ` +
+    `${num(player.PP)} ${t("lost")} · ` +
+    `${num(player.PJ)} ${t("played")}`;
+
+  const modalStats =
+    currentMode === "round"
+      ? [
+          stat(
+            t("precision_match"),
+            pct(player.PRECISION_PARTIDO)
+          ),
+          stat(
+            t("precision_games"),
+            pct(player.PRECISION_JUEGOS)
+          ),
+          stat(
+            t("games_won"),
+            num(player.JG)
+          ),
+          stat(
+            t("games_lost"),
+            num(player.JP)
+          ),
+          stat(
+            t("games_diff"),
+            num(player.DIF_J)
+          ),
+          stat(
+            t("match_diff"),
+            num(player.DIF_P)
+          )
+        ]
+      : [
+          stat(
+            t("precision_match"),
+            pct(player.PRECISION_PARTIDO)
+          ),
+          stat(
+            t("precision_games"),
+            pct(player.PRECISION_JUEGOS)
+          ),
+          stat(
+            t("attendance"),
+            pct(player.ASISTENCIA)
+          ),
+          stat(
+            t("games_won"),
+            num(player.JG)
+          ),
+          stat(
+            t("games_lost"),
+            num(player.JP)
+          ),
+          stat(
+            t("games_diff"),
+            num(player.DIF_J)
+          ),
+          stat(
+            t("elo_wins"),
+            num(player.VICTORIAS_ELO)
+              .toLocaleString(
+                locale(),
+                {
+                  maximumFractionDigits:1
+                }
+              )
+          ),
+          stat(
+            t("elo_precision"),
+            pct(player.PREC_VICT_ELO)
+          ),
+          stat(
+            t("performance"),
+            pct(player.P_RENDIMIENTO)
+          )
+        ];
+
+  $("#stats").innerHTML =
+    modalStats.join("");
+
+  $("#tracks").innerHTML =
+    [1,2,3]
+      .map(court => `
+        <div class="track">
+          <small>
+            ${t("court")} ${court}
+          </small>
+
+          <strong>
+            ${num(player["PG_P" + court])}
+            ${t("win_letter")}
+            ·
+            ${num(player["PP_P" + court])}
+            ${t("loss_letter")}
+          </strong>
+        </div>
+      `)
+      .join("");
+
+  lastFocusedElement =
+    document.activeElement;
+
+  $("#modal").classList.remove(
+    "hidden"
+  );
+
+  document.body.style.overflow =
+    "hidden";
+
+  $("#closeModal").focus();
+}
+
+function closeModal(){
+  $("#modal").classList.add(
+    "hidden"
+  );
+
+  document.body.style.overflow =
+    "";
+
+  if(
+    lastFocusedElement &&
+    typeof lastFocusedElement.focus === "function"
+  ){
+    lastFocusedElement.focus();
+  }
+
+  lastFocusedElement = null;
+}
+
+
+/* ==========================================================
+   IDIOMA
+   ========================================================== */
 function setLang(lang){
-  if(!I18N[lang]) lang = 'ca';
+  if(!I18N[lang]){
+    lang = "ca";
+  }
+
   currentLang = lang;
-  localStorage.setItem('ligapadbol_lang', lang);
-  document.documentElement.lang = lang;
 
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if(I18N[lang][key] !== undefined) el.textContent = I18N[lang][key];
-  });
+  localStorage.setItem(
+    "ligapadbol_lang",
+    lang
+  );
 
-  document.querySelectorAll('.lang-switch button').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
+  document.documentElement.lang =
+    lang;
 
-  $('#seasonSelect').setAttribute('aria-label', t('season_selector'));
-  $('#closeModal').setAttribute('aria-label', t('close'));
+  document
+    .querySelectorAll("[data-i18n]")
+    .forEach(element => {
+      const key =
+        element.dataset.i18n;
 
-  const seasonText = currentSeason.replace('-', '/');
-  document.title = lang === 'ca'
-    ? `Classificació ${seasonText} · Lliga Padbol Barcelona`
-    : `Clasificación ${seasonText} · Liga Padbol Barcelona`;
+      if(
+        I18N[lang][key] !== undefined
+      ){
+        element.textContent =
+          I18N[lang][key];
+      }
+    });
+
+  document
+    .querySelectorAll(
+      ".lang-switch button"
+    )
+    .forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.lang === lang
+      );
+    });
+
+  $("#seasonSelect").setAttribute(
+    "aria-label",
+    t("season_selector")
+  );
+
+  $("#roundSelect").setAttribute(
+    "aria-label",
+    t("round_label")
+  );
+
+  $("#closeModal").setAttribute(
+    "aria-label",
+    t("close")
+  );
+
+  /*
+    Volvemos a crear el selector para traducir
+    "Jornada", "anulada", etc.
+  */
+  if(availableRounds.length){
+    fillRoundSelect(
+      availableRounds
+    );
+  }
+
+  updateModeUI();
 
   if(jugadores.length){
     renderPodium(jugadores);
@@ -434,252 +2095,541 @@ function setLang(lang){
 }
 
 
-function seasonLabel(){
-  return currentSeason.replace('-', '/');
+/* ==========================================================
+   ESTADOS Y API
+   ========================================================== */
+function showLoading(){
+  $("#error").classList.add(
+    "hidden"
+  );
+
+  $("#mainContent").classList.add(
+    "hidden"
+  );
+
+  $("#loading").classList.remove(
+    "hidden"
+  );
+
+  $("#loading").textContent =
+    t("loading");
 }
 
-function updateSeasonUI(){
-  const label = seasonLabel();
-  $('#seasonSelect').value = currentSeason;
-  $('#heroSeason').textContent = label;
-  $('#brandSeason').textContent = label;
-  document.title = currentLang === 'ca'
-    ? `Classificació ${label} · Lliga Padbol Barcelona`
-    : `Clasificación ${label} · Liga Padbol Barcelona`;
+function showError(message){
+  $("#loading").classList.add(
+    "hidden"
+  );
+
+  $("#mainContent").classList.add(
+    "hidden"
+  );
+
+  $("#error").classList.remove(
+    "hidden"
+  );
+
+  $("#error").textContent =
+    message;
 }
 
-function sortPlayers(data){
-  return [...data].sort((a,b) => {
-    const pa = Number(a.PRECISION_PARTIDO || 0);
-    const pb = Number(b.PRECISION_PARTIDO || 0);
-    if(pb !== pa) return pb - pa;
+function showRanking(){
+  $("#error").classList.add(
+    "hidden"
+  );
 
-    const pja = Number(a.PJ || 0);
-    const pjb = Number(b.PJ || 0);
-    if(pjb !== pja) return pjb - pja;
+  $("#loading").classList.add(
+    "hidden"
+  );
 
-    return String(a.NOMBRE || '').localeCompare(String(b.NOMBRE || ''), locale());
-  });
+  $("#mainContent").classList.remove(
+    "hidden"
+  );
 }
 
-function renderPodium(data){
-  const medals = ['🥇','🥈','🥉'];
-  $('#podium').innerHTML = data.slice(0,3).map((j,i)=>`
-    <article class="podium-card" role="button" tabindex="0" data-index="${jugadores.indexOf(j)}">
-      <div class="place">${medals[i]} ${i+1}ª ${currentLang === 'ca' ? 'posició' : 'posición'}</div>
-      ${photoHTML(j,'avatar')}
-      <div class="podium-name">${esc(j.NOMBRE)}</div>
-      <div class="podium-score">${pct(j.PRECISION_PARTIDO)}</div>
-      <div class="podium-sub">${num(j.PG)} ${t('wins')} · ${num(j.PJ)} ${t('matches')}</div>
-    </article>`).join('');
-  document.querySelectorAll('.podium-card').forEach(el => {
-    const open = () => openPlayer(jugadores[+el.dataset.index]);
-    el.addEventListener('click', open);
-    el.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        open();
-      }
+async function fetchRankingData(round = null){
+  const query =
+    new URLSearchParams({
+      temporada:currentSeason,
+      entorno:"produccion",
+
+      /*
+        Evita cachés agresivas del navegador
+        o de Apps Script.
+      */
+      _:String(Date.now())
     });
-  });
-}
 
-function renderTable(data){
-  $('#tbody').innerHTML = data.map(j=>`<tr role="button" tabindex="0" data-index="${jugadores.indexOf(j)}">
-    <td><div class="ranknum">${esc(j.POS || '—')}</div></td>
-    <td><div class="player-cell">${photoHTML(j,'mini-avatar')}<span>${esc(j.NOMBRE)}</span></div></td>
-    <td>${num(j.PJ)}</td><td>${num(j.PG)}</td><td>${num(j.PP)}</td>
-    <td class="pct">${pct(j.PRECISION_PARTIDO)}</td><td>${pct(j.PRECISION_JUEGOS)}</td>
-    <td>${num(j.DIF_P)}</td><td>${num(j.DIF_J)}</td><td>${pct(j.ASISTENCIA)}</td>
-  </tr>`).join('');
-  document.querySelectorAll('#tbody tr').forEach(el => {
-    const open = () => openPlayer(jugadores[+el.dataset.index]);
-    el.addEventListener('click', open);
-    el.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        open();
-      }
-    });
-  });
-}
-
-function stat(label,value){
-  return `<div class="stat"><b>${esc(value)}</b><span>${esc(label)}</span></div>`;
-}
-
-let lastFocusedElement = null;
-
-function openPlayer(j){
-  $('#modalPos').textContent = j.POS ? `${t('position')} ${j.POS}` : t('player_label');
-  $('#modalName').textContent = j.NOMBRE || '';
-  $('#modalSubtitle').textContent = `${num(j.PG)} ${t('won')} · ${num(j.PP)} ${t('lost')} · ${num(j.PJ)} ${t('played')}`;
-  $('#stats').innerHTML = [
-    stat(t('precision_match'),pct(j.PRECISION_PARTIDO)),
-    stat(t('precision_games'),pct(j.PRECISION_JUEGOS)),
-    stat(t('attendance'),pct(j.ASISTENCIA)),
-    stat(t('games_won'),num(j.JG)),
-    stat(t('games_lost'),num(j.JP)),
-    stat(t('games_diff'),num(j.DIF_J)),
-    stat(t('elo_wins'),num(j.VICTORIAS_ELO).toLocaleString(locale(),{maximumFractionDigits:1})),
-    stat(t('elo_precision'),pct(j.PREC_VICT_ELO)),
-    stat(t('performance'),pct(j.P_RENDIMIENTO))
-  ].join('');
-  $('#tracks').innerHTML = [1,2,3].map(p =>
-    `<div class="track"><small>${t('court')} ${p}</small><strong>${num(j['PG_P'+p])} ${t('win_letter')} · ${num(j['PP_P'+p])} ${t('loss_letter')}</strong></div>`
-  ).join('');
-  lastFocusedElement = document.activeElement;
-  $('#modal').classList.remove('hidden');
-  document.body.style.overflow='hidden';
-  $('#closeModal').focus();
-}
-
-function closeModal(){
-  $('#modal').classList.add('hidden');
-  document.body.style.overflow='';
-  if(lastFocusedElement && typeof lastFocusedElement.focus === 'function'){
-    lastFocusedElement.focus();
+  if(round){
+    query.set(
+      "jornada",
+      String(round)
+    );
   }
-  lastFocusedElement = null;
+
+  const response =
+    await fetch(
+      `${API_URL}?${query.toString()}`
+    );
+
+  if(!response.ok){
+    throw new Error(
+      `HTTP ${response.status}`
+    );
+  }
+
+  const data =
+    await response.json();
+
+  if(data.error){
+    throw new Error(
+      data.error
+    );
+  }
+
+  return data;
 }
 
-function updateStatus(){
-  const d = apiUpdated ? new Date(apiUpdated) : null;
-  $('#updated').textContent = d && !Number.isNaN(d.getTime())
-    ? `${t('updated')} ${d.toLocaleString(locale(),{dateStyle:'short',timeStyle:'short'})}`
-    : `${jugadores.length} ${t('players')}`;
-}
 
-$('#closeModal').addEventListener('click',closeModal);
-$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
-document.addEventListener('keydown',e=>{
-  const modal = $('#modal');
-  if(e.key === 'Escape' && !modal.classList.contains('hidden')){
-    closeModal();
-    return;
+/* ==========================================================
+   APLICAR CLASIFICACIÓN GENERAL
+   ========================================================== */
+function applyGeneralData(data){
+  if(!Array.isArray(data.jugadores)){
+    throw new Error(
+      t("invalid_api")
+    );
   }
-  if(e.key === 'Tab' && !modal.classList.contains('hidden')){
-    const focusable = [...modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')]
-      .filter(el => !el.disabled && el.offsetParent !== null);
-    if(!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if(e.shiftKey && document.activeElement === first){
-      e.preventDefault();
-      last.focus();
-    }else if(!e.shiftKey && document.activeElement === last){
-      e.preventDefault();
-      first.focus();
-    }
-  }
-});
 
-function applyRankingData(data){
-  jugadores = sortPlayers(data.jugadores.filter(j=>j && j.NOMBRE));
-  apiUpdated = data.actualizado || null;
+  calendarMap =
+    new Map(
+      (data.calendarioJornadas || [])
+        .map(item => [
+          Number(item.jornada),
+          item
+        ])
+    );
 
-  $('#error').classList.add('hidden');
-  $('#loading').classList.add('hidden');
-  $('#mainContent').classList.remove('hidden');
+  fillRoundSelect(
+    data.jornadasDisponibles || []
+  );
+
+  jugadores =
+    sortPlayers(
+      data.jugadores
+        .filter(
+          player =>
+            player &&
+            player.NOMBRE &&
+            Number(player.PJ || 0) > 0
+        )
+    );
+
+  apiUpdated =
+    data.actualizado || null;
+
+  showRanking();
+
+  updateModeUI();
   updateStatus();
-  renderPodium(jugadores);
   renderTable(jugadores);
+  renderPodium(jugadores);
 }
 
-async function load({force = false} = {}){
-  $('#error').classList.add('hidden');
 
-  const cached = readRankingCache(currentSeason);
-  let hasCachedData = false;
+/* ==========================================================
+   APLICAR CLASIFICACIÓN DE JORNADA
+   ========================================================== */
+function applyRoundData(data){
+  calendarMap =
+    new Map(
+      (data.calendarioJornadas || [])
+        .map(item => [
+          Number(item.jornada),
+          item
+        ])
+    );
 
-  if(cached){
-    applyRankingData(cached.data);
-    hasCachedData = true;
+  fillRoundSelect(
+    data.jornadasDisponibles || []
+  );
 
-    // Si la portada acaba de precargar estos datos, evitamos otra llamada
-    // inmediata a Apps Script. A los 30 s ya se vuelve a comprobar.
-    const cacheAge = Date.now() - Number(cached.savedAt || 0);
-    if(!force && cacheAge >= 0 && cacheAge < RANKING_CACHE_FRESH_MS){
-      return;
-    }
-  }else{
-    $('#mainContent').classList.add('hidden');
-    $('#loading').classList.remove('hidden');
-    $('#loading').textContent = t('loading');
+  const payload =
+    data.partidosJornada;
+
+  if(payload === undefined){
+    throw new Error(
+      currentLang === "ca"
+        ? "L'API no retorna els partits de jornada."
+        : "La API no devuelve los partidos de jornada."
+    );
   }
+
+  if(
+    !payload ||
+    payload.error
+  ){
+    throw new Error(
+      payload?.error ||
+      t("invalid_api")
+    );
+  }
+
+  currentRound =
+    Number(payload.jornada) ||
+    currentRound;
+
+  currentRoundDate =
+    String(payload.fecha || "").trim();
+
+  if(
+    currentRound &&
+    availableRounds.includes(currentRound)
+  ){
+    $("#roundSelect").value =
+      String(currentRound);
+  }
+
+  updateUrlState();
+
+  if(
+    payload.estado === "ANULADO"
+  ){
+    throw new Error(
+      `${t("round_label")} ${currentRound}: ${t("cancelled")}`
+    );
+  }
+
+  if(
+    payload.estado === "PENDIENTE" ||
+    !(payload.partidos || []).length
+  ){
+    throw new Error(
+      `${t("round_label")} ${currentRound}: ${t("no_results")}`
+    );
+  }
+
+  jugadores =
+    rankingFromMatches(
+      payload,
+      data.jugadores || []
+    );
+
+  apiUpdated =
+    data.actualizado || null;
+
+  showRanking();
+
+  updateModeUI();
+  updateStatus();
+  renderTable(jugadores);
+  renderPodium(jugadores);
+}
+
+
+/* ==========================================================
+   CARGA
+   ========================================================== */
+async function load(){
+  showLoading();
 
   try{
-    const apiUrl = `${API_URL}?temporada=${encodeURIComponent(currentSeason)}`;
-    const r = await fetch(apiUrl);
-    if(!r.ok) throw new Error(`HTTP ${r.status}`);
-    const data = await r.json();
-    if(!Array.isArray(data.jugadores)) throw new Error(t('invalid_api'));
+    if(currentMode === "round"){
+      if(!currentRound){
+        /*
+          Primera llamada sin jornada para descubrir
+          las jornadas disponibles.
+        */
+        const discovery =
+          await fetchRankingData();
 
-    writeRankingCache(currentSeason, data);
-    applyRankingData(data);
-  }catch(err){
-    if(!hasCachedData){
-      $('#loading').classList.add('hidden');
-      $('#error').classList.remove('hidden');
-      $('#error').textContent = `${t('api_error')} (${err.message})`;
-    }else{
-      // Con caché disponible mantenemos la clasificación visible.
-      console.warn('No se pudo refrescar la clasificación:', err);
+        calendarMap =
+          new Map(
+            (discovery.calendarioJornadas || [])
+              .map(item => [
+                Number(item.jornada),
+                item
+              ])
+          );
+
+        fillRoundSelect(
+          discovery.jornadasDisponibles || []
+        );
+
+        if(!availableRounds.length){
+          throw new Error(
+            t("no_rounds")
+          );
+        }
+
+        currentRound =
+          availableRounds[
+            availableRounds.length - 1
+          ];
+
+        updateUrlState();
+      }
+
+      const data =
+        await fetchRankingData(
+          currentRound
+        );
+
+      applyRoundData(data);
+
+      return;
     }
+
+    const data =
+      await fetchRankingData();
+
+    applyGeneralData(data);
+
+  }catch(error){
+    console.error(error);
+
+    showError(
+      `${t("api_error")} (${error.message || error})`
+    );
   }
 }
 
-$('#seasonSelect').addEventListener('change', async (e) => {
-  currentSeason = e.target.value;
-  localStorage.setItem('ligapadbol_season', currentSeason);
-  const url = new URL(window.location.href);
-  url.searchParams.set('temporada', currentSeason);
-  history.replaceState(null, '', url);
-  updateSeasonUI();
-  await load();
-});
 
+/* ==========================================================
+   EVENTOS
+   ========================================================== */
+$("#modeGeneral")
+  .addEventListener(
+    "click",
+    async () => {
+      if(
+        currentMode === "general"
+      ){
+        return;
+      }
+
+      currentMode =
+        "general";
+
+      currentRound =
+        null;
+
+      currentRoundDate =
+        "";
+
+      updateUrlState();
+      updateModeUI();
+
+      await load();
+    }
+  );
+
+$("#modeRound")
+  .addEventListener(
+    "click",
+    async () => {
+      if(
+        currentMode === "round"
+      ){
+        return;
+      }
+
+      currentMode =
+        "round";
+
+      if(
+        !currentRound &&
+        availableRounds.length
+      ){
+        currentRound =
+          availableRounds[
+            availableRounds.length - 1
+          ];
+      }
+
+      updateUrlState();
+      updateModeUI();
+
+      await load();
+    }
+  );
+
+$("#roundSelect")
+  .addEventListener(
+    "change",
+    async event => {
+      const round =
+        Number(event.target.value);
+
+      if(
+        !Number.isFinite(round) ||
+        round <= 0
+      ){
+        return;
+      }
+
+      currentMode =
+        "round";
+
+      currentRound =
+        round;
+
+      updateUrlState();
+      updateModeUI();
+
+      await load();
+    }
+  );
+
+$("#seasonSelect")
+  .addEventListener(
+    "change",
+    async event => {
+      currentSeason =
+        event.target.value;
+
+      currentRound =
+        null;
+
+      currentRoundDate =
+        "";
+
+      localStorage.setItem(
+        "ligapadbol_season",
+        currentSeason
+      );
+
+      updateUrlState();
+      updateSeasonUI();
+
+      await load();
+    }
+  );
+
+$("#closeModal")
+  .addEventListener(
+    "click",
+    closeModal
+  );
+
+$("#modal")
+  .addEventListener(
+    "click",
+    event => {
+      if(
+        event.target.id === "modal"
+      ){
+        closeModal();
+      }
+    }
+  );
+
+document
+  .addEventListener(
+    "keydown",
+    event => {
+      if(
+        event.key === "Escape" &&
+        !$("#modal").classList.contains("hidden")
+      ){
+        closeModal();
+      }
+    }
+  );
+
+document
+  .querySelectorAll("[data-lang]")
+  .forEach(button => {
+    button.addEventListener(
+      "click",
+      () => {
+        setLang(
+          button.dataset.lang
+        );
+      }
+    );
+  });
+
+
+/* ==========================================================
+   MENÚ MÓVIL
+   ========================================================== */
+(function initMobileMenu(){
+  const button =
+    $(".mobile-menu-btn");
+
+  const menu =
+    $(".nav-links");
+
+  if(
+    !button ||
+    !menu
+  ){
+    return;
+  }
+
+  button.addEventListener(
+    "click",
+    event => {
+      event.stopPropagation();
+
+      const open =
+        menu.classList.toggle(
+          "mobile-open"
+        );
+
+      button.setAttribute(
+        "aria-expanded",
+        open ? "true" : "false"
+      );
+    }
+  );
+
+  menu
+    .querySelectorAll("a")
+    .forEach(link => {
+      link.addEventListener(
+        "click",
+        () => {
+          menu.classList.remove(
+            "mobile-open"
+          );
+
+          button.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+        }
+      );
+    });
+
+  document.addEventListener(
+    "click",
+    event => {
+      if(
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+      ){
+        menu.classList.remove(
+          "mobile-open"
+        );
+
+        button.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+      }
+    }
+  );
+})();
+
+
+/* ==========================================================
+   ARRANQUE
+   ========================================================== */
 setLang(currentLang);
 updateSeasonUI();
+updateUrlState();
 load();
-</script>
-
-<script>
-(function(){
-  function initMobileMenus(){
-    document.querySelectorAll(".mobile-menu-btn").forEach(function(btn){
-      var selector=btn.getAttribute("data-menu-target");
-      var menu=selector ? document.querySelector(selector) : null;
-      if(!menu) return;
-
-      btn.addEventListener("click",function(e){
-        e.stopPropagation();
-        var open=menu.classList.toggle("mobile-open");
-        btn.setAttribute("aria-expanded",open ? "true" : "false");
-      });
-
-      menu.querySelectorAll("a").forEach(function(a){
-        a.addEventListener("click",function(){
-          menu.classList.remove("mobile-open");
-          btn.setAttribute("aria-expanded","false");
-        });
-      });
-
-      document.addEventListener("click",function(e){
-        if(!menu.contains(e.target) && !btn.contains(e.target)){
-          menu.classList.remove("mobile-open");
-          btn.setAttribute("aria-expanded","false");
-        }
-      });
-    });
-  }
-
-  if(document.readyState==="loading"){
-    document.addEventListener("DOMContentLoaded",initMobileMenus);
-  }else{
-    initMobileMenus();
-  }
-})();
 </script>
 
 </body>
